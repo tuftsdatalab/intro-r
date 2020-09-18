@@ -1,3 +1,4 @@
 dependencies:
   - r-base
   - r-tidyverse
+  - r-plotly
