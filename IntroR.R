@@ -10,8 +10,8 @@
 ##
 ##  -------------------------------------------------------
 ##  Title:        Introduction to R and RStudio
-##  Last update:  2020-09-18
-##  Written by:   Kyle Monahan & Uku-Kaspar Uustalu
+##  Last update:  2020-10-14
+##  Written by:   Uku-Kaspar Uustalu & Kyle Monahan
 ##  Contact:      datalab-support -AT- elist.tufts.edu
 ##  -------------------------------------------------------
 ##
@@ -37,7 +37,7 @@
 ##  Although we aren't covering data management in this workshop, it is an
 ##  important part of any statistical analysis. Think about:
 
-##  1. Folder structure. (Thesis Data > Chapter 2 > Survey Data > Data.xlsx)
+##  1. Folder structure. (Thesis Data > Chapter2 > Survey Data > Data.xlsx)
 ##  2. Size of data. (Is it a 3 GB text file or a 2 TB video file for NVivo?)
 ##  3. Security of data. (Are you safeguarding personally-identifiable info?)
 ##  4. How to split your analysis? (Select the variables you care about from
@@ -70,7 +70,6 @@
 # The script is like a do file from Stata, syntax from SPSS, or the SAS program.
 
 # If you want to create a new script, just type Control + Shift + N.
-# Always click run in order to run through the script.
 
 
 
@@ -78,12 +77,20 @@
 
 # The first thing we can do is assign a variable.
 # This looks like an arrow placing a value into a variable.
-# Like this: n <- 200. Click "Run" above to assign.
+# Like this: n <- 200.
+
+# To assign the variable, we need to run the code below.
+# One option is to just press the "Run" button in the upper-right.
+# Doing so will automatically run the next line of runnable code.
+# To specify a line of code to run, simply select it or place your cursor on it.
+# You can also press Ctrl+Enter instead of clicking the "Run" Button.
+
+# Go ahead and run the code below.
+# Remember to run all lines or chunks of code as you walk though this script.
 
 n <- 200
 
 # Now if you call n, you'll see the console report it's value.
-# Highlight line 89 below and click "Run" above to call n.
 
 n
 
@@ -92,7 +99,7 @@ n
 ##  ------------------- Console Window --------------------
 
 # YOUR TURN: Try setting n <- 300 in the Console Window!
-# It's just like line 84 above. After you're done, print n.
+# It's just like line 91 above. After you're done, print n.
 
 # If you can't see the Console Window, just click on the word "Console" below.
 
@@ -136,9 +143,34 @@ grades[2]
 
 
 
+##  --------------------- Operators -----------------------
+
+# To check if a vector contains an element, we can use the %in% operator.
+
+96 %in% grades
+
+# It returns TRUE if the vector contains the element...
+
+100 %in% grades
+
+# ...and FALSE if it does not. TRUE and FALSE are boolean datatypes, also known
+# as logical datatypes in R. These are commonly used to denote binary variables.
+
+# Most advanced operators in R are surrounded by percent-signs. But that is not
+# always the case. For example, the operator for NOT is an exclamation point.
+
+!(96 %in% grades)
+
+# The parentheses above are not actually necessary, but they help with clarity.
+# First we check whether 96 is in grades, and then we reverse the result.
+
+
+
 ##  --------------- Descriptive Statistics ----------------
 
-# Now let's find our average!
+# The best thing about having multiple values to work with is that we can
+# calculate various statistics. Most statistical functions in R easily take
+# a whole vector as input. Let's see what our final semester grade would be!
 
 mean(grades)    # Mean
 median(grades)  # Median
@@ -178,12 +210,14 @@ grades[3] <- 85
 ##  ------------------ Saving Variables -------------------
 
 # Re-calculate grades given our retake and create new values to store them.
+# In R you can store almost anything as a variable, and you should take
+# advantage of that. Always save anything that you might need going forward.
 
 g_mean <- mean(grades)
 g_median <- median(grades)
 g_sd <- sd(grades)
 
-# Remember to store the values, we have to assign them.
+# To store the values, remember to assign them to variables.
 # Now we can create a table, with a function called rbind:
 
 grades_table <- rbind(Mean = as.numeric(g_mean),
@@ -191,8 +225,8 @@ grades_table <- rbind(Mean = as.numeric(g_mean),
                       SD = as.numeric(g_sd))
 grades_table
 
-# Note how we always want to create the table, and save it as an object
-# (grades_table) which we can later call.
+# When creating the table, we save it as an object (grades_table). Like this we
+# can refer back to this table at any point later in the script.
 
 
 
@@ -204,7 +238,7 @@ grades_table
 # We have a CSV file of the Atlantic hurricane database (HURDAT2).
 
 # The data is released by the National Hurricane Center.
-# There is a pdf file providing metadata on the dataset.
+# The GitHub repository contains a link to the metadata for this dataset.
 
 # But how do we import this data so we can use it in R?
 
@@ -230,18 +264,52 @@ grades_table
 
 
 
+##  ------------- Checking Installed Packages -------------
+
+# Depending on what system you are running this script on, you might already
+# have tidyverse installed. We can check this by using the installed.packages()
+# function that outputs a table of all installed packages.
+
+installed.packages()
+
+# But manually going though that table and checking if we have a package
+# installed is extremely tedious, especially if we have many packages installed.
+
+# We can use the %in% operator from before to check for a specific package.
+
+'tidyverse' %in% installed.packages()
+
+# This will return TRUE if you have tidyverse installed and FALSE if you do not.
+
+# You can also view, search for, install, and activate packages using the
+# packages tab to in the lower-right quadrant of RStudio.
+
+
+
 ##  ----------------- Installing Packages -----------------
 
-# To be able to use the tidyverse packages and utilize all of their additional
-# functionality and performance increases, we need to install them.
+# We can install new packages using the install.packages() function. However,
+# this function does not check if a package is already installed and will
+# overwrite and reinstall the specified package if it is already installed.
 
-# Luckily there is a single command that allows us to install every package
-# included in the tidyverse.
+# To ensure we only install the package if it is not already installed, we can
+# place the install.packages() function into an if statement.
 
-install.packages('tidyverse')
+if (!('tidyverse' %in% installed.packages())) {
+    install.packages('tidyverse')
+}
 
-# Note that because we are installing every package in the tidyverse, it will
-# take some time. The process usually finishes in about five minutes.
+# If statements can be confusing and are perhaps somewhat too advanced for an
+# introductory workshop. Basically, the block above checks if 'tidyverse' exists
+# in the list of installed packages, and installs it if it is not present.
+
+# Go ahead and select the whole if-statement above (lines 298-300) and run it.
+# If you already have tidyverse installed, nothing will happen. But if you do
+# not, the install.packages('tidyverse') command will run and install every
+# tidyverse packages onto your computer. This might take up to five minutes.
+
+# Note that you only need to install packages once. The next time you will be
+# running R on this computer, all tidyverse packages will already be installed.
 
 
 
@@ -257,7 +325,7 @@ install.packages('tidyverse')
 
 library(tidyverse)
 
-# Note how many different packages were attached to our library.
+# Note how multiple different packages were attached to our library.
 # Also note how there were a couple conflicts. We will talk about those later.
 
 
@@ -271,18 +339,27 @@ getwd()     # The current location where R is looking for files
 
 dir()       # The files in the working directory.
 
-# We need to set the working directory in order for RStudio to see the data.
-# You should have downloaded the IntroR script and the atlantic.csv data file
-# to the same location. Be sure that they are right next to each other.
+# If the list of files in your current working directory does not contain
+# atlantic.csv, you will need to make sure you have downloaded it and set your
+# working directory to be the folder containing the file. We can check this
+# manually by inspecting the output of dir(), or we can use %in% again.
 
-# You can go to Session > Set Working Directory > Choose Directory to choose
-# the FOLDER that contains your data (atlantic.csv).
+'atlantic.csv' %in% dir()
 
-# If your IntroR script and the atlatic.csv data file are in the same folder,
-# you can also do Set Working Directory > To Source File Location, which will
-# automatically set your working directory to the folder your script is in.
+# If the statement above returns TRUE, you are all set. But if it returns FALSE,
+# you need to change your working directory. The IntroR.R script and the
+# atlantic.csv data file should have been downloaded to the same location.
+# Be sure that they are both right next to each other in the same folder.
 
-# Alternatively, you could also use the setwd() function.
+# If your IntroR.R script and the atlantic.csv data file are in the same folder,
+# you can set the working directory to the folder containing your script via
+# Set Working Directory > To Source File Location.
+
+# Alternatively, you can set the working director to the folder containing the
+# atlantic.csv data file via Session > Set Working Directory > Choose Directory.
+
+# If you prefer to do this in the console, you can use the setwd() function.
+# Use help() to figure out how to use the setwd() function.
 
 help(setwd)
 
@@ -299,7 +376,7 @@ help(setwd)
 # including readr into our library and made them available for use. Now we can
 # use the read_csv function included in readr.
 
-# However, remember that there were some conflicts. That the some of the
+# However, remember that there were some conflicts. That means that some of the
 # packages in our library now have functions with the same name. One of those
 # functions masks the other one and gets called by default. If we want to make
 # sure we are calling a specific function from a specific package, we should
@@ -309,16 +386,16 @@ hurrdata <- readr::read_csv('atlantic.csv')
 
 # However, if you check the conflicts that library(tidyverse) warned us about,
 # we can see that read_csv is not included in that list. Hence we do not have
-# to specify the package and call it as we would any other function.
+# to specify the package and can call it as we would any other function.
 
 hurrdata <- read_csv('atlantic.csv')
 
 # NOTE: If RStudio tells you "atlantic.csv does not exist" or "no such file or
 #       directory" this means that it cannot find the file. RStudio looks for
 #       files in your working directory. Be sure that atlantic.csv is available
-#       next to the Intro_R_Script.R file, and go to:
+#       in the same folder as the IntroR.R script, and go to:
 #       Session > Set Working Directory > To Source File Location.
-#       This tells RStudio to look for files next to this file.
+#       This tells RStudio to look for files in the same folder as the script.
 
 
 
@@ -427,17 +504,17 @@ hurrdata$Year <- as.numeric(as.character(hurrdata$Year))
 
 # YOU TRY: Take a look at the new data using head() or the Environment tab.
 
-# In reality you should actually use a package especially deigned to work with
+# In reality you should actually use a package specifically deigned to work with
 # dates like lubricate (also included in the tidyverse) and convert the "Date"
 # variable into a date data type. However, that would add extra complicity to
 # this tutorial, so we decided to take a different approach here that also
-# allowed us to experiment with type casting and the substring function.
+# allowed us to experiment with type casting and the substring() function.
 
 
 
 ##  ---------------- Making a Scatter Plot ----------------
 
-# To make graphs, we will use the ggplot2 library included in the didyverse.
+# To make graphs, we will use the ggplot2 library included in the tidyverse.
 
 # Let's say we want to look at how maximum wind speed has changed over time.
 # We can access the specific column using the data.frame$column notation.
@@ -453,8 +530,8 @@ hurrgraph
 
 ##  ------------ Subsetting and Cleaning Data -------------
 
-# We see we have negative data. If we looked into the metadata PDF, we would
-# find that we should have removed these! We can check on the negative data:
+# We see we have negative data. If we looked into the metadata, we would find
+# that we should have removed these! We can check on the negative data:
 
 min(hurrdata$Maximum.Wind)
 
@@ -481,7 +558,7 @@ min(hurrdata$Maximum.Wind)
 
 # Note how I keep telling you that we are using different libraries, but
 # because we installed and loaded all of the tidyverse, we do not need to worry
-# about installing and loading these packages speretaly. In fact, if I were not
+# about installing and loading these packages separately. In fact, if I were not
 # mentioning it, we would not even notice we are using them.
 
 hurrdata2 <- sample_n(hurrdata, 200, replace = TRUE)
@@ -491,7 +568,7 @@ hurrdata2 <- sample_n(hurrdata, 200, replace = TRUE)
 ##  ------------------ Advanced Graphing ------------------
 
 # Now we re-run the graph, and modify the axis to make the Year easier to see.
-# Highlight this entire section (lines 497-507) and click "Run".
+# Highlight this entire section (lines 573-583) and click "Run".
 
 hurrgraph2 <- ggplot(data = hurrdata2,
                      aes(x = Year, y = Maximum.Wind, color = Maximum.Wind)) +
@@ -514,9 +591,13 @@ hurrgraph2
 # Remember to reference Stack Overflow and the links I provided.
 
 # For those who are looking for an interactive graph - try plotly.
-# Plotly is not included in the tidyverse, so we have to install and load it.
+# Plotly is not included in the tidyverse, so we have to install it (unless it
+# is already installed) and load it into our library.
 
-install.packages("plotly")
+if (!('plotly' %in% installed.packages())) {
+  install.packages("plotly")
+}
+
 library(plotly)
 
 hurrgraph3 <- plot_ly(hurrdata2, x = ~Year, y = ~Maximum.Wind, type = 'bar',
@@ -560,7 +641,7 @@ get_x <- function(t) {
   return(x)
 }
 
-# Alternatively, we could also define in one one line. We will do this for y.
+# Alternatively, we could also define it in one one line. We will do this for y.
 # A one-line function like this is sometimes also called a lambda function.
 
 get_y <- function(t) 13*cos(t) - 5*cos(2*t) - 2*cos(3*t) - cos(4*t)
