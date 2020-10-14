@@ -27,9 +27,9 @@ This is an introductory R workshop designed for use in an instructor-guided sess
 
 [![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tuftsdatalab/intro-r/master?urlpath=rstudio)
 
-1. Click on the **Launch Binder** button above to launch a Binder cloud-computing instance.
-2. A Binder instance will launch in your browser with the message *Starting Repository*.
-3. Wait patiently and do not close the Binder tab. After a few minuets an **RStudio** instance will launch in your browser.
+1. *Right-click* on the **Launch Binder** button above and select **Open Link in New Tab**.
+2. A Binder instance will launch in a new tab with the message *Starting Repository*.
+3. Wait patiently and do not close the Binder tab. After a few minutes an **RStudio** instance will launch.
 4. Once **RStudio** has launched, locate the *Files* tab in the bottom-right. It should list ***IntroR.R*** along with other files.
 5. Click on ***IntroR.R*** in the *Files* tab to launch the workshop.
 
