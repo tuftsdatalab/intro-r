@@ -19,7 +19,7 @@ Slides: [tufts.box.com/v/intro-r-slides](https://tufts.box.com/v/intro-r-slides)
 ---
 This is an introductory R workshop designed for use in an instructor-guided session, but that is also suitable for self-guided study. This workshop can be run both locally or in a cloud-computing environment. Please select the most suitable option for you from below.
 
-- [Run the workshop in a cloud-computing envionment](https://github.com/tuftsdatalab/intro-r#running-the-workshop-in-a-cloud-computing-environment) *(does not require the installation of additional software)*
+- [Run the workshop in a cloud-computing environment](https://github.com/tuftsdatalab/intro-r#running-the-workshop-in-a-cloud-computing-environment) *(does not require the installation of additional software)*
 - [Run the workshop locally on your computer](https://github.com/tuftsdatalab/intro-r#running-the-workshop-locally-on-your-computer) *(requires the installation of both R and RStudio)*
 
 ---
@@ -29,7 +29,7 @@ This is an introductory R workshop designed for use in an instructor-guided sess
 
 1. Click on the **Launch Binder** button above to launch a Binder cloud-computing instance.
 2. A Binder instance will launch in your browser with the message *Starting Repository*.
-3. Wait patiently and do not close the Binder tab. After a few minues an **RStudio** instance will launch in your browser.
+3. Wait patiently and do not close the Binder tab. After a few minuets an **RStudio** instance will launch in your browser.
 4. Once **RStudio** has launched, locate the *Files* tab in the bottom-right. It should list ***IntroR.R*** along with other files.
 5. Click on ***IntroR.R*** in the *Files* tab to launch the workshop.
 
@@ -38,8 +38,8 @@ This is an introductory R workshop designed for use in an instructor-guided sess
 
 [![Download Zip](https://tuftsdatalab.github.io/assets/badges/download.svg)](https://github.com/tuftsdatalab/intro-r/archive/master.zip)
 
-1. Make sure you have ***both R and RStudio*** installed. Instructions are availalbe here: [go.tufts.edu/InstallingR](https://sites.tufts.edu/datalab/installing-r-and-rstudio/)
+1. Make sure you have ***both R and RStudio*** installed. Instructions are available here: [go.tufts.edu/InstallingR](https://sites.tufts.edu/datalab/installing-r-and-rstudio/)
 2. Click on the **Download Zip** button above to download the workshop materials.
 3. Extract the contents of the downloaded ***intro-r-master.zip*** into a suitable location.
-4. Open the extracted ***intro-r-master*** folder. Esnure it contains both *IntroR.R* and *atlantic.csv* along with any other files.
+4. Open the extracted ***intro-r-master*** folder. Ensure it contains both *IntroR.R* and *atlantic.csv* along with other files.
 5. *Right-click* on ***IntroR.R*** and select **Open With > RStudio** to launch the workshop.
