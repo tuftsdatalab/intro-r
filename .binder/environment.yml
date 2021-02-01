@@ -1,7 +1,0 @@
-name: intro-r
-channels:
-  - conda-forge
-dependencies:
-  - r-base
-  - r-tidyverse
-  - r-plotly
