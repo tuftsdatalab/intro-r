@@ -11,7 +11,7 @@ Written by Uku-Kaspar Uustalu
 [![datalab.tufts.edu](https://tuftsdatalab.github.io/badges/datalab.svg)](https://sites.tufts.edu/datalab)&nbsp;
 [![@TuftsDataLab](https://tuftsdatalab.github.io/badges/twitter.svg)](https://twitter.com/intent/follow?screen_name=tuftsdatalab)
 
-R resources: [go.tufts.edu/stats](https://sites.tufts.edu/datalab/stats/)\
+R resources: [go.tufts.edu/stats](https://sites.tufts.edu/datalab/learning-statistics/stats-online-tutorials/r-resources/)\
 Questions: <datalab-support@elist.tufts.edu>\
 Feedback: <uku-kaspar.uustalu@tufts.edu>
 
