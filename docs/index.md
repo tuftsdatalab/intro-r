@@ -8,8 +8,8 @@
 **A Tufts University Data Lab Workshop**\
 Written by Uku-Kaspar Uustalu
 
-[![datalab.tufts.edu](https://tuftsdatalab.github.io/assets/badges/datalab.svg)](https://sites.tufts.edu/datalab)&nbsp;
-[![@TuftsDataLab](https://tuftsdatalab.github.io/assets/badges/twitter.svg)](https://twitter.com/intent/follow?screen_name=tuftsdatalab)
+[![datalab.tufts.edu](https://tuftsdatalab.github.io/badges/datalab.svg)](https://sites.tufts.edu/datalab)&nbsp;
+[![@TuftsDataLab](https://tuftsdatalab.github.io/badges/twitter.svg)](https://twitter.com/intent/follow?screen_name=tuftsdatalab)
 
 R resources: [go.tufts.edu/stats](https://sites.tufts.edu/datalab/stats/)\
 Questions: <datalab-support@elist.tufts.edu>\
