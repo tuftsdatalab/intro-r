@@ -15,4 +15,4 @@ jobs:
           service-name: gh
           target-state: main
           use-default-build-servers: true
-          debug: true
+          debug: false
