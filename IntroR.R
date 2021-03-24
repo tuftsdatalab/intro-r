@@ -90,7 +90,7 @@
 
 n <- 200
 
-# Now if you call n, you'll see the console report it's value.
+# Now if you call n, you'll see the console report its value.
 
 n
 
@@ -112,7 +112,7 @@ n
 ##  ---------------- Combining Variables ------------------
 
 # What if you have multiple numbers to set as a variable?
-# For example, what if we wanted to store the grades we got on exams.
+# For example, what if we wanted to store the grades we got on exams?
 # These include 94, 96, 72, and 92. (The third test was really hard.)
 
 
@@ -137,8 +137,8 @@ grades
 
 grades[2]
 
-# Note that R is one-indexed. To get the fist grade, we use [1], not [0].
-# Also note that the 0th grade is a '[1]' (e.g. [1] 94 96 72 92).
+# Note that R is one-indexed. To get the first grade, we use [1], not [0].
+# Also, note that the 0th grade is a '[1]' (e.g. [1] 94 96 72 92).
 # This tells R something about the way the data is stored.
 
 
@@ -180,7 +180,7 @@ sd(grades)      # Standard deviation
 
 ##  ---------------- Running from History -----------------
 
-# Take a look at the History list, on the tab to the left.
+# Take a look at the History list, on the tab to the right.
 # This is where the past commands we run sit.
 # If you double click one, it will auto fill in the Console below.
 
@@ -225,8 +225,8 @@ grades_table <- rbind(Mean = as.numeric(g_mean),
                       SD = as.numeric(g_sd))
 grades_table
 
-# When creating the table, we save it as an object (grades_table). Like this we
-# can refer back to this table at any point later in the script.
+# When creating the table, we save it as an object (grades_table). Like this,
+# we can refer back to this table at any point later in the script.
 
 
 
@@ -353,9 +353,9 @@ dir()       # The files in the working directory.
 
 # If your IntroR.R script and the atlantic.csv data file are in the same folder,
 # you can set the working directory to the folder containing your script via
-# Set Working Directory > To Source File Location.
+# Set Session > Working Directory > To Source File Location.
 
-# Alternatively, you can set the working director to the folder containing the
+# Alternatively, you can set the working directory to the folder containing the
 # atlantic.csv data file via Session > Set Working Directory > Choose Directory.
 
 # If you prefer to do this in the console, you can use the setwd() function.
@@ -419,7 +419,7 @@ class(hurrdata)
 
 # We can see that it is a "data.frame" and a "tbl" (table). A data frame is a
 # table where you have observations as rows and variables as columns.
-# Data frames have some great features for working with data, and are the go-to
+# Data frames have some great features for working with data and are the go-to
 # for R data storage. You can think of them almost as Excel spreadsheets.
 
 
@@ -445,7 +445,7 @@ hurrdata$`Maximum Wind`[6]
 # data.frame variables (columns) based on their name.
 
 # The '$' operator is the preferred way of accessing data.frame variables based
-# on their name as it removes the complexity of when to use [[]] vs [] and does
+# on their name, as it removes the complexity of when to use [[]] vs [] and does
 # not require quotation marks...
 
 # ... given your variable names are properly formatted.
@@ -506,7 +506,7 @@ hurrdata$Year <- as.numeric(as.character(hurrdata$Year))
 
 # In reality you should actually use a package specifically deigned to work with
 # dates like lubricate (also included in the tidyverse) and convert the "Date"
-# variable into a date data type. However, that would add extra complicity to
+# variable into a date data type. However, that would add extra complexity to
 # this tutorial, so we decided to take a different approach here that also
 # allowed us to experiment with type casting and the substring() function.
 
@@ -538,8 +538,8 @@ min(hurrdata$Maximum.Wind)
 # We can replace these by combining logical operators with [] to subset all the
 # rows where the logical operator returns TRUE.
 
-# Using this we can find all the values less than zero (< 0) and replace them
-# with "NA" which means "No Data" in R (like "." in Stata)
+# Using this, we can find all the values less than zero (< 0) and replace them
+# with "NA", which means "No Data" in R (like "." in Stata)
 
 hurrdata$Maximum.Wind[hurrdata$Maximum.Wind < 0] <- NA
 
@@ -630,7 +630,7 @@ hurrgraph3
 t <- seq(0, 2 * pi, by = 0.1)
 
 # However, calculating all the x and y values would be extremely tedious if we
-# had to do it manually. Luckily we can use R to make our computer do it for us.
+# had to do it manually. Luckily, we can use R to make our computer do it for us.
 # All we need to do is just tell R how to calculate these values by defining
 # functions that take t as input and return the value of either x or y.
 
@@ -674,7 +674,7 @@ finalplot
 # When you create a variable, it is always within some area that limits from
 # from where it is accessible, commonly called a scope.
 
-# "<-" puts a value in the user's workspace which makes it accessible by said
+# "<-" puts a value in the user's workspace, which makes it accessible by said
 # user anywhere, whereas "=" declares it in the scope of a function.
 
 # For more information on this topic:
