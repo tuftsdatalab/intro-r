@@ -10,7 +10,7 @@
 ##
 ##  -------------------------------------------------------
 ##  Title:        Introduction to R and RStudio
-##  Last update:  2020-10-14
+##  Last update:  2021-09-13
 ##  Written by:   Uku-Kaspar Uustalu & Kyle Monahan
 ##  Contact:      datalab-support -AT- elist.tufts.edu
 ##  -------------------------------------------------------
@@ -131,15 +131,13 @@ grades <- c(94, 96, 72, 92)
 grades
 
 # We see the values are printed. This is called a vector.
-# One can access the values within a vector by using the square braces [].
+# One can access the values within a vector by using square braces [].
 
 # To get the second grade, we use:
 
 grades[2]
 
 # Note that R is one-indexed. To get the first grade, we use [1], not [0].
-# Also, note that the 0th grade is a '[1]' (e.g. [1] 94 96 72 92).
-# This tells R something about the way the data is stored.
 
 
 
@@ -181,11 +179,11 @@ sd(grades)      # Standard deviation
 ##  ---------------- Running from History -----------------
 
 # Take a look at the History list, on the tab to the right.
-# This is where the past commands we run sit.
+# This is where you will find commands you have run in the past.
 # If you double click one, it will auto fill in the Console below.
 
 # Try to double-click on a history command, click on the console window,
-# and press "Enter". You can even save the entire list for future use!
+# and then press "Enter". You can even save the entire list for future use!
 
 
 
@@ -225,8 +223,8 @@ grades_table <- rbind(Mean = as.numeric(g_mean),
                       SD = as.numeric(g_sd))
 grades_table
 
-# When creating the table, we save it as an object (grades_table). Like this,
-# we can refer back to this table at any point later in the script.
+# When creating the table, we save it as an object (grades_table).
+# This allows us to refer back to this table at any point later in the script.
 
 
 
@@ -236,9 +234,7 @@ grades_table
 # But we really want to learn how to import data! So let's do that.
 
 # We have a CSV file of the Atlantic hurricane database (HURDAT2).
-
 # The data is released by the National Hurricane Center.
-# The GitHub repository contains a link to the metadata for this dataset.
 
 # But how do we import this data so we can use it in R?
 
@@ -282,7 +278,7 @@ installed.packages()
 # This will return TRUE if you have tidyverse installed and FALSE if you do not.
 
 # You can also view, search for, install, and activate packages using the
-# packages tab to in the lower-right quadrant of RStudio.
+# packages tab in the lower-right quadrant of RStudio.
 
 
 
@@ -303,10 +299,10 @@ if (!('tidyverse' %in% installed.packages())) {
 # introductory workshop. Basically, the block above checks if 'tidyverse' exists
 # in the list of installed packages, and installs it if it is not present.
 
-# Go ahead and select the whole if-statement above (lines 298-300) and run it.
+# Go ahead and select the whole if-statement above (lines 294-296) and run it.
 # If you already have tidyverse installed, nothing will happen. But if you do
 # not, the install.packages('tidyverse') command will run and install every
-# tidyverse packages onto your computer. This might take up to five minutes.
+# tidyverse package onto your computer. This might take up to five minutes.
 
 # Note that you only need to install packages once. The next time you will be
 # running R on this computer, all tidyverse packages will already be installed.
@@ -320,7 +316,7 @@ if (!('tidyverse' %in% installed.packages())) {
 
 ?library()
 
-# Using the tidyverse pseudo-package, we can easily add all of the tidyverse
+# Using the tidyverse meta-package, we can easily add all of the tidyverse
 # packages into our library at once.
 
 library(tidyverse)
@@ -568,7 +564,7 @@ hurrdata2 <- sample_n(hurrdata, 200, replace = TRUE)
 ##  ------------------ Advanced Graphing ------------------
 
 # Now we re-run the graph, and modify the axis to make the Year easier to see.
-# Highlight this entire section (lines 573-583) and click "Run".
+# Highlight this entire section (lines 569-579) and click "Run".
 
 hurrgraph2 <- ggplot(data = hurrdata2,
                      aes(x = Year, y = Maximum.Wind, color = Maximum.Wind)) +
@@ -582,13 +578,13 @@ hurrgraph2 <- ggplot(data = hurrdata2,
 
 hurrgraph2
 
+# The benefit of R is you can control almost everything...
+# ... and that's the drawback of R as well.
+# Remember to reference Stack Overflow and the resources provided.
+
 
 
 ##  ----------- OPTIONAL: Interactive Graphics ------------
-
-# The benefit of R is you can control almost everything...
-# ... and that's the drawback of R as well.
-# Remember to reference Stack Overflow and the links I provided.
 
 # For those who are looking for an interactive graph - try plotly.
 # Plotly is not included in the tidyverse, so we have to install it (unless it
@@ -630,7 +626,7 @@ hurrgraph3
 t <- seq(0, 2 * pi, by = 0.1)
 
 # However, calculating all the x and y values would be extremely tedious if we
-# had to do it manually. Luckily, we can use R to make our computer do it for us.
+# had to do it manually. Luckily we can use R to make our computer do it for us.
 # All we need to do is just tell R how to calculate these values by defining
 # functions that take t as input and return the value of either x or y.
 
