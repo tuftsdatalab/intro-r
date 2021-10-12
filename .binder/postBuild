@@ -1,0 +1,3 @@
+#!/bin/bash
+set -e
+mv -f ${HOME}/.binder/.Rprofile ${HOME}/.Rprofile
