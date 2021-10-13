@@ -40,7 +40,7 @@ This is an introductory R workshop designed for use in an instructor-guided sess
 [![Download Zip](https://tuftsdatalab.github.io/badges/zip.svg)](https://github.com/tuftsdatalab/intro-r/zipball/workshop)&nbsp;
 [![Download TarGz](https://tuftsdatalab.github.io/badges/tgz.svg)](https://github.com/tuftsdatalab/intro-r/tarball/workshop)
 
-1. Make sure you have **both R and RStudio** installed. Instructions are available here: [go.tufts.edu/InstallingR](go.tufts.edu/InstallingR)
+1. Make sure you have **both R and RStudio** installed. Instructions are available here: [go.tufts.edu/InstallingR](https://go.tufts.edu/InstallingR)
 2. Click on the [**Download Zip**](https://github.com/tuftsdatalab/intro-r/zipball/workshop) or [**Download TarGz**](https://github.com/tuftsdatalab/intro-r/tarball/workshop) button above to download an archive containing the workshop materials.
 3. Extract the contents of the downloaded archive to a suitable location and rename the extracted folder if desired.
 4. Open the extracted folder and ensure it contains both `intro-r.R` and `atlantic.csv`.
