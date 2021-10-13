@@ -10,9 +10,10 @@
 ##
 ##  -------------------------------------------------------
 ##  Title:        Introduction to R and RStudio
-##  Last update:  2021-09-13
+##  Last update:  2021-10-13
 ##  Written by:   Uku-Kaspar Uustalu & Kyle Monahan
 ##  Contact:      datalab-support -AT- elist.tufts.edu
+##  Website:      tuftsdatalab.github.io/intro-r
 ##  -------------------------------------------------------
 ##
 ##  Data Lab resources on R and statistics: go.tufts.edu/stats
@@ -99,7 +100,7 @@ n
 ##  ------------------- Console Window --------------------
 
 # YOUR TURN: Try setting n <- 300 in the Console Window!
-# It's just like line 91 above. After you're done, print n.
+# It's just like line 92 above. After you're done, print n.
 
 # If you can't see the Console Window, just click on the word "Console" below.
 
@@ -299,7 +300,7 @@ if (!('tidyverse' %in% installed.packages())) {
 # introductory workshop. Basically, the block above checks if 'tidyverse' exists
 # in the list of installed packages, and installs it if it is not present.
 
-# Go ahead and select the whole if-statement above (lines 294-296) and run it.
+# Go ahead and select the whole if-statement above (lines 295-297) and run it.
 # If you already have tidyverse installed, nothing will happen. But if you do
 # not, the install.packages('tidyverse') command will run and install every
 # tidyverse package onto your computer. This might take up to five minutes.
@@ -564,7 +565,7 @@ hurrdata2 <- sample_n(hurrdata, 200, replace = TRUE)
 ##  ------------------ Advanced Graphing ------------------
 
 # Now we re-run the graph, and modify the axis to make the Year easier to see.
-# Highlight this entire section (lines 569-579) and click "Run".
+# Highlight this entire section (lines 570-580) and click "Run".
 
 hurrgraph2 <- ggplot(data = hurrdata2,
                      aes(x = Year, y = Maximum.Wind, color = Maximum.Wind)) +
