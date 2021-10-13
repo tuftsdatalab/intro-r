@@ -1,7 +1,7 @@
-[![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tuftsdatalab/intro-r/main?urlpath=rstudio){:target="_blank"}&nbsp;
+[![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tuftsdatalab/intro-r/binder?urlpath=rstudio){:target="_blank"}&nbsp;
 [![View on Github](https://tuftsdatalab.github.io/badges/github.svg)](https://github.com/tuftsdatalab/intro-r)&nbsp;
-[![Download Zip](https://tuftsdatalab.github.io/badges/zip.svg)](https://github.com/tuftsdatalab/intro-r/zipball/main)&nbsp;
-[![Download TarGz](https://tuftsdatalab.github.io/badges/tgz.svg)](https://github.com/tuftsdatalab/intro-r/tarball/main)&nbsp;
+[![Download Zip](https://tuftsdatalab.github.io/badges/zip.svg)](https://github.com/tuftsdatalab/intro-r/zipball/workshop)&nbsp;
+[![Download TarGz](https://tuftsdatalab.github.io/badges/tgz.svg)](https://github.com/tuftsdatalab/intro-r/tarball/workshop)&nbsp;
 ![total size](https://img.shields.io/github/repo-size/tuftsdatalab/intro-r?label=total%20size)&nbsp;
 ![last updated](https://img.shields.io/github/last-commit/tuftsdatalab/intro-r?label=last%20updated)
 
@@ -27,9 +27,9 @@ This is an introductory R workshop designed for use in an instructor-guided sess
 ---
 ## Running the Workshop in a Cloud-Computing Environment (Recommended) {#binder}
 
-[![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tuftsdatalab/intro-r/main?urlpath=rstudio){:target="_blank"}
+[![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tuftsdatalab/intro-r/binder?urlpath=rstudio){:target="_blank"}
 
-1. Click on the [**Launch Binder**](https://mybinder.org/v2/gh/tuftsdatalab/intro-r/main?urlpath=rstudio){:target="_blank"} button above.
+1. Click on the [**Launch Binder**](https://mybinder.org/v2/gh/tuftsdatalab/intro-r/binder?urlpath=rstudio){:target="_blank"} button above.
 2. A Binder instance will launch in a new tab with the message *Starting Repository*.
 3. Wait patiently and do not close the Binder tab. After a few minutes, an **RStudio** instance will launch.
 4. Once **RStudio** has launched, locate the *Files* tab in the bottom-right. It should list ***IntroR.R*** along with other files.
@@ -38,11 +38,11 @@ This is an introductory R workshop designed for use in an instructor-guided sess
 ---
 ## Running the Workshop Locally on your Computer {#local}
 
-[![Download Zip](https://tuftsdatalab.github.io/badges/zip.svg)](https://github.com/tuftsdatalab/intro-r/zipball/main)&nbsp;
-[![Download TarGz](https://tuftsdatalab.github.io/badges/tgz.svg)](https://github.com/tuftsdatalab/intro-r/tarball/main)
+[![Download Zip](https://tuftsdatalab.github.io/badges/zip.svg)](https://github.com/tuftsdatalab/intro-r/zipball/workshop)&nbsp;
+[![Download TarGz](https://tuftsdatalab.github.io/badges/tgz.svg)](https://github.com/tuftsdatalab/intro-r/tarball/workshop)
 
 1. Make sure you have ***both R and RStudio*** installed. Instructions are available here: [go.tufts.edu/InstallingR](https://sites.tufts.edu/datalab/installing-r-and-rstudio/)
-2. Click on the [**Download Zip**](https://github.com/tuftsdatalab/intro-r/zipball/main) or [**Download TarGz**](https://github.com/tuftsdatalab/intro-r/tarball/main) button above to download an archive containing the workshop materials.
+2. Click on the [**Download Zip**](https://github.com/tuftsdatalab/intro-r/zipball/workshop) or [**Download TarGz**](https://github.com/tuftsdatalab/intro-r/tarball/workshop) button above to download an archive containing the workshop materials.
 3. Extract the contents of the downloaded archive to a suitable location and rename the extracted folder if desired.
 4. Open the extracted folder. Ensure it contains both *IntroR.R* and *atlantic.csv* along with other files.
 5. *Right-click* on ***IntroR.R*** and select **Open With > RStudio** to launch the workshop.
