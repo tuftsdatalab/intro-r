@@ -32,8 +32,8 @@ This is an introductory R workshop designed for use in an instructor-guided sess
 1. Click on the [**Launch Binder**](https://mybinder.org/v2/gh/tuftsdatalab/intro-r/binder?urlpath=rstudio){:target="_blank"} button above.
 2. A Binder instance will launch in a new tab with the message *Starting Repository*.
 3. Wait patiently and do not close the Binder tab. After a few minutes, an **RStudio** instance will launch.
-4. Once **RStudio** has launched, locate the *Files* tab in the bottom-right. It should list ***IntroR.R*** along with other files.
-5. Click on ***IntroR.R*** in the *Files* tab to launch the workshop.
+4. Once **RStudio** has launched, locate the *Files* tab in the bottom-right. It should list `intro-r.R` along with other files.
+5. Click on `intro-r.R` in the *Files* tab to launch the workshop.
 
 ---
 ## Running the Workshop Locally on your Computer {#local}
@@ -41,8 +41,8 @@ This is an introductory R workshop designed for use in an instructor-guided sess
 [![Download Zip](https://tuftsdatalab.github.io/badges/zip.svg)](https://github.com/tuftsdatalab/intro-r/zipball/workshop)&nbsp;
 [![Download TarGz](https://tuftsdatalab.github.io/badges/tgz.svg)](https://github.com/tuftsdatalab/intro-r/tarball/workshop)
 
-1. Make sure you have ***both R and RStudio*** installed. Instructions are available here: [go.tufts.edu/InstallingR](go.tufts.edu/InstallingR)
+1. Make sure you have **both R and RStudio** installed. Instructions are available here: [go.tufts.edu/InstallingR](go.tufts.edu/InstallingR)
 2. Click on the [**Download Zip**](https://github.com/tuftsdatalab/intro-r/zipball/workshop) or [**Download TarGz**](https://github.com/tuftsdatalab/intro-r/tarball/workshop) button above to download an archive containing the workshop materials.
 3. Extract the contents of the downloaded archive to a suitable location and rename the extracted folder if desired.
-4. Open the extracted folder. Ensure it contains both *IntroR.R* and *atlantic.csv* along with other files.
-5. *Right-click* on ***IntroR.R*** and select **Open With > RStudio** to launch the workshop.
+4. Open the extracted folder and ensure it contains both `intro-r.R` and `atlantic.csv`.
+5. *Right-click* on `intro-r.R` and select ***Open With > RStudio*** to launch the workshop.
