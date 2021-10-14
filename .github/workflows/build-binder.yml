@@ -1,13 +1,12 @@
-name: trigger-binder-build
-
+name: build-binder
 on:
   workflow_run:
-    workflows: [populate-branches]
+    workflows: [mirror-content]
     types:
       - completed
 
 jobs:
-  trigger-binder-build:
+  build-binder:
     runs-on: ubuntu-latest
     steps:
       - uses: s-weigand/trigger-mybinder-build@v1

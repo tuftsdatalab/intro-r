@@ -39,7 +39,8 @@ This is an introductory R workshop designed for use in an instructor-guided sess
 ## Running the Workshop Locally on your Computer {#local}
 
 [![Download Zip](https://tuftsdatalab.github.io/badges/zip.svg)](https://github.com/tuftsdatalab/intro-r/zipball/workshop)&nbsp;
-[![Download TarGz](https://tuftsdatalab.github.io/badges/tgz.svg)](https://github.com/tuftsdatalab/intro-r/tarball/workshop)
+[![Download TarGz](https://tuftsdatalab.github.io/badges/tgz.svg)](https://github.com/tuftsdatalab/intro-r/tarball/workshop)&nbsp;
+![download size](https://img.shields.io/github/repo-size/tuftsdatalab/intro-r?label=download%20size)
 
 1. Make sure you have **both R and RStudio** installed. Instructions are available here: [go.tufts.edu/InstallingR](https://go.tufts.edu/InstallingR)
 2. Click on the [**Download Zip**](https://github.com/tuftsdatalab/intro-r/zipball/workshop) or [**Download TarGz**](https://github.com/tuftsdatalab/intro-r/tarball/workshop) button above to download an archive containing the workshop materials.
