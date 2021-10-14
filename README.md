@@ -6,7 +6,7 @@
 [![license](https://img.shields.io/github/license/tuftsdatalab/intro-r)](https://github.com/tuftsdatalab/intro-r/blob/main/LICENSE)
 [![last commit](https://img.shields.io/github/last-commit/tuftsdatalab/intro-r)](https://github.com/tuftsdatalab/intro-r/commits/main)
 
-This is the source repositort for the following [Tufts University Data Lab](https://sites.tufts.edu/datalab/) workshop: [*A Gentle Introduction to R*](https://tuftsdatalab.github.io/intro-r/)
+Source repository for the following [Tufts University Data Lab](https://sites.tufts.edu/datalab/) workshop: [*A Gentle Introduction to R*](https://tuftsdatalab.github.io/intro-r/)
 
 **Please see the [workshop website](https://tuftsdatalab.github.io/intro-r/) for content.** The following is a development guide.
 
