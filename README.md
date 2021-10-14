@@ -10,6 +10,4 @@ Source repository for the following [Tufts University Data Lab](https://sites.tu
 
 **Please see the [workshop website](https://tuftsdatalab.github.io/intro-r/) for content.** The following is a development guide.
 
-Contact: DataLab-Support@elist.tufts.edu
-
 Repository administrator: [@ukukas](https://github.com/ukukas/)
