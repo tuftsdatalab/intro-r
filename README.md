@@ -5,3 +5,11 @@
 [![build binder](https://img.shields.io/github/workflow/status/tuftsdatalab/intro-r/build-binder?label=build%20binder)](https://github.com/tuftsdatalab/intro-r/actions/workflows/build-binder.yml)
 [![license](https://img.shields.io/github/license/tuftsdatalab/intro-r)](https://github.com/tuftsdatalab/intro-r/blob/main/LICENSE)
 [![last commit](https://img.shields.io/github/last-commit/tuftsdatalab/intro-r)](https://github.com/tuftsdatalab/intro-r/commits/main)
+
+This is the source repositort for the following [Tufts University Data Lab](https://sites.tufts.edu/datalab/) workshop: [*A Gentle Introduction to R*](https://tuftsdatalab.github.io/intro-r/)
+
+**Please see the [workshop website](https://tuftsdatalab.github.io/intro-r/) for content.** The following is a development guide intended for staff and collaborators.
+
+Contact: DataLab-Support@elist.tufts.edu
+
+Repository administrator: [@ukukas](https://github.com/ukukas/)
