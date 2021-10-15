@@ -1,9 +1,9 @@
 # A Gentle Introduction to R
 
 [![workshop website][workshop-webiste-badge]][workshop-webiste-link]
-[![mirror content][mirror-content-badge]](/../../actions/workflows/mirror-content.yml)
-[![build binder][build-binder-badge]](/../../actions/workflows/build-binder.yml)
-[![last commit][last-commit-badge]](/../../commits/main)
+[![mirror content][mirror-content-badge]](../../actions/workflows/mirror-content.yml)
+[![build binder][build-binder-badge]](../../actions/workflows/build-binder.yml)
+[![last commit][last-commit-badge]](../../commits/main)
 
 Source repository for the following [Tufts University Data Lab][datalab-website-link] workshop: [*A Gentle Introduction to R*][workshop-webiste-link]
 
