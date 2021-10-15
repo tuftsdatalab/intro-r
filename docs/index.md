@@ -5,17 +5,15 @@
 ![last updated](https://img.shields.io/github/last-commit/tuftsdatalab/intro-r?label=last%20updated)
 
 **A Tufts University Data Lab Workshop**\
-Written by Uku-Kaspar Uustalu
+Written by Uku-Kaspar Uustalu and Kyle Monahan
 
 [![datalab.tufts.edu](https://tuftsdatalab.github.io/badges/datalab.svg)](https://sites.tufts.edu/datalab)&nbsp;
 [![@TuftsDataLab](https://tuftsdatalab.github.io/badges/twitter.svg)](https://twitter.com/intent/follow?screen_name=tuftsdatalab)
 
 R resources: [go.tufts.edu/stats](https://go.tufts.edu/stats)\
-Questions: <datalab-support@elist.tufts.edu>\
-Feedback: <uku-kaspar.uustalu@tufts.edu>
-
 Slides: [tufts.box.com/v/intro-r-slides](https://tufts.box.com/v/intro-r-slides)\
-Live offerings: [go.tufts.edu/workshops](https://go.tufts.edu/workshops)
+Live offerings: [go.tufts.edu/workshops](https://go.tufts.edu/workshops)\
+Contact: <datalab-support@elist.tufts.edu>
 
 ---
 This is an introductory R workshop designed for use in an instructor-guided session, but that is also suitable for self-guided study. The workshop can be run both locally or in a cloud-computing environment. Please select the most suitable option for you from below.
