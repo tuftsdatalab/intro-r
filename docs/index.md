@@ -2,7 +2,6 @@
 [![View on Github](https://tuftsdatalab.github.io/badges/github.svg)](https://github.com/tuftsdatalab/intro-r)&nbsp;
 [![Download Zip](https://tuftsdatalab.github.io/badges/zip.svg)](https://github.com/tuftsdatalab/intro-r/zipball/workshop)&nbsp;
 [![Download TarGz](https://tuftsdatalab.github.io/badges/tgz.svg)](https://github.com/tuftsdatalab/intro-r/tarball/workshop)&nbsp;
-[![license](https://img.shields.io/github/license/tuftsdatalab/intro-r)](https://github.com/tuftsdatalab/intro-r/blob/main/LICENSE.txt)&nbsp;
 ![last updated](https://img.shields.io/github/last-commit/tuftsdatalab/intro-r?label=last%20updated)
 
 **A Tufts University Data Lab Workshop**\
