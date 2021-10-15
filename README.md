@@ -7,6 +7,4 @@
 
 Source repository for the following [Tufts University Data Lab](https://sites.tufts.edu/datalab/) workshop: [*A Gentle Introduction to R*](https://tuftsdatalab.github.io/intro-r/)
 
-**Please see the [workshop website](https://tuftsdatalab.github.io/intro-r/) for content.** The following is a development guide.
-
-Repository administrator: [@ukukas](https://github.com/ukukas/)
+**Please see the [workshop website](https://tuftsdatalab.github.io/intro-r/) for content.** The following is a development guide intended for staff.
