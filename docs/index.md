@@ -1,21 +1,33 @@
-[![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tuftsdatalab/intro-r/binder?urlpath=rstudio){:target="_blank"}&nbsp;
-[![View on Github](https://tuftsdatalab.github.io/badges/github.svg)](https://github.com/tuftsdatalab/intro-r)&nbsp;
-[![Download Zip](https://tuftsdatalab.github.io/badges/zip.svg)](https://github.com/tuftsdatalab/intro-r/zipball/workshop)&nbsp;
-[![Download TarGz](https://tuftsdatalab.github.io/badges/tgz.svg)](https://github.com/tuftsdatalab/intro-r/tarball/workshop)&nbsp;
-![last updated](https://img.shields.io/github/last-commit/tuftsdatalab/intro-r?label=last%20updated)
+---
+binder_popup: "[binder-link]{:target='_blank'}"
+binder_button: "[![Launch Binder](https://mybinder.org/badge_logo.svg)][binder-link]{:target='_blank'}"
+github_button: "[![View on Github](../badges/github.svg)][repo-link]"
+zipball_button: "[![Download Zip](../badges/zip.svg)][zipball-link]"
+tarball_button: "[![Download TarGz](../badges/tgz.svg)][tarball-link]"
+install_link: "[go.tufts.edu/InstallingR](https://go.tufts.edu/InstallingR)"
+---
+
+{{ page.binder_button }}&nbsp;
+{{ page.github_button }}&nbsp;
+{{ page.zipball_button }}&nbsp;
+{{ page.tarball_button }}&nbsp;
+![last updated][last-updated-badge]
 
 **A Tufts University Data Lab Workshop**\
-Written by Uku-Kaspar Uustalu and Kyle Monahan
+Written by {{ site.author }}
 
-[![datalab.tufts.edu](https://tuftsdatalab.github.io/badges/datalab.svg)](https://sites.tufts.edu/datalab)&nbsp;
-[![@TuftsDataLab](https://tuftsdatalab.github.io/badges/twitter.svg)](https://twitter.com/intent/follow?screen_name=tuftsdatalab)
+[![datalab.tufts.edu](../badges/datalab.svg)](https://sites.tufts.edu/datalab)&nbsp;
+[![@TuftsDataLab](../badges/twitter.svg)](https://twitter.com/intent/follow?screen_name=tuftsdatalab)
 
 R resources: [go.tufts.edu/stats](https://go.tufts.edu/stats)\
-Slides: [tufts.box.com/v/intro-r-slides](https://tufts.box.com/v/intro-r-slides)\
+Slides: [tufts.box.com/v/{{ site.slides }}](https://tufts.box.com/v/{{ site.slides }})\
 Live offerings: [go.tufts.edu/workshops](https://go.tufts.edu/workshops)\
 Contact: <datalab-support@elist.tufts.edu>
 
 ---
+
+<!-- begin editable area -->
+
 This is an introductory R workshop designed for use in an instructor-guided session, but that is also suitable for self-guided study. The workshop can be run both locally or in a cloud-computing environment. Please select the most suitable option for you from below.
 
 - [Run the workshop in a cloud-computing environment](#binder) *(does not require the installation of additional software)*
@@ -24,9 +36,9 @@ This is an introductory R workshop designed for use in an instructor-guided sess
 ---
 ## Running the Workshop in a Cloud-Computing Environment (Recommended) {#binder}
 
-[![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tuftsdatalab/intro-r/binder?urlpath=rstudio){:target="_blank"}
+{{ page.binder_button }}
 
-1. Click on the [**Launch Binder**](https://mybinder.org/v2/gh/tuftsdatalab/intro-r/binder?urlpath=rstudio){:target="_blank"} button above.
+1. Click on the [**Launch Binder**]{{ page.binder_popup }} button above.
 2. A Binder instance will launch in a new tab with the message *Starting Repository*.
 3. Wait patiently and do not close the Binder tab. After a few minutes, an **RStudio** instance will launch.
 4. Once **RStudio** has launched, locate the *Files* tab in the bottom-right. It should list `intro-r.R` along with other files.
@@ -35,11 +47,19 @@ This is an introductory R workshop designed for use in an instructor-guided sess
 ---
 ## Running the Workshop Locally on your Computer {#local}
 
-[![Download Zip](https://tuftsdatalab.github.io/badges/zip.svg)](https://github.com/tuftsdatalab/intro-r/zipball/workshop)&nbsp;
-[![Download TarGz](https://tuftsdatalab.github.io/badges/tgz.svg)](https://github.com/tuftsdatalab/intro-r/tarball/workshop)
+{{ page.zipball_button }}&nbsp;
+{{ page.tarball_button }}
 
-1. Make sure you have **both R and RStudio** installed. Instructions are available here: [go.tufts.edu/InstallingR](https://go.tufts.edu/InstallingR)
-2. Click on the [**Download Zip**](https://github.com/tuftsdatalab/intro-r/zipball/workshop) or [**Download TarGz**](https://github.com/tuftsdatalab/intro-r/tarball/workshop) button above to download an archive containing the workshop materials.
+1. Make sure you have **both R and RStudio** installed. Instructions are available here: {{ page.install_link }}
+2. Click on the [**Download Zip**][zipball-link] or [**Download TarGz**][tarball-link] button above to download an archive containing the workshop materials.
 3. Extract the contents of the downloaded archive to a suitable location and rename the extracted folder if desired.
 4. Open the extracted folder and ensure it contains both `intro-r.R` and `atlantic.csv`.
 5. *Right-click* on `intro-r.R` and select ***Open With > RStudio*** to launch the workshop.
+
+<!-- end editable area -->
+
+[binder-link]: https://mybinder.org/v2/gh/tuftsdatalab/{{ site.repo }}/binder?urlpath=rstudio
+[repo-link]: https://github.com/tuftsdatalab/{{ site.repo }}
+[zipball-link]: https://github.com/tuftsdatalab/{{ site.repo }}/zipball/workshop
+[tarball-link]: https://github.com/tuftsdatalab/{{ site.repo }}/tarball/workshop
+[last-updated-badge]: https://img.shields.io/github/last-commit/tuftsdatalab/{{ site.repo }}?label=last%20updated
