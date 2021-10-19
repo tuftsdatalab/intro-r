@@ -23,16 +23,28 @@ Live offerings: [go.tufts.edu/workshops](https://go.tufts.edu/workshops)\
 Contact: <datalab-support@elist.tufts.edu>
 
 ---
+## Table of Contents {#toc}
 
-<!-- begin editable area -->
-
-This is an introductory R workshop designed for use in an instructor-guided session, but that is also suitable for self-guided study. The workshop can be run both locally or in a cloud-computing environment. Please select the most suitable option for you from below.
-
-- [Run the workshop in a cloud-computing environment](#binder) *(does not require the installation of additional software)*
-- [Run the workshop locally on your computer](#local) *(requires the installation of both R and RStudio)*
+- [Workshop Overview](#overview)
+- [Running the Workshop using an Online Cloud-Computing Environment (Recommended)](#binder) *(does not require the installation of additional software)*
+- [Running the Workshop Locally on your Computer](#local) *(requires the installation of both R and RStudio)*
 
 ---
-## Running the Workshop in a Cloud-Computing Environment (Recommended) {#binder}
+## Workshop Overview {#overview}
+
+An introductory R workshop that is suitable for self-guided study and covers the following:
+
+- **Variables** and **datatypes**
+- Working with **vectors** (arrays) and **lists**
+- Commands for **descriptive statistics**
+- R **packages** and the **tidyverse**
+- Reading **data** from a **file**
+- Working with **data frames**
+- Basic **data wrangling** (cleaning)
+- Creating and tweaking **visualizations**
+
+---
+## Running the Workshop using an Online Cloud-Computing Environment (Recommended) {#binder}
 
 {{ page.binder_button }}
 
@@ -54,7 +66,6 @@ This is an introductory R workshop designed for use in an instructor-guided sess
 4. Open the extracted folder and ensure it contains both `{{ site.file }}` along with other files.
 5. *Right-click* on `{{ site.file }}` and select ***Open With > RStudio*** to launch the workshop.
 
-<!-- end editable area -->
 
 [binder-link]: https://mybinder.org/v2/gh/tuftsdatalab/{{ site.repo }}/binder?urlpath=rstudio
 [repo-link]: https://github.com/tuftsdatalab/{{ site.repo }}
