@@ -26,7 +26,7 @@ Contact: <datalab-support@elist.tufts.edu>
 ## Table of Contents {#toc}
 
 - [Workshop Overview](#overview)
-- [Running the Workshop using an Online Cloud-Computing Environment (Recommended)](#binder) *(does not require the installation of additional software)*
+- [Running the Workshop using an Online Cloud-Computing Environment](#binder) *(does not require the installation of additional software)*
 - [Running the Workshop Locally on your Computer](#local) *(requires the installation of both R and RStudio)*
 
 ---
@@ -44,7 +44,7 @@ An introductory R workshop that is suitable for self-guided study and covers the
 - Creating and tweaking **visualizations**
 
 ---
-## Running the Workshop using an Online Cloud-Computing Environment (Recommended) {#binder}
+## Running the Workshop using an Online Cloud-Computing Environment {#binder}
 
 {{ page.binder_button }}
 
