@@ -23,7 +23,6 @@ jobs:
           destination_branch: binder
           push_include: "binder/** workshop/**"
           push_move: |
-            binder/.Rprofile||.Rprofile
             binder||.binder
             workshop||
           workflow: push
