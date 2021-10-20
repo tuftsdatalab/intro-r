@@ -155,14 +155,6 @@ grades[2]
 # ...and FALSE if it does not. TRUE and FALSE are boolean datatypes, also known
 # as logical datatypes in R. These are commonly used to denote binary variables.
 
-# Most advanced operators in R are surrounded by percent-signs. But that is not
-# always the case. For example, the operator for NOT is an exclamation point.
-
-!(96 %in% grades)
-
-# The parentheses above are not actually necessary, but they help with clarity.
-# First we check whether 96 is in grades, and then we reverse the result.
-
 
 
 ##  --------------- Descriptive Statistics ----------------
