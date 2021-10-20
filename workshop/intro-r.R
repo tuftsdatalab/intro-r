@@ -118,7 +118,7 @@ n
 
 
 
-##  --------------------- Functions -----------------------
+##  --------------- Functions and Vectors -----------------
 
 # We use the combine function, which is c(n, n, n, ... n)
 
@@ -190,6 +190,10 @@ sd(grades)      # Standard deviation
 
 objects()
 
+
+
+##  ----------------- Modifying a Vector ------------------
+
 # Suddenly, we were able to retake a test. Great!
 # Now we have to replace the value of 72 (the lowest grade) with our new grade
 # of 85. We can assign the new value to the specific index we want to replace.
@@ -198,7 +202,7 @@ grades[3] <- 85
 
 
 
-##  ------------------ Saving Variables -------------------
+##  -------- Saving Variables and Creating Tables ---------
 
 # Re-calculate grades given our retake and create new values to store them.
 # In R you can store almost anything as a variable, and you should take
