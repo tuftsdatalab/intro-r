@@ -32,6 +32,8 @@ Contact: <datalab-support@elist.tufts.edu>
 ---
 ## Workshop Overview {#overview}
 
+<!-- DO NOT CHANGE ANYTHING ABOVE THIS LINE -->
+
 An introductory R workshop that is suitable for self-guided study and covers the following:
 
 - **Variables** and **datatypes**
@@ -42,6 +44,8 @@ An introductory R workshop that is suitable for self-guided study and covers the
 - Working with **data frames**
 - Basic **data wrangling** (cleaning)
 - Creating and tweaking **visualizations**
+
+<!-- DO NOT CHANGE ANYTHING BELOW THIS LINE -->
 
 ---
 ## Running the Workshop using an Online Cloud-Computing Environment {#binder}
