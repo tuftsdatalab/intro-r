@@ -215,9 +215,9 @@ grades_sd <- sd(grades)
 # To store the values, remember to assign them to variables.
 # Now we can create a table, with a function called rbind:
 
-grades_table <- rbind(Mean = as.numeric(grades_mean),
-                      Median = as.numeric(grades_median),
-                      SD = as.numeric(grades_sd))
+grades_table <- rbind(Mean = grades_mean,
+                      Median = grades_median,
+                      SD = grades_sd)
 grades_table
 
 # When creating the table, we save it as an object (grades_table).
@@ -477,12 +477,12 @@ hurrdata$Maximum.Wind[6]
 ##  ----------- Data Cleaning: Dates & Strings ------------
 
 # Let's say we want to analyze maximum wind speed by year.
-# Note how the date is stored as a string in YYYYMMDD format.
+# Note how the date is stored as a number in YYYYMMDD format.
 # This notation is great for sorting but very inconvenient for analysis.
 
 # Extract year and month and store them in separate columns.
 
-# Isolate the date string. Note how the as.character() is actually unnecessary.
+# Convert the dates to string (text) and extract to a variable.
 date_strings <- as.character(hurrdata$Date)
 
 # Extract the year from the date string (position 1-4).
