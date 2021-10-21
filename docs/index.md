@@ -32,6 +32,8 @@ Contact: <datalab-support@elist.tufts.edu>
 ---
 ## Workshop Overview {#overview}
 
+<!-- DO NOT CHANGE ANYTHING ABOVE THIS LINE -->
+
 An introductory R workshop that is suitable for self-guided study and covers the following:
 
 - **Variables** and **datatypes**
@@ -42,6 +44,8 @@ An introductory R workshop that is suitable for self-guided study and covers the
 - Working with **data frames**
 - Basic **data wrangling** (cleaning)
 - Creating and tweaking **visualizations**
+
+<!-- DO NOT CHANGE ANYTHING BELOW THIS LINE -->
 
 ---
 ## Running the Workshop using an Online Cloud-Computing Environment {#binder}
@@ -60,7 +64,7 @@ An introductory R workshop that is suitable for self-guided study and covers the
 {{ page.zipball_button }}&nbsp;
 {{ page.tarball_button }}
 
-1. Make sure you have **both R and RStudio** installed. Instructions are available here: [go.tufts.edu/InstallingR](https://go.tufts.edu/InstallingR)
+1. Make sure you have **both R and RStudio** installed. Instructions are available here: [go.tufts.edu/installingR](https://go.tufts.edu/installingR)
 2. Click on the [**Download Zip**][zipball-link] or [**Download TarGz**][tarball-link] button above to download an archive containing the workshop materials.
 3. Extract the contents of the downloaded archive to a suitable location and rename the extracted folder if desired.
 4. Open the extracted folder and ensure it contains both `{{ site.file }}` along with other files.
