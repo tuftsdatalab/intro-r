@@ -260,22 +260,21 @@ grades_table
 ##  ------------- Checking Installed Packages -------------
 
 # Depending on what system you are running this script on, you might already
-# have tidyverse installed. We can check this by using the installed.packages()
-# function that outputs a table of all installed packages.
+# have tidyverse installed. This can be easily verified using the Packages tab
+# to the right. Click on the tab to view a list of installed packages. There
+# is also a search bar that allows you to search for a specific package and
+# verify whether it is installed or not.
 
-installed.packages()
+# Try searching for tidyverse to check whether you have it installed or not.
 
-# But manually going though that table and checking if we have a package
-# installed is extremely tedious, especially if we have many packages installed.
-
-# We can use the %in% operator from before to check for a specific package.
+# Alternatively we could use the installed.packages() function to see which
+# packages are installed on our system. That function outputs a list of all
+# installed packages. Using the %in% operator from before, we can check whether
+# tidyverse appears in the list of installed packages or not.
 
 'tidyverse' %in% installed.packages()
 
 # This will return TRUE if you have tidyverse installed and FALSE if you do not.
-
-# You can also view, search for, install, and activate packages using the
-# packages tab in the lower-right quadrant of RStudio.
 
 
 
@@ -285,21 +284,17 @@ installed.packages()
 # this function does not check if a package is already installed and will
 # overwrite and reinstall the specified package if it is already installed.
 
-# To ensure we only install the package if it is not already installed, we can
-# place the install.packages() function into an if statement.
+# Hence you should only use install.packages() to install packages you do not
+# already have installed or to update previously installed packages if needed.
 
-if (!('tidyverse' %in% installed.packages())) {
-    install.packages('tidyverse')
-}
+# If you confirmed that you DO NOT already have tidyverse installed, uncomment
+# line 297 below and run the install.packages('tidyverse') command. This will
+# install every package in the tidyverse on your machine and will take around
+# five minutes to complete.
 
-# If statements can be confusing and are perhaps somewhat too advanced for an
-# introductory workshop. Basically, the block above checks if 'tidyverse' exists
-# in the list of installed packages, and installs it if it is not present.
+# To uncomment a line, simply delete the # symbol at the start of the line.
 
-# Go ahead and select the whole if-statement above (lines 295-297) and run it.
-# If you already have tidyverse installed, nothing will happen. But if you do
-# not, the install.packages('tidyverse') command will run and install every
-# tidyverse package onto your computer. This might take up to five minutes.
+# install.packages('tidyverse')
 
 # Note that you only need to install packages once. The next time you will be
 # running R on this computer, all tidyverse packages will already be installed.
@@ -308,18 +303,18 @@ if (!('tidyverse' %in% installed.packages())) {
 
 ##  ------------------ Calling a Library ------------------
 
-# Before we can use a package, we need to add it to our library.
-# How do we do this? Let's try library:
-
-?library()
-
-# Using the tidyverse meta-package, we can easily add all of the tidyverse
-# packages into our library at once.
+# Before we can use a package, we need to add it to our library. This can be
+# done using the library() command. Using the tidyverse meta-package, we can
+# easily add all of the tidyverse packages into our library at once.
 
 library(tidyverse)
 
 # Note how multiple different packages were attached to our library.
 # Also note how there were a couple conflicts. We will talk about those later.
+
+# If you received an error stating that there is no package called 'tidyverse'
+# then that means you do not have tidyverse installed. Please uncomment and run
+# line 297 and then run line 310 again.
 
 
 
