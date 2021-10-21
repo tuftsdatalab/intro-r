@@ -230,7 +230,7 @@ grades_table
 # Now you have mastered the basics of R.
 # But we really want to learn how to import data! So let's do that.
 
-# We have a CSV file of the Atlantic hurricane database (HURDAT2).
+# We have a CSV file of the Atlantic Hurricane Database (HURDAT2).
 # The data is released by the National Hurricane Center.
 
 # But how do we import this data so we can use it in R?
@@ -483,17 +483,17 @@ hurrdata$Maximum.Wind[6]
 # Extract year and month and store them in separate columns.
 
 # Isolate the date string. Note how the as.character() is actually unnecessary.
-date.s <- as.character(hurrdata$Date)
+date_strings <- as.character(hurrdata$Date)
 
 # Extract the year from the date string (position 1-4).
-hurrdata$Year <- substr(date.s, 1, 4)
+hurrdata$Year <- substr(date_strings, 1, 4)
 
 # Extract the month from the date string (position 5-6).
-hurrdata$Month <- substr(date.s, 5, 6)
+hurrdata$Month <- substr(date_strings, 5, 6)
 
 # Convert both new variables to numeric to accommodate further analysis.
-hurrdata$Month <- as.numeric(as.character(hurrdata$Month))
-hurrdata$Year <- as.numeric(as.character(hurrdata$Year))
+hurrdata$Month <- as.numeric(hurrdata$Month)
+hurrdata$Year <- as.numeric(hurrdata$Year)
 
 # YOU TRY: Take a look at the new data using head() or the Environment tab.
 
