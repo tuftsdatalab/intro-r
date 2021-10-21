@@ -562,7 +562,7 @@ hurrdata2 <- sample_n(hurrdata, 200, replace = FALSE)
 ##  ------------------ Advanced Graphing ------------------
 
 # Now we re-run the graph, and modify the axis to make the Year easier to see.
-# Highlight this entire section (lines 570-580) and click "Run".
+# Highlight this entire section (lines 567-577) and click "Run".
 
 hurrgraph2 <- ggplot(data = hurrdata2,
                      aes(x = Year, y = Maximum.Wind, color = Maximum.Wind)) +
@@ -588,9 +588,9 @@ hurrgraph2
 # Plotly is not included in the tidyverse, so we have to install it (unless it
 # is already installed) and load it into our library.
 
-if (!('plotly' %in% installed.packages())) {
-  install.packages("plotly")
-}
+# To install plotly, uncomment line 593 below and run the installation command.
+
+# install.packages('plotly')
 
 library(plotly)
 
