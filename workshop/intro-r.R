@@ -555,7 +555,7 @@ min(hurrdata$Maximum.Wind)
 # about installing and loading these packages separately. In fact, if I were not
 # mentioning it, we would not even notice we are using them.
 
-hurrdata2 <- sample_n(hurrdata, 200, replace = TRUE)
+hurrdata2 <- sample_n(hurrdata, 200, replace = FALSE)
 
 
 
