@@ -208,16 +208,16 @@ grades[3] <- 85
 # In R you can store almost anything as a variable, and you should take
 # advantage of that. Always save anything that you might need going forward.
 
-g_mean <- mean(grades)
-g_median <- median(grades)
-g_sd <- sd(grades)
+grades_mean <- mean(grades)
+grades_median <- median(grades)
+grades_sd <- sd(grades)
 
 # To store the values, remember to assign them to variables.
 # Now we can create a table, with a function called rbind:
 
-grades_table <- rbind(Mean = as.numeric(g_mean),
-                      Median = as.numeric(g_median),
-                      SD = as.numeric(g_sd))
+grades_table <- rbind(Mean = as.numeric(grades_mean),
+                      Median = as.numeric(grades_median),
+                      SD = as.numeric(grades_sd))
 grades_table
 
 # When creating the table, we save it as an object (grades_table).
