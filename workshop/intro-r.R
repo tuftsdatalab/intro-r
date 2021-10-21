@@ -385,6 +385,12 @@ hurrdata <- read_csv('atlantic.csv')
 #       Session > Set Working Directory > To Source File Location.
 #       This tells RStudio to look for files in the same folder as the script.
 
+# The read_csv() function has numerous additional optional arguments that we can
+# use to specify how exactly a data file should be read in and interpreted.
+# To investigate those, we can use help() or the ? operator.
+
+?read_csv
+
 
 
 ##  -------------------- Exploring Data -------------------
