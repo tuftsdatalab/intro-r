@@ -10,7 +10,7 @@
 ##
 ##  -------------------------------------------------------
 ##  Title:        Introduction to R and RStudio
-##  Last update:  2021-10-13
+##  Last update:  2021-10-21
 ##  Written by:   Uku-Kaspar Uustalu & Kyle Monahan
 ##  Contact:      datalab-support -AT- elist.tufts.edu
 ##  Website:      tuftsdatalab.github.io/intro-r
