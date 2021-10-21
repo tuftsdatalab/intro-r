@@ -10,7 +10,7 @@
 ##
 ##  -------------------------------------------------------
 ##  Title:        Introduction to R and RStudio
-##  Last update:  2021-10-13
+##  Last update:  2021-10-21
 ##  Written by:   Uku-Kaspar Uustalu & Kyle Monahan
 ##  Contact:      datalab-support -AT- elist.tufts.edu
 ##  Website:      tuftsdatalab.github.io/intro-r
@@ -118,7 +118,7 @@ n
 
 
 
-##  --------------------- Functions -----------------------
+##  --------------- Functions and Vectors -----------------
 
 # We use the combine function, which is c(n, n, n, ... n)
 
@@ -155,14 +155,6 @@ grades[2]
 # ...and FALSE if it does not. TRUE and FALSE are boolean datatypes, also known
 # as logical datatypes in R. These are commonly used to denote binary variables.
 
-# Most advanced operators in R are surrounded by percent-signs. But that is not
-# always the case. For example, the operator for NOT is an exclamation point.
-
-!(96 %in% grades)
-
-# The parentheses above are not actually necessary, but they help with clarity.
-# First we check whether 96 is in grades, and then we reverse the result.
-
 
 
 ##  --------------- Descriptive Statistics ----------------
@@ -198,6 +190,10 @@ sd(grades)      # Standard deviation
 
 objects()
 
+
+
+##  ----------------- Modifying a Vector ------------------
+
 # Suddenly, we were able to retake a test. Great!
 # Now we have to replace the value of 72 (the lowest grade) with our new grade
 # of 85. We can assign the new value to the specific index we want to replace.
@@ -206,22 +202,22 @@ grades[3] <- 85
 
 
 
-##  ------------------ Saving Variables -------------------
+##  -------- Saving Variables and Creating Tables ---------
 
 # Re-calculate grades given our retake and create new values to store them.
 # In R you can store almost anything as a variable, and you should take
 # advantage of that. Always save anything that you might need going forward.
 
-g_mean <- mean(grades)
-g_median <- median(grades)
-g_sd <- sd(grades)
+grades_mean <- mean(grades)
+grades_median <- median(grades)
+grades_sd <- sd(grades)
 
 # To store the values, remember to assign them to variables.
 # Now we can create a table, with a function called rbind:
 
-grades_table <- rbind(Mean = as.numeric(g_mean),
-                      Median = as.numeric(g_median),
-                      SD = as.numeric(g_sd))
+grades_table <- rbind(Mean = grades_mean,
+                      Median = grades_median,
+                      SD = grades_sd)
 grades_table
 
 # When creating the table, we save it as an object (grades_table).
@@ -234,7 +230,7 @@ grades_table
 # Now you have mastered the basics of R.
 # But we really want to learn how to import data! So let's do that.
 
-# We have a CSV file of the Atlantic hurricane database (HURDAT2).
+# We have a CSV file of the Atlantic Hurricane Database (HURDAT2).
 # The data is released by the National Hurricane Center.
 
 # But how do we import this data so we can use it in R?
@@ -264,22 +260,21 @@ grades_table
 ##  ------------- Checking Installed Packages -------------
 
 # Depending on what system you are running this script on, you might already
-# have tidyverse installed. We can check this by using the installed.packages()
-# function that outputs a table of all installed packages.
+# have tidyverse installed. This can be easily verified using the Packages tab
+# to the right. Click on the tab to view a list of installed packages. There
+# is also a search bar that allows you to search for a specific package and
+# verify whether it is installed or not.
 
-installed.packages()
+# Try searching for tidyverse to check whether you have it installed or not.
 
-# But manually going though that table and checking if we have a package
-# installed is extremely tedious, especially if we have many packages installed.
-
-# We can use the %in% operator from before to check for a specific package.
+# Alternatively we could use the installed.packages() function to see which
+# packages are installed on our system. That function outputs a list of all
+# installed packages. Using the %in% operator from before, we can check whether
+# tidyverse appears in the list of installed packages or not.
 
 'tidyverse' %in% installed.packages()
 
 # This will return TRUE if you have tidyverse installed and FALSE if you do not.
-
-# You can also view, search for, install, and activate packages using the
-# packages tab in the lower-right quadrant of RStudio.
 
 
 
@@ -289,21 +284,17 @@ installed.packages()
 # this function does not check if a package is already installed and will
 # overwrite and reinstall the specified package if it is already installed.
 
-# To ensure we only install the package if it is not already installed, we can
-# place the install.packages() function into an if statement.
+# Hence you should only use install.packages() to install packages you do not
+# already have installed or to update previously installed packages if needed.
 
-if (!('tidyverse' %in% installed.packages())) {
-    install.packages('tidyverse')
-}
+# If you confirmed that you DO NOT already have tidyverse installed, uncomment
+# line 297 below and run the install.packages('tidyverse') command. This will
+# install every package in the tidyverse on your machine and will take around
+# five minutes to complete.
 
-# If statements can be confusing and are perhaps somewhat too advanced for an
-# introductory workshop. Basically, the block above checks if 'tidyverse' exists
-# in the list of installed packages, and installs it if it is not present.
+# To uncomment a line, simply delete the # symbol at the start of the line.
 
-# Go ahead and select the whole if-statement above (lines 295-297) and run it.
-# If you already have tidyverse installed, nothing will happen. But if you do
-# not, the install.packages('tidyverse') command will run and install every
-# tidyverse package onto your computer. This might take up to five minutes.
+# install.packages('tidyverse')
 
 # Note that you only need to install packages once. The next time you will be
 # running R on this computer, all tidyverse packages will already be installed.
@@ -312,18 +303,18 @@ if (!('tidyverse' %in% installed.packages())) {
 
 ##  ------------------ Calling a Library ------------------
 
-# Before we can use a package, we need to add it to our library.
-# How do we do this? Let's try library:
-
-?library()
-
-# Using the tidyverse meta-package, we can easily add all of the tidyverse
-# packages into our library at once.
+# Before we can use a package, we need to add it to our library. This can be
+# done using the library() command. Using the tidyverse meta-package, we can
+# easily add all of the tidyverse packages into our library at once.
 
 library(tidyverse)
 
 # Note how multiple different packages were attached to our library.
 # Also note how there were a couple conflicts. We will talk about those later.
+
+# If you received an error stating that there is no package called 'tidyverse'
+# then that means you do not have tidyverse installed. Please uncomment and run
+# line 297 and then run line 310 again.
 
 
 
@@ -393,6 +384,12 @@ hurrdata <- read_csv('atlantic.csv')
 #       in the same folder as the IntroR.R script, and go to:
 #       Session > Set Working Directory > To Source File Location.
 #       This tells RStudio to look for files in the same folder as the script.
+
+# The read_csv() function has numerous additional optional arguments that we can
+# use to specify how exactly a data file should be read in and interpreted.
+# To investigate those, we can use help() or the ? operator.
+
+?read_csv
 
 
 
@@ -481,23 +478,23 @@ hurrdata$Maximum.Wind[6]
 ##  ----------- Data Cleaning: Dates & Strings ------------
 
 # Let's say we want to analyze maximum wind speed by year.
-# Note how the date is stored as a string in YYYYMMDD format.
+# Note how the date is stored as a number in YYYYMMDD format.
 # This notation is great for sorting but very inconvenient for analysis.
 
 # Extract year and month and store them in separate columns.
 
-# Isolate the date string. Note how the as.character() is actually unnecessary.
-date.s <- as.character(hurrdata$Date)
+# Convert the dates to string (text) and extract to a variable.
+date_strings <- as.character(hurrdata$Date)
 
 # Extract the year from the date string (position 1-4).
-hurrdata$Year <- substr(date.s, 1, 4)
+hurrdata$Year <- substr(date_strings, 1, 4)
 
 # Extract the month from the date string (position 5-6).
-hurrdata$Month <- substr(date.s, 5, 6)
+hurrdata$Month <- substr(date_strings, 5, 6)
 
 # Convert both new variables to numeric to accommodate further analysis.
-hurrdata$Month <- as.numeric(as.character(hurrdata$Month))
-hurrdata$Year <- as.numeric(as.character(hurrdata$Year))
+hurrdata$Month <- as.numeric(hurrdata$Month)
+hurrdata$Year <- as.numeric(hurrdata$Year)
 
 # YOU TRY: Take a look at the new data using head() or the Environment tab.
 
@@ -558,14 +555,14 @@ min(hurrdata$Maximum.Wind)
 # about installing and loading these packages separately. In fact, if I were not
 # mentioning it, we would not even notice we are using them.
 
-hurrdata2 <- sample_n(hurrdata, 200, replace = TRUE)
+hurrdata2 <- sample_n(hurrdata, 200, replace = FALSE)
 
 
 
 ##  ------------------ Advanced Graphing ------------------
 
 # Now we re-run the graph, and modify the axis to make the Year easier to see.
-# Highlight this entire section (lines 570-580) and click "Run".
+# Highlight this entire section (lines 567-577) and click "Run".
 
 hurrgraph2 <- ggplot(data = hurrdata2,
                      aes(x = Year, y = Maximum.Wind, color = Maximum.Wind)) +
@@ -591,9 +588,9 @@ hurrgraph2
 # Plotly is not included in the tidyverse, so we have to install it (unless it
 # is already installed) and load it into our library.
 
-if (!('plotly' %in% installed.packages())) {
-  install.packages("plotly")
-}
+# To install plotly, uncomment line 593 below and run the installation command.
+
+# install.packages('plotly')
 
 library(plotly)
 
