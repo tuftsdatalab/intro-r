@@ -15,9 +15,6 @@
 ##  Contact:      datalab-support -AT- elist.tufts.edu
 ##  Website:      tuftsdatalab.github.io/intro-r
 ##  -------------------------------------------------------
-##
-##  Data Lab resources on R and statistics: go.tufts.edu/stats
-
 
 
 ##  ------------------- Getting Started -------------------
@@ -100,7 +97,7 @@ n
 ##  ------------------- Console Window --------------------
 
 # YOUR TURN: Try setting n <- 300 in the Console Window!
-# It's just like line 92 above. After you're done, print n.
+# It's just like line 89 above. After you're done, print n.
 
 # If you can't see the Console Window, just click on the word "Console" below.
 
@@ -288,7 +285,7 @@ grades_table
 # already have installed or to update previously installed packages if needed.
 
 # If you confirmed that you DO NOT already have tidyverse installed, uncomment
-# line 297 below and run the install.packages('tidyverse') command. This will
+# line 294 below and run the install.packages('tidyverse') command. This will
 # install every package in the tidyverse on your machine and will take around
 # five minutes to complete.
 
@@ -314,7 +311,7 @@ library(tidyverse)
 
 # If you received an error stating that there is no package called 'tidyverse'
 # then that means you do not have tidyverse installed. Please uncomment and run
-# line 297 and then run line 310 again.
+# line 294 and then run line 307 again.
 
 
 
@@ -562,7 +559,7 @@ hurrdata2 <- sample_n(hurrdata, 200, replace = FALSE)
 ##  ------------------ Advanced Graphing ------------------
 
 # Now we re-run the graph, and modify the axis to make the Year easier to see.
-# Highlight this entire section (lines 567-577) and click "Run".
+# Highlight this entire section (lines 564-574) and click "Run".
 
 hurrgraph2 <- ggplot(data = hurrdata2,
                      aes(x = Year, y = Maximum.Wind, color = Maximum.Wind)) +
@@ -588,7 +585,7 @@ hurrgraph2
 # Plotly is not included in the tidyverse, so we have to install it (unless it
 # is already installed) and load it into our library.
 
-# To install plotly, uncomment line 593 below and run the installation command.
+# To install plotly, uncomment line 590 below and run the installation command.
 
 # install.packages('plotly')
 
