@@ -296,7 +296,7 @@ grades_table
 # Note that you only need to install packages once. The next time you will be
 # running R on this computer, all tidyverse packages will already be installed.
 
-# You can also install packages via the Packages tab by clicking Install.
+# You can also install packages via the Packages tab by clicking "Install".
 
 
 
@@ -363,8 +363,8 @@ help(setwd)
 ##  -------------------- Importing Data -------------------
 
 # When we called library(tidyverse), it included all of the tidyverse packages,
-# including readr into our library and made them available for use. Now we can
-# use the read_csv function included in readr.
+# including readr into our library and made them available for use.
+# Now we can use the read_csv function included in readr.
 
 # However, remember that there were some conflicts. That means that some of the
 # packages in our library now have functions with the same name. One of those
@@ -501,7 +501,7 @@ hurrdata$Year <- as.numeric(hurrdata$Year)
 # YOU TRY: Take a look at the new data using head() or the Environment tab.
 
 # In reality you should actually use a package specifically deigned to work with
-# dates like lubricate (also included in the tidyverse) and convert the "Date"
+# dates like lubridate (also included in the tidyverse) and convert the "Date"
 # variable into a date data type. However, that would add extra complexity to
 # this tutorial, so we decided to take a different approach here that also
 # allowed us to experiment with type casting and the substring() function.
@@ -511,9 +511,7 @@ hurrdata$Year <- as.numeric(hurrdata$Year)
 ##  ---------------- Making a Scatter Plot ----------------
 
 # To make graphs, we will use the ggplot2 library included in the tidyverse.
-
 # Let's say we want to look at how maximum wind speed has changed over time.
-# We can access the specific column using the data.frame$column notation.
 
 hurrgraph <- ggplot(data = hurrdata, aes(x = Year, y = Maximum.Wind)) +
     geom_point()
@@ -554,8 +552,8 @@ min(hurrdata$Maximum.Wind)
 
 # Note how I keep telling you that we are using different libraries, but
 # because we installed and loaded all of the tidyverse, we do not need to worry
-# about installing and loading these packages separately. In fact, if I were not
-# mentioning it, we would not even notice we are using them.
+# about installing and loading these packages separately. In fact, if I were
+# not mentioning it, we would not even notice we are using them.
 
 hurrdata2 <- sample_n(hurrdata, 200, replace = FALSE)
 
@@ -563,8 +561,8 @@ hurrdata2 <- sample_n(hurrdata, 200, replace = FALSE)
 
 ##  ------------------ Advanced Graphing ------------------
 
-# Now we re-run the graph, and modify the axis to make the Year easier to see.
-# Highlight this entire section (lines 564-574) and click "Run".
+# Now we re-run the graph, and modify the axis to make the year easier to see.
+# Highlight this entire section (lines 567-577) and click "Run".
 
 hurrgraph2 <- ggplot(data = hurrdata2,
                      aes(x = Year, y = Maximum.Wind, color = Maximum.Wind)) +
@@ -590,7 +588,7 @@ hurrgraph2
 # Plotly is not included in the tidyverse, so we have to install it (unless it
 # is already installed) and load it into our library.
 
-# To install plotly, uncomment line 590 below and run the installation command.
+# To install plotly, uncomment line 593 below and run the installation command.
 
 # install.packages('plotly')
 
