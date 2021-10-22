@@ -296,6 +296,8 @@ grades_table
 # Note that you only need to install packages once. The next time you will be
 # running R on this computer, all tidyverse packages will already be installed.
 
+# You can also install packages via the Packages tab by clicking Install.
+
 
 
 ##  ------------------ Calling a Library ------------------
@@ -312,6 +314,9 @@ library(tidyverse)
 # If you received an error stating that there is no package called 'tidyverse'
 # then that means you do not have tidyverse installed. Please uncomment and run
 # line 294 and then run line 307 again.
+
+# You can also include a package in your library by checking the box next to
+# the corresponding package in the Packages tab.
 
 
 
