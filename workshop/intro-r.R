@@ -183,7 +183,7 @@ sd(grades)      # Standard deviation
 # These include grades and n.
 
 # If you ever forget objects and don't want to click on Environment,
-# you can always call the function objects.
+# you can always call the function objects().
 
 objects()
 
@@ -210,7 +210,7 @@ grades_median <- median(grades)
 grades_sd <- sd(grades)
 
 # To store the values, remember to assign them to variables.
-# Now we can create a table, with a function called rbind:
+# Now we can create a table with a function called rbind():
 
 grades_table <- rbind(Mean = grades_mean,
                       Median = grades_median,
@@ -239,11 +239,11 @@ grades_table
 # Thus far we have been working with what is called base R, that is R without
 # any community-developed packages installed. Base R has a lot of built-in
 # functionality and can easily do most things. For example, there is a function
-# called read.csv that can be used to read files containing data in CSV format.
+# called read.csv() that can be used to read comma-delimited data files.
 
 # However, that function was written decades ago and is no longer the best
 # function for the job. It is notoriously inefficient and slow, especially
-# when it comes to larger files. A good alternative is the read_csv function
+# when it comes to larger files. A good alternative is the read_csv() function
 # (note the underscore) from the readr package. It provides the same
 # functionality but is significantly faster and much more efficient.
 
