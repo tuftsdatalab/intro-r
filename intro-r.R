@@ -15,9 +15,6 @@
 ##  Contact:      datalab-support -AT- elist.tufts.edu
 ##  Website:      tuftsdatalab.github.io/intro-r
 ##  -------------------------------------------------------
-##
-##  Data Lab resources on R and statistics: go.tufts.edu/stats
-
 
 
 ##  ------------------- Getting Started -------------------
@@ -100,7 +97,7 @@ n
 ##  ------------------- Console Window --------------------
 
 # YOUR TURN: Try setting n <- 300 in the Console Window!
-# It's just like line 92 above. After you're done, print n.
+# It's just like line 89 above. After you're done, print n.
 
 # If you can't see the Console Window, just click on the word "Console" below.
 
@@ -186,7 +183,7 @@ sd(grades)      # Standard deviation
 # These include grades and n.
 
 # If you ever forget objects and don't want to click on Environment,
-# you can always call the function objects.
+# you can always call the function objects().
 
 objects()
 
@@ -213,7 +210,7 @@ grades_median <- median(grades)
 grades_sd <- sd(grades)
 
 # To store the values, remember to assign them to variables.
-# Now we can create a table, with a function called rbind:
+# Now we can create a table with a function called rbind():
 
 grades_table <- rbind(Mean = grades_mean,
                       Median = grades_median,
@@ -242,11 +239,11 @@ grades_table
 # Thus far we have been working with what is called base R, that is R without
 # any community-developed packages installed. Base R has a lot of built-in
 # functionality and can easily do most things. For example, there is a function
-# called read.csv that can be used to read files containing data in CSV format.
+# called read.csv() that can be used to read comma-delimited data files.
 
 # However, that function was written decades ago and is no longer the best
 # function for the job. It is notoriously inefficient and slow, especially
-# when it comes to larger files. A good alternative is the read_csv function
+# when it comes to larger files. A good alternative is the read_csv() function
 # (note the underscore) from the readr package. It provides the same
 # functionality but is significantly faster and much more efficient.
 
@@ -288,7 +285,7 @@ grades_table
 # already have installed or to update previously installed packages if needed.
 
 # If you confirmed that you DO NOT already have tidyverse installed, uncomment
-# line 297 below and run the install.packages('tidyverse') command. This will
+# line 294 below and run the install.packages('tidyverse') command. This will
 # install every package in the tidyverse on your machine and will take around
 # five minutes to complete.
 
@@ -298,6 +295,8 @@ grades_table
 
 # Note that you only need to install packages once. The next time you will be
 # running R on this computer, all tidyverse packages will already be installed.
+
+# You can also install packages via the Packages tab by clicking "Install".
 
 
 
@@ -314,7 +313,10 @@ library(tidyverse)
 
 # If you received an error stating that there is no package called 'tidyverse'
 # then that means you do not have tidyverse installed. Please uncomment and run
-# line 297 and then run line 310 again.
+# line 294 and then run line 307 again.
+
+# You can also include a package in your library by checking the box next to
+# the corresponding package in the Packages tab.
 
 
 
@@ -335,11 +337,11 @@ dir()       # The files in the working directory.
 'atlantic.csv' %in% dir()
 
 # If the statement above returns TRUE, you are all set. But if it returns FALSE,
-# you need to change your working directory. The IntroR.R script and the
+# you need to change your working directory. The intro-r.R script and the
 # atlantic.csv data file should have been downloaded to the same location.
 # Be sure that they are both right next to each other in the same folder.
 
-# If your IntroR.R script and the atlantic.csv data file are in the same folder,
+# If the intro-r.R script and the atlantic.csv data file are in the same folder,
 # you can set the working directory to the folder containing your script via
 # Set Session > Working Directory > To Source File Location.
 
@@ -361,8 +363,8 @@ help(setwd)
 ##  -------------------- Importing Data -------------------
 
 # When we called library(tidyverse), it included all of the tidyverse packages,
-# including readr into our library and made them available for use. Now we can
-# use the read_csv function included in readr.
+# including readr into our library and made them available for use.
+# Now we can use the read_csv function included in readr.
 
 # However, remember that there were some conflicts. That means that some of the
 # packages in our library now have functions with the same name. One of those
@@ -499,7 +501,7 @@ hurrdata$Year <- as.numeric(hurrdata$Year)
 # YOU TRY: Take a look at the new data using head() or the Environment tab.
 
 # In reality you should actually use a package specifically deigned to work with
-# dates like lubricate (also included in the tidyverse) and convert the "Date"
+# dates like lubridate (also included in the tidyverse) and convert the "Date"
 # variable into a date data type. However, that would add extra complexity to
 # this tutorial, so we decided to take a different approach here that also
 # allowed us to experiment with type casting and the substring() function.
@@ -509,9 +511,7 @@ hurrdata$Year <- as.numeric(hurrdata$Year)
 ##  ---------------- Making a Scatter Plot ----------------
 
 # To make graphs, we will use the ggplot2 library included in the tidyverse.
-
 # Let's say we want to look at how maximum wind speed has changed over time.
-# We can access the specific column using the data.frame$column notation.
 
 hurrgraph <- ggplot(data = hurrdata, aes(x = Year, y = Maximum.Wind)) +
     geom_point()
@@ -552,8 +552,8 @@ min(hurrdata$Maximum.Wind)
 
 # Note how I keep telling you that we are using different libraries, but
 # because we installed and loaded all of the tidyverse, we do not need to worry
-# about installing and loading these packages separately. In fact, if I were not
-# mentioning it, we would not even notice we are using them.
+# about installing and loading these packages separately. In fact, if I were
+# not mentioning it, we would not even notice we are using them.
 
 hurrdata2 <- sample_n(hurrdata, 200, replace = FALSE)
 
@@ -561,7 +561,7 @@ hurrdata2 <- sample_n(hurrdata, 200, replace = FALSE)
 
 ##  ------------------ Advanced Graphing ------------------
 
-# Now we re-run the graph, and modify the axis to make the Year easier to see.
+# Now we re-run the graph, and modify the axis to make the year easier to see.
 # Highlight this entire section (lines 567-577) and click "Run".
 
 hurrgraph2 <- ggplot(data = hurrdata2,
