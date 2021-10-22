@@ -337,11 +337,11 @@ dir()       # The files in the working directory.
 'atlantic.csv' %in% dir()
 
 # If the statement above returns TRUE, you are all set. But if it returns FALSE,
-# you need to change your working directory. The IntroR.R script and the
+# you need to change your working directory. The intro-r.R script and the
 # atlantic.csv data file should have been downloaded to the same location.
 # Be sure that they are both right next to each other in the same folder.
 
-# If your IntroR.R script and the atlantic.csv data file are in the same folder,
+# If the intro-r.R script and the atlantic.csv data file are in the same folder,
 # you can set the working directory to the folder containing your script via
 # Set Session > Working Directory > To Source File Location.
 
