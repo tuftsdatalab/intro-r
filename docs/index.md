@@ -66,13 +66,13 @@ An introductory R workshop that is suitable for self-guided study and covers the
 
 1. Make sure you have **both R and RStudio** installed. Instructions are available here: [go.tufts.edu/installingR](https://go.tufts.edu/installingR)
 2. Click on the [**Download Zip**][zipball-link] or [**Download TarGz**][tarball-link] button above to download an archive containing the workshop materials.
-3. Extract the contents of the downloaded archive to a suitable location and rename the extracted folder if desired.
-4. Open the extracted folder and ensure it contains both `{{ site.file }}` along with other files.
+3. Extract the `{{ site.repo }}-workshop` directory contained within the archive to a suitable location.
+4. Open the extracted `{{ site.repo }}-workshop` directory and ensure it contains `{{ site.file }}` along with other files.
 5. *Right-click* on `{{ site.file }}` and select ***Open With > RStudio*** to launch the workshop.
 
 
 [binder-link]: https://mybinder.org/v2/gh/tuftsdatalab/{{ site.repo }}/binder?urlpath=rstudio
 [repo-link]: https://github.com/tuftsdatalab/{{ site.repo }}
-[zipball-link]: https://github.com/tuftsdatalab/{{ site.repo }}/zipball/workshop
-[tarball-link]: https://github.com/tuftsdatalab/{{ site.repo }}/tarball/workshop
+[zipball-link]: https://github.com/tuftsdatalab/{{ site.repo }}/archive/workshop.zip
+[tarball-link]: https://github.com/tuftsdatalab/{{ site.repo }}/archive/workshop.tar.gz
 [last-updated-badge]: https://img.shields.io/github/last-commit/tuftsdatalab/{{ site.repo }}?label=last%20updated
