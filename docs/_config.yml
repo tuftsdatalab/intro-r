@@ -3,4 +3,5 @@ description: A Tufts University Data Lab Workshop
 repo: intro-r
 author: Uku-Kaspar Uustalu and Kyle Monahan
 slides: intro-r-slides
+resources: R
 file: intro-r.R
