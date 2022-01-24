@@ -9,11 +9,12 @@
 ##            Innovate. Analyze. Visualize. | datalab.tufts.edu
 ##
 ##  -------------------------------------------------------
-##  Title:        Introduction to R and RStudio
-##  Last update:  2021-10-21
+##  Title:        A Gentle Introduction to R
+##  Last update:  2022-01-24
 ##  Written by:   Uku-Kaspar Uustalu & Kyle Monahan
 ##  Contact:      datalab-support -AT- elist.tufts.edu
 ##  Website:      tuftsdatalab.github.io/intro-r
+##  Resources:    go.tufts.edu/R
 ##  -------------------------------------------------------
 
 
@@ -21,38 +22,11 @@
 ##
 ##  R is a statistical platform similar to Stata, SAS, and SPSS. This software
 ##  allows you to manipulate data, perform descriptive statistics, recode
-##  variables, and bring in your own data. If you're reading this, you have
-##  opened RStudio (the development environment for R) and you're on the way!
+##  variables, and bring in your own data. If you are reading this, you have
+##  opened RStudio (the development environment for R) and are on  way!
 ##
-##  -------------------------------------------------------
-
-
 ##  We will walk through this document together in the workshop.
-
-
-##  ------------------- Data Management -------------------
-
-##  Although we aren't covering data management in this workshop, it is an
-##  important part of any statistical analysis. Think about:
-
-##  1. Folder structure. (Thesis Data > Chapter2 > Survey Data > Data.xlsx)
-##  2. Size of data. (Is it a 3 GB text file or a 2 TB video file for NVivo?)
-##  3. Security of data. (Are you safeguarding personally-identifiable info?)
-##  4. How to split your analysis? (Select the variables you care about from
-##     the larger dataset and work with those.)
-##  5. Cleaning your data. (Confirm all the variable types are as expected.)
-##  6. Adding labels to variables. (So when you open the file in two years you
-##     remember what regre2v1 means.)
-##  7. Never save over your raw data! (Always make a copy!)
-##  8. The .R file (this) is a great way to document your analysis.
-##     To save these, go to File > Save when you have an .R script open.
-##  9. R project files (.Rproj) are a great way to save the RStudio settings
-##     you might have changed during your analysis.
-##     You can create a new R project file by going to File > New Project.
-## 10. R Notebooks (.Rmd) are a convenient way of storing detailed research
-##     notes along with your code. These can also be exported to PDF or HTML.
-##     You can create a new notebook by going to File > New File > R Notebook.
-
+##
 ##  -------------------------------------------------------
 
 #################
@@ -97,7 +71,7 @@ n
 ##  ------------------- Console Window --------------------
 
 # YOUR TURN: Try setting n <- 300 in the Console Window!
-# It's just like line 89 above. After you're done, print n.
+# It's just like line 63 above. After you're done, print n.
 
 # If you can't see the Console Window, just click on the word "Console" below.
 
@@ -110,7 +84,7 @@ n
 ##  ---------------- Combining Variables ------------------
 
 # What if you have multiple numbers to set as a variable?
-# For example, what if we wanted to store the grades we got on exams?
+# For example, what if we wanted to store the scores we got on exams?
 # These include 94, 96, 72, and 92. (The third test was really hard.)
 
 
@@ -119,23 +93,23 @@ n
 
 # We use the combine function, which is c(n, n, n, ... n)
 
-grades <- c(94, 96, 72, 92)
+scores <- c(94, 96, 72, 92)
 
 # A function is called using parenthesis ().
 
-# This assigns our grades to the variable "grades" in the Environment.
+# This assigns our scores to the variable "scores" in the Environment.
 # If we call the variable:
 
-grades
+scores
 
 # We see the values are printed. This is called a vector.
 # One can access the values within a vector by using square braces [].
 
-# To get the second grade, we use:
+# To get the second score, we use:
 
-grades[2]
+scores[2]
 
-# Note that R is one-indexed. To get the first grade, we use [1], not [0].
+# Note that R is one-indexed. To get the first score, we use [1], not [0].
 
 
 
@@ -143,11 +117,11 @@ grades[2]
 
 # To check if a vector contains an element, we can use the %in% operator.
 
-96 %in% grades
+96 %in% scores
 
 # It returns TRUE if the vector contains the element...
 
-100 %in% grades
+100 %in% scores
 
 # ...and FALSE if it does not. TRUE and FALSE are boolean datatypes, also known
 # as logical datatypes in R. These are commonly used to denote binary variables.
@@ -158,11 +132,11 @@ grades[2]
 
 # The best thing about having multiple values to work with is that we can
 # calculate various statistics. Most statistical functions in R easily take
-# a whole vector as input. Let's see what our final semester grade would be!
+# a whole vector as input. Let's see what our final semester score would be!
 
-mean(grades)    # Mean
-median(grades)  # Median
-sd(grades)      # Standard deviation
+mean(scores)    # Mean
+median(scores)  # Median
+sd(scores)      # Standard deviation
 
 
 
@@ -180,7 +154,7 @@ sd(grades)      # Standard deviation
 ##  ------------------- The Environment -------------------
 
 # Now click on Environment. We see two objects, labeled as Values.
-# These include grades and n.
+# These include scores and n.
 
 # If you ever forget objects and don't want to click on Environment,
 # you can always call the function objects().
@@ -192,33 +166,48 @@ objects()
 ##  ----------------- Modifying a Vector ------------------
 
 # Suddenly, we were able to retake a test. Great!
-# Now we have to replace the value of 72 (the lowest grade) with our new grade
+# Now we have to replace the value of 72 (the lowest score) with our new score
 # of 85. We can assign the new value to the specific index we want to replace.
 
-grades[3] <- 85
+scores[3] <- 85
 
 
 
 ##  -------- Saving Variables and Creating Tables ---------
 
-# Re-calculate grades given our retake and create new values to store them.
+# Re-calculate stats given our retake and create new values to store them.
 # In R you can store almost anything as a variable, and you should take
 # advantage of that. Always save anything that you might need going forward.
 
-grades_mean <- mean(grades)
-grades_median <- median(grades)
-grades_sd <- sd(grades)
+scores_mean <- mean(scores)
+scores_median <- median(scores)
+scores_sd <- sd(scores)
 
 # To store the values, remember to assign them to variables.
 # Now we can create a table with a function called rbind():
 
-grades_table <- rbind(Mean = grades_mean,
-                      Median = grades_median,
-                      SD = grades_sd)
-grades_table
+scores_table <- rbind(Mean = scores_mean,
+                      Median = scores_median,
+                      SD = scores_sd)
+scores_table
 
-# When creating the table, we save it as an object (grades_table).
+# When creating the table, we save it as an object (scores_table).
 # This allows us to refer back to this table at any point later in the script.
+
+class(scores_table)
+
+# We can see that our scores_table is a matrix. Matrices are the most primitive
+# form of table supported in R. Although matrices support both row and column
+# names, they are not best structure to use for working with tabular data.
+
+rownames(scores_table)
+colnames(scores_table)
+
+# Note how our column is unnamed. We can easily fix this as follows.
+
+colnames(scores_table) <- c('Value')
+
+scores_table
 
 
 
@@ -285,7 +274,7 @@ grades_table
 # already have installed or to update previously installed packages if needed.
 
 # If you confirmed that you DO NOT already have tidyverse installed, uncomment
-# line 294 below and run the install.packages('tidyverse') command. This will
+# line 283 below and run the install.packages('tidyverse') command. This will
 # install every package in the tidyverse on your machine and will take around
 # five minutes to complete.
 
@@ -313,7 +302,7 @@ library(tidyverse)
 
 # If you received an error stating that there is no package called 'tidyverse'
 # then that means you do not have tidyverse installed. Please uncomment and run
-# line 294 and then run line 307 again.
+# line 283 and then run line 298 again.
 
 # You can also include a package in your library by checking the box next to
 # the corresponding package in the Packages tab.
@@ -465,6 +454,8 @@ names(hurrdata)
 
 # Now we can replace those with versions that contain no spaces.
 
+make.names(names(hurrdata))
+
 names(hurrdata) <- make.names(names(hurrdata))
 
 # YOU TRY: Confirm that the variable names no longer contain spaces.
@@ -562,7 +553,7 @@ hurrdata2 <- sample_n(hurrdata, 200, replace = FALSE)
 ##  ------------------ Advanced Graphing ------------------
 
 # Now we re-run the graph, and modify the axis to make the year easier to see.
-# Highlight this entire section (lines 567-577) and click "Run".
+# Highlight this entire section (lines 558-568) and click "Run".
 
 hurrgraph2 <- ggplot(data = hurrdata2,
                      aes(x = Year, y = Maximum.Wind, color = Maximum.Wind)) +
@@ -588,19 +579,30 @@ hurrgraph2
 # Plotly is not included in the tidyverse, so we have to install it (unless it
 # is already installed) and load it into our library.
 
-# To install plotly, uncomment line 593 below and run the installation command.
+# Keeping track of which packages you have installed could be quire tiresome
+# and continuously reinstalling packages is a waste of time. Luckily there are
+# some R packages that make package management in R significantly easier.
 
-# install.packages('plotly')
+# One of those packages is librarian. The shelf command from the librarian
+# package ensures that the package you want is loaded into your library and
+# and also installed if needed. This allows you to easily run the same script
+# on different machines without having to worry about installing packages.
+# However, be warned that librarian does not always display conflict warnings.
 
-library(plotly)
+install.packages('librarian')
 
-hurrgraph3 <- plot_ly(hurrdata2, x = ~Year, y = ~Maximum.Wind, type = 'bar',
-                      marker = list(color = 'rgb(158,202,225)',
-                                    line = list(color = 'blue',
-                                                width = 0.5))) %>%
-  layout(title = 'Selected Annual Hurricane Data, 1851 - 2015',
-         xaxis = list(title = 'Year', tickangle = 40),
-         yaxis = list(title = 'Maximum Reported Wind Speed (knots)'))
+librarian::shelf(plotly)
+
+hurrgraph3 <- plotly::plot_ly(hurrdata2,
+                              x = ~Year,
+                              y = ~Maximum.Wind,
+                              type = 'bar',
+                              marker = list(color = 'rgb(158,202,225)',
+                                            line = list(color = 'blue',
+                                                        width = 0.5))) %>%
+  plotly::layout(title = 'Selected Annual Hurricane Data, 1851 - 2015',
+                 xaxis = list(title = 'Year', tickangle = 40),
+                 yaxis = list(title = 'Maximum Reported Wind Speed (knots)'))
 
 hurrgraph3
 

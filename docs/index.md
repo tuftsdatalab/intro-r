@@ -18,6 +18,7 @@ Written by {{ site.author }}
 [![datalab.tufts.edu](../badges/datalab.svg)](https://sites.tufts.edu/datalab)&nbsp;
 [![@TuftsDataLab](../badges/twitter.svg)](https://twitter.com/intent/follow?screen_name=tuftsdatalab)
 
+Resources: [go.tufts.edu/{{ site.resources }}](https://go.tufts.edu/{{ site.resources }})\
 Slides: [tufts.box.com/v/{{ site.slides }}](https://tufts.box.com/v/{{ site.slides }})\
 Live offerings: [go.tufts.edu/workshops](https://go.tufts.edu/workshops)\
 Contact: <datalab-support@elist.tufts.edu>
