@@ -23,7 +23,7 @@
 ##  R is a statistical platform similar to Stata, SAS, and SPSS. This software
 ##  allows you to manipulate data, perform descriptive statistics, recode
 ##  variables, and bring in your own data. If you are reading this, you have
-##  opened RStudio (the development environment for R) and are on  way!
+##  opened RStudio (the development environment for R) and are on the way!
 ##
 ##  We will walk through this document together in the workshop.
 ##
@@ -35,7 +35,9 @@
 
 ##  ---------------------- Comments -----------------------
 
-# You write a comment by adding a "#" to the start of a line in an R script.
+# You write a comment by adding a "#" (either by typing it OR by pressing Ctrl + Shift + C
+# for a single line or multiple lines).
+# to the start of a line in an R script.
 # We won't be writing an R script, only running one, but the idea is the same.
 
 # The text in GREEN (if you are using the default theme) is a comment.
@@ -55,7 +57,7 @@
 # One option is to just press the "Run" button in the upper-right.
 # Doing so will automatically run the next line of runnable code.
 # To specify a line of code to run, simply select it or place your cursor on it.
-# You can also press Ctrl+Enter instead of clicking the "Run" Button.
+# You can also press Ctrl+Enter (or Ctrl+Return on Mac) instead of clicking the "Run" Button.
 
 # Go ahead and run the code below.
 # Remember to run all lines or chunks of code as you walk though this script.
@@ -71,7 +73,7 @@ n
 ##  ------------------- Console Window --------------------
 
 # YOUR TURN: Try setting n <- 300 in the Console Window!
-# It's just like line 63 above. After you're done, print n.
+# It's just like line 65 above. After you're done, print n.
 
 # If you can't see the Console Window, just click on the word "Console" below.
 
@@ -191,6 +193,12 @@ scores_table <- rbind(Mean = scores_mean,
                       SD = scores_sd)
 scores_table
 
+# You can round values to the nearest whole number with a function called round():
+round(scores_table)
+
+# You can also round values to certain decimal places
+round(scores_table,2)
+
 # When creating the table, we save it as an object (scores_table).
 # This allows us to refer back to this table at any point later in the script.
 
@@ -203,7 +211,8 @@ class(scores_table)
 rownames(scores_table)
 colnames(scores_table)
 
-# Note how our column is unnamed. We can easily fix this as follows.
+# Note how our column is unnamed (and it default saves to 'V1'). 
+# We can easily fix this as follows.
 
 colnames(scores_table) <- c('Value')
 
@@ -241,6 +250,11 @@ scores_table
 # used in online examples and it is highly recommended you use them in your
 # work instead of relying solely on base R.
 
+# The rio package can import, export, and convert various other types of
+# common file formats, including (but not limited to) .sav files from SPSS,
+# .dta files from Stata, .mat files from Matlab, compressed directories like
+# .zip, and more!
+
 
 
 ##  ------------- Checking Installed Packages -------------
@@ -274,11 +288,12 @@ scores_table
 # already have installed or to update previously installed packages if needed.
 
 # If you confirmed that you DO NOT already have tidyverse installed, uncomment
-# line 283 below and run the install.packages('tidyverse') command. This will
+# line 298 below and run the install.packages('tidyverse') command. This will
 # install every package in the tidyverse on your machine and will take around
 # five minutes to complete.
 
-# To uncomment a line, simply delete the # symbol at the start of the line.
+# To uncomment a line, simply delete the # symbol at the start of the line,
+# you can also uncomment a line or multiple lines with Ctrl + Shift + C
 
 # install.packages('tidyverse')
 
@@ -302,7 +317,7 @@ library(tidyverse)
 
 # If you received an error stating that there is no package called 'tidyverse'
 # then that means you do not have tidyverse installed. Please uncomment and run
-# line 283 and then run line 298 again.
+# line 298 and then run line 313 again.
 
 # You can also include a package in your library by checking the box next to
 # the corresponding package in the Packages tab.
@@ -528,7 +543,7 @@ min(hurrdata$Maximum.Wind)
 
 hurrdata$Maximum.Wind[hurrdata$Maximum.Wind < 0] <- NA
 
-# We could also delete the whole observation, but this is bad practice!
+# We could also delete the whole observation using line 547, but this is bad practice!
 # hurrdata <- hurrdata[hurrdata$Maximum.Wind<=0, ]
 
 # Let's check on the results. It should print "NA".
@@ -553,7 +568,7 @@ hurrdata2 <- sample_n(hurrdata, 200, replace = FALSE)
 ##  ------------------ Advanced Graphing ------------------
 
 # Now we re-run the graph, and modify the axis to make the year easier to see.
-# Highlight this entire section (lines 558-568) and click "Run".
+# Highlight this entire section (lines 573-581) and click "Run".
 
 hurrgraph2 <- ggplot(data = hurrdata2,
                      aes(x = Year, y = Maximum.Wind, color = Maximum.Wind)) +
