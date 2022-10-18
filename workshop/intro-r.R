@@ -229,10 +229,11 @@ scores_table
 # the variable scores_table, replacing the previous table.
 
 
+
 ##  --------------- Working with Real Data ----------------
 
 # Now you have mastered the basics of R.
-# But we really want to learn how to import data! So let's do that.
+# But we really want to learn how to import data! So let us do that.
 
 # We have a CSV file of the Atlantic Hurricane Database (HURDAT2).
 # The data is released by the National Hurricane Center.
@@ -259,10 +260,9 @@ scores_table
 # used in online examples and it is highly recommended you use them in your
 # work instead of relying solely on base R.
 
-# The rio package can import, export, and convert various other types of
-# common file formats, including (but not limited to) .sav files from SPSS,
-# .dta files from Stata, .mat files from Matlab, compressed directories like
-# .zip, and more!
+# Once you are more comfortable with R, you might also want to check out the
+# "rio" package. It can import, export, and convert a wide array of various
+# formats, like SPSS, Stata, and MATLAB data formats and even ZIP files!
 
 
 
@@ -296,15 +296,14 @@ scores_table
 # Hence you should only use install.packages() to install packages you do not
 # already have installed or to update previously installed packages if needed.
 
-# If you confirmed that you DO NOT already have tidyverse installed, uncomment
-# line 298 below and run the install.packages('tidyverse') command. This will
-# install every package in the tidyverse on your machine and will take around
-# five minutes to complete.
+# If you confirmed that you DO NOT already have tidyverse installed, replace
+# FALSE with the boolean TRUE on line XXX in the conditional statement below.
+# Then run the whole block. This will install every package in the tidyverse
+# onto your machine and will take around five minutes to complete.
 
-# To uncomment a line, simply delete the # symbol at the start of the line,
-# you can also uncomment a line or multiple lines with Ctrl + Shift + C
-
-# install.packages('tidyverse')
+if (FALSE) {
+  install.packages('tidyverse')
+}
 
 # Note that you only need to install packages once. The next time you will be
 # running R on this computer, all tidyverse packages will already be installed.
@@ -325,8 +324,7 @@ library(tidyverse)
 # Also note how there were a couple conflicts. We will talk about those later.
 
 # If you received an error stating that there is no package called 'tidyverse'
-# then that means you do not have tidyverse installed. Please uncomment and run
-# line 298 and then run line 313 again.
+# please follow the instructions in the previous section to install the package.
 
 # You can also include a package in your library by checking the box next to
 # the corresponding package in the Packages tab.
@@ -362,7 +360,7 @@ dir()       # The files in the working directory.
 # atlantic.csv data file via Session > Set Working Directory > Choose Directory.
 
 # If you prefer to do this in the console, you can use the setwd() function.
-# Use help() to figure out how to use the setwd() function.
+# Remeber that you can use help() to learn more about a function.
 
 help(setwd)
 
@@ -402,7 +400,7 @@ hurrdata <- read_csv('atlantic.csv')
 
 # The read_csv() function has numerous additional optional arguments that we can
 # use to specify how exactly a data file should be read in and interpreted.
-# To investigate those, we can use help() or the ? operator.
+# To investigate those, we can use the help() function or the ? operator.
 
 ?read_csv
 
@@ -464,10 +462,10 @@ hurrdata$`Maximum Wind`[6]
 ##  ------------- Data Cleaning: Column Names -------------
 
 # Note how the variable names contain spaces. This is bad practice as it
-# requires you to type quotation marks when accessing a variable, which is
-# inconvenient and easy to miss, leading to errors. A lot of other programs
-# do not support spaces in variable names at all. Hence it is good data
-# management practice to ensure your variable names contain no spaces.
+# requires you to type quotation marks or ticks when accessing a variable,
+# which is inconvenient and easy to miss, leading to errors. A lot of other
+# programs do not support spaces in variable names at all. Hence it is good
+# data management practice to ensure your variable names contain no spaces.
 
 # It is common practice to replace spaces with periods or underscores instead.
 # Luckily R contains a function that can do this for us.
@@ -498,13 +496,13 @@ hurrdata$Maximum.Wind[6]
 # Note how the date is stored as a number in YYYYMMDD format.
 # This notation is great for sorting but very inconvenient for analysis.
 
-# Extract year and month and store them in separate columns.
+# Extract the year and month and store them in separate columns as follows.
 
 # Convert the dates to string (text) and extract to a variable.
 date_strings <- as.character(hurrdata$Date)
 
 # Extract the year from the date string (position 1-4).
-hurrdata$Year <- substr(date_strings, 1, 4)
+hurrdata$Year <- substr(date_strings, start = 1, stop = 4)
 
 # Extract the month from the date string (position 5-6).
 hurrdata$Month <- substr(date_strings, 5, 6)
@@ -552,10 +550,9 @@ min(hurrdata$Maximum.Wind)
 
 hurrdata$Maximum.Wind[hurrdata$Maximum.Wind < 0] <- NA
 
-# We could also delete the whole observation using line 547, but this is bad practice!
-# hurrdata <- hurrdata[hurrdata$Maximum.Wind<=0, ]
-
+# We could also delete the whole observation, but this is bad practice!
 # Let's check on the results. It should print "NA".
+
 min(hurrdata$Maximum.Wind)
 
 
@@ -577,16 +574,16 @@ hurrdata2 <- sample_n(hurrdata, 200, replace = FALSE)
 ##  ------------------ Advanced Graphing ------------------
 
 # Now we re-run the graph, and modify the axis to make the year easier to see.
-# Highlight this entire section (lines 573-581) and click "Run".
+# Highlight this entire section (lines 583-593) and click "Run".
 
 hurrgraph2 <- ggplot(data = hurrdata2,
                      aes(x = Year, y = Maximum.Wind, color = Maximum.Wind)) +
     geom_point() + # add the initial points
     theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 0.5)) +
     scale_color_gradient(low = 'blue', high = 'red') + # generate color scheme
-    theme(legend.position = 'bottom')+ # put the legend on the bottom
-    ylab('Maximum Wind (knots)')+ # change the y-label
-    ggtitle('Selected Annual Hurricane Data, 1851 - 2015')+ # add a title
+    theme(legend.position = 'bottom') + # put the legend on the bottom
+    ylab('Maximum Wind (knots)') + # change the y-label
+    ggtitle('Selected Annual Hurricane Data, 1851 - 2015') + # add a title
     theme(plot.title = element_text(lineheight = 0.8, face = "bold")) # format
 
 hurrgraph2
@@ -640,7 +637,7 @@ hurrgraph3
 # coordinates are both written in terms of another variable.
 # This variable is called a parameter and is usually denoted with the letter t.
 
-# Let's say we were given the following parametric equation...
+# Let us say we were given the following parametric equation...
 #   x = 16*sin(t)^3
 #   y = 13*cos(t) - 5*cos(2*t) - 2*cos(3*t) - cos(4*t)
 # ...and asked to solve it for t ranging from 0 to 2*pi.
@@ -696,6 +693,3 @@ finalplot
 
 # "<-" puts a value in the user's workspace, which makes it accessible by said
 # user anywhere, whereas "=" declares it in the scope of a function.
-
-# For more information on this topic:
-# https://www.r-bloggers.com/assignment-operators-in-r-''-vs-'-'
