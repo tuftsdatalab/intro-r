@@ -27,8 +27,8 @@ Contact: <datalab-support@elist.tufts.edu>
 ## Table of Contents {#toc}
 
 - [Workshop Overview](#overview)
-- [Running the Workshop using an Online Cloud-Computing Environment](#binder) *(does not require the installation of additional software)*
-- [Running the Workshop Locally on your Computer](#local) *(requires the installation of both R and RStudio)*
+- [Running the Workshop using RStudio Server in your Browser (Recommended)](#binder)
+- [Running the Workshop using a Local R and RStudio Installation](#local)
 
 ---
 ## Workshop Overview {#overview}
@@ -49,7 +49,7 @@ An introductory R workshop that is suitable for self-guided study and covers the
 <!-- DO NOT CHANGE ANYTHING BELOW THIS LINE -->
 
 ---
-## Running the Workshop using an Online Cloud-Computing Environment {#binder}
+## Running the Workshop using RStudio Server in your Browser (Recommended) {#binder}
 
 {{ page.binder_button }}
 
@@ -60,7 +60,7 @@ An introductory R workshop that is suitable for self-guided study and covers the
 5. Click on `{{ site.file }}` in the *Files* tab to launch the workshop.
 
 ---
-## Running the Workshop Locally on your Computer {#local}
+## Running the Workshop using a Local R and RStudio Installation {#local}
 
 {{ page.zipball_button }}&nbsp;
 {{ page.tarball_button }}
