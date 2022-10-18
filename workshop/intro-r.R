@@ -10,7 +10,7 @@
 ##
 ##  -------------------------------------------------------
 ##  Title:        A Gentle Introduction to R
-##  Last update:  2022-01-24
+##  Last update:  2022-10-17
 ##  Written by:   Uku-Kaspar Uustalu & Kyle Monahan
 ##  Contact:      datalab-support -AT- elist.tufts.edu
 ##  Website:      tuftsdatalab.github.io/intro-r
@@ -35,15 +35,14 @@
 
 ##  ---------------------- Comments -----------------------
 
-# You write a comment by adding a "#" (either by typing it OR by pressing Ctrl + Shift + C
-# for a single line or multiple lines).
-# to the start of a line in an R script.
+# You write a comment by adding a "#" to the start of a line in an R script.
+# Or you could select the lines you wish to comment and press Ctrl + Shift + C.
 # We won't be writing an R script, only running one, but the idea is the same.
 
 # The text in GREEN (if you are using the default theme) is a comment.
 # The script is like a do file from Stata, syntax from SPSS, or the SAS program.
 
-# If you want to create a new script, just type Control + Shift + N.
+# If you want to create a new script, just type Ctrl + Shift + N.
 
 
 
@@ -57,7 +56,7 @@
 # One option is to just press the "Run" button in the upper-right.
 # Doing so will automatically run the next line of runnable code.
 # To specify a line of code to run, simply select it or place your cursor on it.
-# You can also press Ctrl+Enter (or Ctrl+Return on Mac) instead of clicking the "Run" Button.
+# You can also press Ctrl+Enter/Return instead of clicking the "Run" button.
 
 # Go ahead and run the code below.
 # Remember to run all lines or chunks of code as you walk though this script.
@@ -73,11 +72,11 @@ n
 ##  ------------------- Console Window --------------------
 
 # YOUR TURN: Try setting n <- 300 in the Console Window!
-# It's just like line 65 above. After you're done, print n.
+# It's just like line 64 above. After you are done, print n.
 
 # If you can't see the Console Window, just click on the word "Console" below.
 
-# Try typing N at the Console Window. What happens?
+# Try typing N in the Console Window. What happens?
 # The variable N is not found, because n is the name of the variable, not N.
 # R is case-sensitive!
 
@@ -193,12 +192,6 @@ scores_table <- rbind(Mean = scores_mean,
                       SD = scores_sd)
 scores_table
 
-# You can round values to the nearest whole number with a function called round():
-round(scores_table)
-
-# You can also round values to certain decimal places
-round(scores_table,2)
-
 # When creating the table, we save it as an object (scores_table).
 # This allows us to refer back to this table at any point later in the script.
 
@@ -211,13 +204,29 @@ class(scores_table)
 rownames(scores_table)
 colnames(scores_table)
 
-# Note how our column is unnamed (and it default saves to 'V1'). 
-# We can easily fix this as follows.
+# Note how our column is unnamed. We can easily fix this as follows.
 
 colnames(scores_table) <- c('Value')
-
 scores_table
 
+# You can round values to the nearest whole number using the round() function:
+round(scores_table)
+
+# But what if we wanted to keep a certain number of decimal places?
+# We can use help() to pull up the function's documentation and investigate.
+help(round)
+
+# Looks like we can specify an additional argument named "digits" to do this:
+round(scores_table, digits = 2)
+
+# Omitting the name of the argument is allowed and does not change the result.
+scores_table <- round(scores_table, 2)
+scores_table
+
+# Do you think omitting the names of optional arguments is good practice? Why?
+# Also note how on line 206 above, we first rounded every score in scores_table
+# to two decimal places, creating a new table. Then we assigned this table to
+# the variable scores_table, replacing the previous table.
 
 
 ##  --------------- Working with Real Data ----------------
