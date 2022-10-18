@@ -10,10 +10,10 @@
 ##
 ##  -------------------------------------------------------
 ##  Title:        A Gentle Introduction to R
-##  Last update:  2022-10-17
+##  Last update:  2022-10-18
 ##  Written by:   Uku-Kaspar Uustalu & Kyle Monahan
 ##  Contact:      datalab-support -AT- elist.tufts.edu
-##  Website:      tuftsdatalab.github.io/intro-r
+##  Website:      go.tufts.edu/introR
 ##  Resources:    go.tufts.edu/R
 ##  -------------------------------------------------------
 
@@ -224,7 +224,7 @@ scores_table <- round(scores_table, 2)
 scores_table
 
 # Do you think omitting the names of optional arguments is good practice? Why?
-# Also note how on line 206 above, we first rounded every score in scores_table
+# Also note how on line 223 above, we first rounded every score in scores_table
 # to two decimal places, creating a new table. Then we assigned this table to
 # the variable scores_table, replacing the previous table.
 
@@ -297,12 +297,12 @@ scores_table
 # already have installed or to update previously installed packages if needed.
 
 # If you confirmed that you DO NOT already have tidyverse installed, replace
-# FALSE with the boolean TRUE on line XXX in the conditional statement below.
+# FALSE with the boolean TRUE on line 304 in the conditional statement below.
 # Then run the whole block. This will install every package in the tidyverse
 # onto your machine and will take around five minutes to complete.
 
 if (FALSE) {
-  install.packages('tidyverse')
+    install.packages('tidyverse')
 }
 
 # Note that you only need to install packages once. The next time you will be
@@ -574,7 +574,7 @@ hurrdata2 <- sample_n(hurrdata, 200, replace = FALSE)
 ##  ------------------ Advanced Graphing ------------------
 
 # Now we re-run the graph, and modify the axis to make the year easier to see.
-# Highlight this entire section (lines 583-593) and click "Run".
+# Highlight this entire section (lines 579-589) and click "Run".
 
 hurrgraph2 <- ggplot(data = hurrdata2,
                      aes(x = Year, y = Maximum.Wind, color = Maximum.Wind)) +
@@ -610,7 +610,9 @@ hurrgraph2
 # on different machines without having to worry about installing packages.
 # However, be warned that librarian does not always display conflict warnings.
 
-install.packages('librarian')
+if (! 'librarian' %in% installed.packages()){
+    install.packages('librarian')
+}
 
 librarian::shelf(plotly)
 
