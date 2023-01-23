@@ -10,7 +10,7 @@
 ##
 ##  -------------------------------------------------------
 ##  Title:        A Gentle Introduction to R
-##  Last update:  2022-10-18
+##  Last update:  2023-01-23
 ##  Written by:   Uku-Kaspar Uustalu & Kyle Monahan
 ##  Contact:      datalab-support -AT- elist.tufts.edu
 ##  Website:      go.tufts.edu/introR
@@ -148,7 +148,7 @@ sd(scores)      # Standard deviation
 # If you double click one, it will auto fill in the Console below.
 
 # Try to double-click on a history command, click on the console window,
-# and then press "Enter". You can even save the entire list for future use!
+# and then press Enter/Return. You can even save the entire list for future use!
 
 
 
@@ -157,7 +157,7 @@ sd(scores)      # Standard deviation
 # Now click on Environment. We see two objects, labeled as Values.
 # These include scores and n.
 
-# If you ever forget objects and don't want to click on Environment,
+# If you ever forget objects and do not want to click on Environment,
 # you can always call the function objects().
 
 objects()
@@ -235,8 +235,8 @@ scores_table
 # Now you have mastered the basics of R.
 # But we really want to learn how to import data! So let us do that.
 
-# We have a CSV file of the Atlantic Hurricane Database (HURDAT2).
-# The data is released by the National Hurricane Center.
+# We have a CSV file of the Atlantic Hurricane Database (HURDAT2) 1851-2021.
+# The data is released by the National Hurricane Center (NHC) at NOAA.
 
 # But how do we import this data so we can use it in R?
 
@@ -354,7 +354,7 @@ dir()       # The files in the working directory.
 
 # If the intro-r.R script and the atlantic.csv data file are in the same folder,
 # you can set the working directory to the folder containing your script via
-# Set Session > Working Directory > To Source File Location.
+# Session > Set Working Directory > To Source File Location.
 
 # Alternatively, you can set the working directory to the folder containing the
 # atlantic.csv data file via Session > Set Working Directory > Choose Directory.
@@ -567,7 +567,7 @@ min(hurrdata$Maximum.Wind)
 # about installing and loading these packages separately. In fact, if I were
 # not mentioning it, we would not even notice we are using them.
 
-hurrdata2 <- sample_n(hurrdata, 200, replace = FALSE)
+hurrdata2 <- sample_n(hurrdata, 1000, replace = FALSE)
 
 
 
@@ -584,7 +584,7 @@ hurrgraph2 <- ggplot(data = hurrdata2,
     theme(legend.position = 'bottom') + # put the legend on the bottom
     ylab('Maximum Wind (knots)') + # change the y-label
     ggtitle('Selected Annual Hurricane Data, 1851 - 2015') + # add a title
-    theme(plot.title = element_text(lineheight = 0.8, face = "bold")) # format
+    theme(plot.title = element_text(lineheight = 0.8, face = 'bold')) # format
 
 hurrgraph2
 
@@ -606,7 +606,7 @@ hurrgraph2
 
 # One of those packages is librarian. The shelf command from the librarian
 # package ensures that the package you want is loaded into your library and
-# and also installed if needed. This allows you to easily run the same script
+# also installed if needed. This allows you to easily run the same script
 # on different machines without having to worry about installing packages.
 # However, be warned that librarian does not always display conflict warnings.
 
