@@ -17,7 +17,7 @@ Source repository for the [Tufts University Data Lab][datalab-website-link] work
 [develop-launch-link]: https://mybinder.org/v2/gh/tuftsdatalab/intro-r/develop?urlpath=rstudio
 
 [workshop-webiste-badge]: https://img.shields.io/website?label=workshop%20webiste&url=https://tuftsdatalab.github.io/intro-r/
-[mirror-content-badge]: https://img.shields.io/github/workflow/status/tuftsdatalab/intro-r/mirror-content?label=mirror%20content
-[build-binder-badge]: https://img.shields.io/github/workflow/status/tuftsdatalab/intro-r/build-binder?label=build%20binder
+[mirror-content-badge]: https://img.shields.io/github/actions/workflow/status/tuftsdatalab/intro-r/mirror-content.yml?label=mirror%20content
+[build-binder-badge]: https://img.shields.io/github/actions/workflow/status/tuftsdatalab/intro-r/build-binder.yml?label=build%20binder
 [last-commit-badge]: https://img.shields.io/github/last-commit/tuftsdatalab/intro-r
 [develop-launch-badge]: https://tuftsdatalab.github.io/badges/develop.svg
