@@ -10,9 +10,12 @@ jobs:
   mirror-to-binder-branch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - id: date
+        run: |
+          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
       - uses: olivr/copybara-action@v1.2.3
         with:
           access_token: ${{ github.token }}
@@ -25,14 +28,19 @@ jobs:
           push_move: |
             binder||.binder
             workshop||
+          push_replace: |
+            GH_ACTIONS_DATE||${{ steps.date.outputs.date }}
           workflow: push
 
   mirror-to-workshop-branch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - id: date
+        run: |
+          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
       - uses: olivr/copybara-action@v1.2.3
         with:
           access_token: ${{ github.token }}
@@ -44,4 +52,6 @@ jobs:
           push_include: "workshop/**"
           push_move: |
             workshop||
+          push_replace: |
+            GH_ACTIONS_DATE||${{ steps.date.outputs.date }}
           workflow: push

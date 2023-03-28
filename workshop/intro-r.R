@@ -10,7 +10,7 @@
 ##
 ##  -------------------------------------------------------
 ##  Title:        A Gentle Introduction to R
-##  Last update:  2023-01-23
+##  Last update:  GH_ACTIONS_DATE
 ##  Written by:   Uku-Kaspar Uustalu & Kyle Monahan
 ##  Contact:      datalab-support -AT- elist.tufts.edu
 ##  Website:      go.tufts.edu/introR
