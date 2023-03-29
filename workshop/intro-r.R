@@ -1,4 +1,4 @@
-##
+pe##
 ##  _______     __ _         _____        _          _           _
 ## |__   __|   / _| |       |  __ \      | |        | |         | |
 ##    | |_   _| |_| |_ ___  | |  | | __ _| |_ __ _  | |     __ _| |__
@@ -8,45 +8,27 @@
 ##
 ##            Innovate. Analyze. Visualize. | datalab.tufts.edu
 ##
-##  -------------------------------------------------------
-##  Title:        A Gentle Introduction to R
-##  Last update:  2023-01-23
+##  ---------------------------------------------------------------------------
+##  Title:        Introduction to the Statistical Programming Language R
+##  Last update:  GH_ACTIONS_DATE
 ##  Written by:   Uku-Kaspar Uustalu & Kyle Monahan
-##  Contact:      datalab-support -AT- elist.tufts.edu
+##  Contact:      datalab-support@elist.tufts.edu
 ##  Website:      go.tufts.edu/introR
 ##  Resources:    go.tufts.edu/R
-##  -------------------------------------------------------
+##  ---------------------------------------------------------------------------
 
 
-##  ------------------- Getting Started -------------------
-##
-##  R is a statistical platform similar to Stata, SAS, and SPSS. This software
-##  allows you to manipulate data, perform descriptive statistics, recode
-##  variables, and bring in your own data. If you are reading this, you have
-##  opened RStudio (the development environment for R) and are on the way!
-##
-##  We will walk through this document together in the workshop.
-##
-##  -------------------------------------------------------
 
-#################
-## LET'S BEGIN ##
-#################
-
-##  ---------------------- Comments -----------------------
+##  ---------- Comments -------------------------------------------------------
 
 # You write a comment by adding a "#" to the start of a line in an R script.
 # Or you could select the lines you wish to comment and press Ctrl + Shift + C.
-# We won't be writing an R script, only running one, but the idea is the same.
-
+# We will not be writing a script, only running one, but the idea is the same.
 # The text in GREEN (if you are using the default theme) is a comment.
-# The script is like a do file from Stata, syntax from SPSS, or the SAS program.
-
-# If you want to create a new script, just type Ctrl + Shift + N.
 
 
 
-##  ----------------- Assigning Variables -----------------
+##  ---------- Assigning Variables --------------------------------------------
 
 # The first thing we can do is assign a variable.
 # This looks like an arrow placing a value into a variable.
@@ -63,18 +45,18 @@
 
 n <- 200
 
-# Now if you call n, you'll see the console report its value.
+# Now if you call n, you will see the console report its value.
 
 n
 
 
 
-##  ------------------- Console Window --------------------
+##  ---------- Console Window -------------------------------------------------
 
 # YOUR TURN: Try setting n <- 300 in the Console Window!
-# It's just like line 64 above. After you are done, print n.
+# It is just like line 46 above. After you are done, print n.
 
-# If you can't see the Console Window, just click on the word "Console" below.
+# If you cannot see the Console Window, click on the word "Console" below.
 
 # Try typing N in the Console Window. What happens?
 # The variable N is not found, because n is the name of the variable, not N.
@@ -82,31 +64,24 @@ n
 
 
 
-##  ---------------- Combining Variables ------------------
+##  ---------- Functions and Vectors ------------------------------------------
 
 # What if you have multiple numbers to set as a variable?
 # For example, what if we wanted to store the scores we got on exams?
 # These include 94, 96, 72, and 92. (The third test was really hard.)
 
-
-
-##  --------------- Functions and Vectors -----------------
-
 # We use the combine function, which is c(n, n, n, ... n)
 
 scores <- c(94, 96, 72, 92)
 
-# A function is called using parenthesis ().
-
 # This assigns our scores to the variable "scores" in the Environment.
-# If we call the variable:
+# If we call the variable...
 
 scores
 
 # We see the values are printed. This is called a vector.
 # One can access the values within a vector by using square braces [].
-
-# To get the second score, we use:
+# To get the second score, we use...
 
 scores[2]
 
@@ -114,7 +89,7 @@ scores[2]
 
 
 
-##  --------------------- Operators -----------------------
+##  ---------- Operators ------------------------------------------------------
 
 # To check if a vector contains an element, we can use the %in% operator.
 
@@ -129,42 +104,42 @@ scores[2]
 
 
 
-##  --------------- Descriptive Statistics ----------------
+##  ---------- Descriptive Statistics -----------------------------------------
 
 # The best thing about having multiple values to work with is that we can
 # calculate various statistics. Most statistical functions in R easily take
-# a whole vector as input. Let's see what our final semester score would be!
+# a whole vector as input. Let us see what our final semester score would be!
 
-mean(scores)    # Mean
-median(scores)  # Median
-sd(scores)      # Standard deviation
+mean(scores)    # mean
+median(scores)  # median
+sd(scores)      # standard deviation
 
 
 
-##  ---------------- Running from History -----------------
+##  ---------- Running from History -------------------------------------------
 
-# Take a look at the History list, on the tab to the right.
+# Take a look at the History tab on the right next to the Environment tab.
 # This is where you will find commands you have run in the past.
 # If you double click one, it will auto fill in the Console below.
 
-# Try to double-click on a history command, click on the console window,
-# and then press Enter/Return. You can even save the entire list for future use!
+# Select a command from the History tab and double-click on it.
+# Then select the console window and press Enter/Return to run the command.
 
 
 
-##  ------------------- The Environment -------------------
+##  ---------- The Environment ------------------------------------------------
 
-# Now click on Environment. We see two objects, labeled as Values.
+# Now click on the Environment tab. We see two objects, labeled as Values.
 # These include scores and n.
 
-# If you ever forget objects and do not want to click on Environment,
-# you can always call the function objects().
+# If you ever forget objects and do not want to click on the Environment tab,
+# you can always call the function objects() for a list of all object names.
 
 objects()
 
 
 
-##  ----------------- Modifying a Vector ------------------
+##  ---------- Modifying a Vector ---------------------------------------------
 
 # Suddenly, we were able to retake a test. Great!
 # Now we have to replace the value of 72 (the lowest score) with our new score
@@ -174,7 +149,7 @@ scores[3] <- 85
 
 
 
-##  -------- Saving Variables and Creating Tables ---------
+##  ---------- Saving Variables and Creating Tables ---------------------------
 
 # Re-calculate stats given our retake and create new values to store them.
 # In R you can store almost anything as a variable, and you should take
@@ -224,13 +199,13 @@ scores_table <- round(scores_table, 2)
 scores_table
 
 # Do you think omitting the names of optional arguments is good practice? Why?
-# Also note how on line 223 above, we first rounded every score in scores_table
+# Also note how on line 198 above, we first rounded every score in scores_table
 # to two decimal places, creating a new table. Then we assigned this table to
 # the variable scores_table, replacing the previous table.
 
 
 
-##  --------------- Working with Real Data ----------------
+##  ---------- Working with Real Data -----------------------------------------
 
 # Now you have mastered the basics of R.
 # But we really want to learn how to import data! So let us do that.
@@ -242,17 +217,52 @@ scores_table
 
 
 
-##  -------------- Base R and the Tidyverse ---------------
+##  ---------- Working Directory ----------------------------------------------
+
+# All relative file paths in R are relative to the current working directory,
+# which might or might not be the location of the R script, depending on how
+# RStudio was originally launched. If RStudio was launched by double-clicking
+# on the R script or by right-clicking on the R script and then selecting
+# Open With > RStudio, the default working directory will be the location of
+# the R script. Otherwise the default working directory will either be your
+# Documents directory (Windows) or your home directory (macOS and Linux).
+
+# We can use getwd() and dir() to explore the current working directory.
+
+getwd()     # The current location of the working directory.
+dir()       # The files in the working directory.
+
+# Your working directory should be the "intro-r-workshop" directory and it
+# should contain the both the current script (intro-r.R) and the data file
+# (atlantic.csv). You can use the %in% operator to ensure this is the case.
+
+'atlantic.csv' %in% dir()
+
+# If the statement above returns TRUE, you are all set. But if it returns
+# FALSE, you need to change your working directory. The intro-r.R script and
+# the atlantic.csv data file should have been downloaded to the same location.
+# Ensure that that they are both right next to each other in the same folder
+# and then set the working directory to the folder containing your script via
+# Session > Set Working Directory > To Source File Location.
+
+# We can ensure the working directory is set correctly by either re-running the
+# commands from above or clicking on the Files tab in the lower-right panel and
+# then selecting More > Go To Working Directory and exploring the results.
+
+
+
+##  ---------- Base R and the Tidyverse ---------------------------------------
 
 # Thus far we have been working with what is called base R, that is R without
 # any community-developed packages installed. Base R has a lot of built-in
 # functionality and can easily do most things. For example, there is a function
 # called read.csv() that can be used to read comma-delimited data files.
 
-# However, that function was written decades ago and is no longer the best
-# function for the job. It is notoriously inefficient and slow, especially
-# when it comes to larger files. A good alternative is the read_csv() function
-# (note the underscore) from the readr package. It provides the same
+hurrdata <- read.csv('atlantic.csv')
+
+# However, that built-in function is notoriously inefficient and slow when
+# reading larger files. Hence most data scientists use the read_csv() function
+# (note the underscore) from the readr package instead. It provides the same
 # functionality but is significantly faster and much more efficient.
 
 # The readr package is a part of the tidyverse - a popular collection of R
@@ -266,14 +276,12 @@ scores_table
 
 
 
-##  ------------- Checking Installed Packages -------------
+##  ---------- Checking Installed Packages ------------------------------------
 
 # Depending on what system you are running this script on, you might already
 # have tidyverse installed. This can be easily verified using the Packages tab
-# to the right. Click on the tab to view a list of installed packages. There
-# is also a search bar that allows you to search for a specific package and
-# verify whether it is installed or not.
-
+# to the right. Click on the Packages tab to view a list of installed packages.
+# There is also a search bar that allows you to search for a specific package.
 # Try searching for tidyverse to check whether you have it installed or not.
 
 # Alternatively we could use the installed.packages() function to see which
@@ -287,32 +295,34 @@ scores_table
 
 
 
-##  ----------------- Installing Packages -----------------
+##  ---------- Installing Packages --------------------------------------------
 
 # We can install new packages using the install.packages() function. However,
 # this function does not check if a package is already installed and will
-# overwrite and reinstall the specified package if it is already installed.
+# overwrite and re-install the specified package if it is already installed.
 
 # Hence you should only use install.packages() to install packages you do not
 # already have installed or to update previously installed packages if needed.
 
-# If you confirmed that you DO NOT already have tidyverse installed, replace
-# FALSE with the boolean TRUE on line 304 in the conditional statement below.
-# Then run the whole block. This will install every package in the tidyverse
-# onto your machine and will take around five minutes to complete.
+# The code block below first checks whether the tidyverse is installed or not.
+# If it is installed, a message stating so is displayed. Otherwise the function
+# install.packages() is called to install all of the packages in the tidyverse.
+# Note that the installation process could take several minutes to complete.
 
-if (FALSE) {
-    install.packages('tidyverse')
+if ('tidyverse' %in% installed.packages()) {
+    message('Tidyverse already installed!')
+} else {
+  install.packages('tidyverse')
 }
 
-# Note that you only need to install packages once. The next time you will be
-# running R on this computer, all tidyverse packages will already be installed.
+# You only need to install packages on your machine once. The next time you use
+# R on your computer, all of the tidyverse packages will already be installed.
 
 # You can also install packages via the Packages tab by clicking "Install".
 
 
 
-##  ------------------ Calling a Library ------------------
+##  ---------- Calling a Library ----------------------------------------------
 
 # Before we can use a package, we need to add it to our library. This can be
 # done using the library() command. Using the tidyverse meta-package, we can
@@ -331,51 +341,11 @@ library(tidyverse)
 
 
 
-##  ------------------ Working Directory ------------------
-
-# But where is the file we want to import?
-# We can use dir() and getwd() to find out.
-
-getwd()     # The current location where R is looking for files
-
-dir()       # The files in the working directory.
-
-# If the list of files in your current working directory does not contain
-# atlantic.csv, you will need to make sure you have downloaded it and set your
-# working directory to be the folder containing the file. We can check this
-# manually by inspecting the output of dir(), or we can use %in% again.
-
-'atlantic.csv' %in% dir()
-
-# If the statement above returns TRUE, you are all set. But if it returns FALSE,
-# you need to change your working directory. The intro-r.R script and the
-# atlantic.csv data file should have been downloaded to the same location.
-# Be sure that they are both right next to each other in the same folder.
-
-# If the intro-r.R script and the atlantic.csv data file are in the same folder,
-# you can set the working directory to the folder containing your script via
-# Session > Set Working Directory > To Source File Location.
-
-# Alternatively, you can set the working directory to the folder containing the
-# atlantic.csv data file via Session > Set Working Directory > Choose Directory.
-
-# If you prefer to do this in the console, you can use the setwd() function.
-# Remeber that you can use help() to learn more about a function.
-
-help(setwd)
-
-# Now we can check. Click on the Files tab on the right hand side of the page,
-# and click More > Go To Working Directory. You should see the data file there.
-
-# If we have the right working directory, we can import data.
-
-
-
-##  -------------------- Importing Data -------------------
+##  ---------- Importing Data -------------------------------------------------
 
 # When we called library(tidyverse), it included all of the tidyverse packages,
 # including readr into our library and made them available for use.
-# Now we can use the read_csv function included in readr.
+# Now we can use the read_csv() function included in readr.
 
 # However, remember that there were some conflicts. That means that some of the
 # packages in our library now have functions with the same name. One of those
@@ -391,22 +361,15 @@ hurrdata <- readr::read_csv('atlantic.csv')
 
 hurrdata <- read_csv('atlantic.csv')
 
-# NOTE: If RStudio tells you "atlantic.csv does not exist" or "no such file or
-#       directory" this means that it cannot find the file. RStudio looks for
-#       files in your working directory. Be sure that atlantic.csv is available
-#       in the same folder as the IntroR.R script, and go to:
-#       Session > Set Working Directory > To Source File Location.
-#       This tells RStudio to look for files in the same folder as the script.
-
-# The read_csv() function has numerous additional optional arguments that we can
-# use to specify how exactly a data file should be read in and interpreted.
+# The read_csv() function has numerous additional optional arguments that we
+# can use to specify how exactly a data file should be read in and interpreted.
 # To investigate those, we can use the help() function or the ? operator.
 
 ?read_csv
 
 
 
-##  -------------------- Exploring Data -------------------
+##  ---------- Exploring Data -------------------------------------------------
 
 # We see that a new variable 'hurrdata' has been added to the environment.
 
@@ -419,7 +382,7 @@ summary(hurrdata)
 
 # You can also click on the dataset under Environment > Data.
 
-# We might wonder - what type of data is hurricane data?
+# We might wonder - what type of data is hurrdata?
 # We imported it from csv, but how is it stored?
 
 class(hurrdata)
@@ -431,9 +394,9 @@ class(hurrdata)
 
 
 
-##  -------------- Working with Data Frames ---------------
+##  ---------- Working with Data Frames ---------------------------------------
 
-# Let's say we want to access the maximum wind speed of the sixth observation.
+# Let us say we want to access the maximum wind speed of the sixth observation.
 # We can do this in multiple ways.
 # Knowing that 'Maximum Wind' is the ninth column:
 
@@ -455,17 +418,17 @@ hurrdata$`Maximum Wind`[6]
 # on their name, as it removes the complexity of when to use [[]] vs [] and does
 # not require quotation marks...
 
-# ... given your variable names are properly formatted.
+# ... given your column names are properly formatted.
 
 
 
-##  ------------- Data Cleaning: Column Names -------------
+##  --------- Data Cleaning: Column Names -------------------------------------
 
-# Note how the variable names contain spaces. This is bad practice as it
-# requires you to type quotation marks or ticks when accessing a variable,
+# Note how the column names contain spaces. This is bad practice as it
+# requires you to type quotation marks or ticks when accessing a column,
 # which is inconvenient and easy to miss, leading to errors. A lot of other
-# programs do not support spaces in variable names at all. Hence it is good
-# data management practice to ensure your variable names contain no spaces.
+# programs do not support spaces in column names at all. Hence it is good
+# data management practice to ensure your column names contain no spaces.
 
 # It is common practice to replace spaces with periods or underscores instead.
 # Luckily R contains a function that can do this for us.
@@ -480,19 +443,19 @@ make.names(names(hurrdata))
 
 names(hurrdata) <- make.names(names(hurrdata))
 
-# YOU TRY: Confirm that the variable names no longer contain spaces.
-#          Use the head() or summary() functions in the console.
-#          Or simply click on the dataset under Environment > Data.
-
 # Now it is convenient access the maximum wind speed of the sixth observation.
 
 hurrdata$Maximum.Wind[6]
 
+# Note that more advanced R users would combine the read_csv() function from
+# from readr with the clean_names() function from another package called
+# janitor to read in the data and clean the column names all in one go.
 
 
-##  ----------- Data Cleaning: Dates & Strings ------------
 
-# Let's say we want to analyze maximum wind speed by year.
+##  ---------- Data Cleaning: Dates & Strings ---------------------------------
+
+# Let us say we want to analyze maximum wind speed by year.
 # Note how the date is stored as a number in YYYYMMDD format.
 # This notation is great for sorting but very inconvenient for analysis.
 
@@ -511,34 +474,55 @@ hurrdata$Month <- substr(date_strings, 5, 6)
 hurrdata$Month <- as.numeric(hurrdata$Month)
 hurrdata$Year <- as.numeric(hurrdata$Year)
 
-# YOU TRY: Take a look at the new data using head() or the Environment tab.
-
-# In reality you should actually use a package specifically deigned to work with
-# dates like lubridate (also included in the tidyverse) and convert the "Date"
-# variable into a date data type. However, that would add extra complexity to
-# this tutorial, so we decided to take a different approach here that also
-# allowed us to experiment with type casting and the substring() function.
+# In reality you should actually use a package specifically deigned to work
+# with dates like lubridate (also included in the tidyverse) and convert the
+# "Date" variable into a date data type. But that would add extra complexity
+# to this tutorial, so we decided to take a different approach here that also
+# allowed us to experiment with type casting and the substr() function.
 
 
 
-##  ---------------- Making a Scatter Plot ----------------
+##  ---------- Making a Simple Scatter Plot -----------------------------------
 
-# To make graphs, we will use the ggplot2 library included in the tidyverse.
-# Let's say we want to look at how maximum wind speed has changed over time.
+# Let us say we would like to explore how the maximum wind speed of hurricanes
+# has changed over time. A good visual tool to explore the relationship between
+# two numerical variables is a scatter plot. We can use the built-in plot()
+# function to create a quick and dirty scatter plot examining the relationship
+# between time (denoted by the hurricane year) and hurricane maximum wind speed.
+
+plot(hurrdata$Year, hurrdata$Maximum.Wind)
+
+# Wow, this plot looks quite horrible! Let us try to improve on it by using the
+# popular graphing library ggplot2 instead of the built-in plot() function.
+# The ggplot2 library is included in the tidyverse and follows a layered logic.
+
+# First you specify the data frame of interest using the ggplot() function and
+# then you create a mapping between variables (columns) and axes using the
+# aes() function. This defines the plotting environment and we can add layers
+# to the plot using the + operator. For example, geom_point() will generate a
+# point for each x and y combination as specified with ggplot() and aes().
+
+# The plot object can be saved in a variable and then displayed by calling it.
 
 hurrgraph <- ggplot(data = hurrdata, aes(x = Year, y = Maximum.Wind)) +
-    geom_point()
+  geom_point()
 
 hurrgraph
 
-# Wow, this doesn't look very good.
+# That looks marginally better, but it is still quite awful. Feels like there
+# might be something wrong with the data. Why are some wind speeds negative?
+
+# While ggplot2 might appear to be more complicated to use than the built-in
+# plot() function, it is actually much easier to create complex (and beautiful)
+# data visualizations using ggplot2 than built-in graphing functionality.
+# Many professionals also prefer ggplot2 and it is prevalent in various guides.
 
 
 
-##  ------------ Subsetting and Cleaning Data -------------
+##  ---------- Subsetting and Cleaning Data -----------------------------------
 
-# We see we have negative data. If we looked into the metadata, we would find
-# that we should have removed these! We can check on the negative data:
+# Remember those negative wind speeds? If we looked into the metadata, we would
+# find that we should have removed these! We can check on the negative data:
 
 min(hurrdata$Maximum.Wind)
 
@@ -546,7 +530,7 @@ min(hurrdata$Maximum.Wind)
 # rows where the logical operator returns TRUE.
 
 # Using this, we can find all the values less than zero (< 0) and replace them
-# with "NA", which means "No Data" in R (like "." in Stata)
+# with "NA", which means "No Data" in R (like "." in Stata).
 
 hurrdata$Maximum.Wind[hurrdata$Maximum.Wind < 0] <- NA
 
@@ -555,11 +539,16 @@ hurrdata$Maximum.Wind[hurrdata$Maximum.Wind < 0] <- NA
 
 min(hurrdata$Maximum.Wind)
 
+# To get the minimum wind speed excluding the NA values, we must call the min()
+# function with na.rm = TRUE to instruct the function to ignore the NA values.
+
+min(hurrdata$Maximum.Wind, na.rm = TRUE)
 
 
-##  ------------------ Sampling the Data ------------------
 
-# We can also sample the data.frame so it doesn't take so long to load.
+##  ---------- Sampling the Data ----------------------------------------------
+
+# We can also sample the data.frame to declutter the scatter plot.
 # For this, we will use the dplyr library included in the tidyverse.
 
 # Note how I keep telling you that we are using different libraries, but
@@ -571,67 +560,119 @@ hurrdata2 <- sample_n(hurrdata, 1000, replace = FALSE)
 
 
 
-##  ------------------ Advanced Graphing ------------------
+##  ----------- Customizing the Scatter Plot ----------------------------------
 
 # Now we re-run the graph, and modify the axis to make the year easier to see.
-# Highlight this entire section (lines 579-589) and click "Run".
+# Highlight this entire section (lines 568-578) and click "Run".
 
 hurrgraph2 <- ggplot(data = hurrdata2,
                      aes(x = Year, y = Maximum.Wind, color = Maximum.Wind)) +
-    geom_point() + # add the initial points
-    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 0.5)) +
-    scale_color_gradient(low = 'blue', high = 'red') + # generate color scheme
-    theme(legend.position = 'bottom') + # put the legend on the bottom
-    ylab('Maximum Wind (knots)') + # change the y-label
-    ggtitle('Selected Annual Hurricane Data, 1851 - 2015') + # add a title
-    theme(plot.title = element_text(lineheight = 0.8, face = 'bold')) # format
+  geom_point() + # add the initial points
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 0.5)) +
+  scale_color_gradient(low = 'blue', high = 'red') + # generate color scheme
+  theme(legend.position = 'bottom') + # put the legend on the bottom
+  ylab('Maximum Wind Speed (knots)') + # change the y-label
+  ggtitle('Selected Annual Hurricane Data, 1851-2021') + # add a title
+  theme(plot.title = element_text(lineheight = 0.8, face = 'bold')) # format
 
 hurrgraph2
 
-# The benefit of R is you can control almost everything...
-# ... and that's the drawback of R as well.
-# Remember to reference Stack Overflow and the resources provided.
 
 
+##  ---------- ADVANCED: Piping and Grouping ----------------------------------
 
-##  ----------- OPTIONAL: Interactive Graphics ------------
+# Was it correct of us to sample the data given our hypothesis?
+# A closer look at it reveals that the data contains several entries for each
+# hurricane at different points of intensity. Hence our approach was wrong.
 
-# For those who are looking for an interactive graph - try plotly.
-# Plotly is not included in the tidyverse, so we have to install it (unless it
-# is already installed) and load it into our library.
+# To see how the maximum wind speed of hurricanes has changed over time, we
+# should be looking at the maximum wind speed of each hurricane at its highest
+# point of intensity. We can use functions from dplyr to extract those.
 
-# Keeping track of which packages you have installed could be quire tiresome
-# and continuously reinstalling packages is a waste of time. Luckily there are
-# some R packages that make package management in R significantly easier.
+library(magrittr)
 
-# One of those packages is librarian. The shelf command from the librarian
-# package ensures that the package you want is loaded into your library and
-# also installed if needed. This allows you to easily run the same script
-# on different machines without having to worry about installing packages.
-# However, be warned that librarian does not always display conflict warnings.
+hurrdata3 <- hurrdata %>%
+  group_by(Name, Year) %>%
+  summarize(Maximum.Wind = max(Maximum.Wind),
+            .groups = 'drop')
 
-if (! 'librarian' %in% installed.packages()){
-    install.packages('librarian')
-}
+# The pipe operator %>% from the magrittr library is often used to combine
+# several functions into a data analysis pipeline. The pipeline above finds
+# the maximum value of the Maximum.Wind column for each unique hurricane name
+# and year combination. The pipe operator takes whatever is passed to it and
+# feeds it into the next function as the first argument. Tidyverse functions
+# are built to work with the pipe operator but other functions might not be.
 
-librarian::shelf(plotly)
+# Now we can correctly visualize the change in maximum wind speed over time.
 
-hurrgraph3 <- plotly::plot_ly(hurrdata2,
-                              x = ~Year,
-                              y = ~Maximum.Wind,
-                              type = 'bar',
-                              marker = list(color = 'rgb(158,202,225)',
-                                            line = list(color = 'blue',
-                                                        width = 0.5))) %>%
-  plotly::layout(title = 'Selected Annual Hurricane Data, 1851 - 2015',
-                 xaxis = list(title = 'Year', tickangle = 40),
-                 yaxis = list(title = 'Maximum Reported Wind Speed (knots)'))
+hurrgraph3 <- ggplot(data = hurrdata3, aes(x = Year, y = Maximum.Wind)) +
+  geom_point() +
+  geom_smooth(method = lm, formula = y ~ x) + # add a linear trend line
+  ylab('Maximum Wind Speed (knots)') +
+  ggtitle('Hurricane Wind Speeds at Highest Intnesity 1851-2021')
 
 hurrgraph3
 
 
 
-##  -------------- BONUS: Defining Functions --------------
+##  ---------- EXERCISE: Fix the Analysis -------------------------------------
+
+# Do you think we made a good graph that tells an accurate story?
+# Take a look at the year 1950. What do you think causes this sudden change?
+# Is is fair to look at all the hurricanes from both before and after 1950?
+# Should we instead be looking at the most intensive hurricane from each year?
+
+# Fix the analysis above and produce a graph that answers the question:
+#   How has the intensity of hurricanes changed over time?
+
+
+
+##  ---------- OPTIONAL: Interactive Graphics ---------------------------------
+
+# We can easily create interactive data visualization in R using the plotly
+# package. Plotly is not included in the tidyverse, so we have to install it
+# (unless it is already installed) and load it into our library.
+
+# Keeping track of which packages you have installed could be quite tiresome
+# and continuously re-installing packages is a waste of time. Luckily there are
+# some R packages that make package management in R significantly easier.
+
+# One of those packages is librarian. The shelf() command from the librarian
+# package ensures that the package you want is loaded into your library and
+# also installed if needed. This allows you to easily run the same script
+# on different machines without having to worry about installing packages.
+# But be warned that librarian does not display conflict warnings! Hence it
+# is recommended to use the package::function() syntax when using librarian.
+
+if (! 'librarian' %in% installed.packages()) {
+    install.packages('librarian')
+}
+
+librarian::shelf(plotly)
+
+hurrdata4 <- hurrdata %>%
+  dplyr::group_by(Year) %>%
+  dplyr::summarize(Count = dplyr::n_distinct(ID),
+                   .groups = 'drop')
+
+hurrgraph4 <- plotly::plot_ly(data = hurrdata4,
+                              x = ~Year,
+                              y = ~Count,
+                              type = 'bar',
+                              marker = base::list(
+                                color = 'lightblue',
+                                line = base::list(
+                                  color = 'blue',
+                                  width = 0.5))) %>%
+  plotly::layout(title = 'Number of Hurricanes 1851 - 2021',
+                 xaxis = base::list(title = 'Year', tickangle = 45),
+                 yaxis = base::list(title = 'Recorded Number of Hurricanes'))
+
+hurrgraph4
+
+
+
+##  ---------- BONUS: Defining Functions --------------------------------------
 
 # (Un)likely scenario: Suddenly you need to work with parametric equations.
 
@@ -684,7 +725,7 @@ finalplot
 
 
 
-## ------------------------- FAQ --------------------------
+## ----------- FAQ ------------------------------------------------------------
 
 # You might wonder what is the difference between "=" and "<-"?
 # Well, that is a good question and beyond the scope of this tutorial.

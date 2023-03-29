@@ -2,7 +2,7 @@ name: intro-r
 channels:
  - conda-forge
 dependencies:
- - r-base=4.2.1
- - r-tidyverse=1.3.2
- - r-plotly=4.10.0
+ - r-base=4.2.3
+ - r-tidyverse=2.0.0
+ - r-plotly=4.10.1
  - r-librarian=1.8.1
