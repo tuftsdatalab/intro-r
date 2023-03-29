@@ -1,4 +1,4 @@
-pe##
+##
 ##  _______     __ _         _____        _          _           _
 ## |__   __|   / _| |       |  __ \      | |        | |         | |
 ##    | |_   _| |_| |_ ___  | |  | | __ _| |_ __ _  | |     __ _| |__
@@ -10,7 +10,7 @@ pe##
 ##
 ##  ---------------------------------------------------------------------------
 ##  Title:        Introduction to the Statistical Programming Language R
-##  Last update:  GH_ACTIONS_DATE
+##  Last update:  2023-03-29
 ##  Written by:   Uku-Kaspar Uustalu & Kyle Monahan
 ##  Contact:      datalab-support@elist.tufts.edu
 ##  Website:      go.tufts.edu/introR
@@ -589,8 +589,6 @@ hurrgraph2
 # should be looking at the maximum wind speed of each hurricane at its highest
 # point of intensity. We can use functions from dplyr to extract those.
 
-library(magrittr)
-
 hurrdata3 <- hurrdata %>%
   group_by(Name, Year) %>%
   summarize(Maximum.Wind = max(Maximum.Wind),
@@ -719,7 +717,10 @@ parameq$y <- get_y(parameq$t)
 # special version of this workshop that ran on February 14. Does that help?
 
 finalplot <- ggplot(data = parameq, aes(x = x, y = y)) +
-  geom_polygon(linetype  = 'solid', size = 1.5, color = 'black', fill = 'red')
+  geom_polygon(linetype  = 'solid',
+               linewidth = 1.5,
+               color = 'black',
+               fill = 'red')
 
 finalplot
 
