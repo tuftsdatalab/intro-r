@@ -1,4 +1,4 @@
-# A Gentle Introduction to R
+# Introduction to the Statistical Programming Language R
 
 [![workshop website][workshop-webiste-badge]][workshop-webiste-link]&nbsp;
 [![mirror content][mirror-content-badge]](../../actions/workflows/mirror-content.yml)&nbsp;
@@ -6,7 +6,7 @@
 [![last commit][last-commit-badge]](../../commits/main)&nbsp;
 [![launch develop][develop-launch-badge]][develop-launch-link]
 
-Source repository for the [Tufts University Data Lab][datalab-website-link] workshop: [*A Gentle Introduction to R*][workshop-webiste-link]
+Source repository for the [Tufts University Data Lab][datalab-website-link] workshop: [*Introduction to the Statistical Programming Language R*][workshop-webiste-link]
 
 **Please see the [workshop website][workshop-webiste-link] for content.** The following is a development guide intended for staff.
 
