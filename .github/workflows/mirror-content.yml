@@ -10,48 +10,36 @@ jobs:
   mirror-to-binder-branch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - id: date
         run: |
           echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
-      - uses: olivr/copybara-action@v1.2.3
+      - uses: tuftsrt/branch-manager@develop
         with:
-          access_token: ${{ github.token }}
-          ssh_key: ${{ secrets.SSH_KEY }}
-          sot_repo: ${{ github.repository }}
-          sot_branch: main
-          destination_repo: ${{ github.repository }}
-          destination_branch: binder
-          push_include: "binder/** workshop/**"
-          push_move: |
-            binder||.binder
-            workshop||
-          push_replace: |
-            GH_ACTIONS_DATE||${{ steps.date.outputs.date }}
-          workflow: push
+          destination-branch: binder
+          clear-destination: "true"
+          copy: |
+            binder/|.binder
+            workshop/|
+          replace: |
+            GH_ACTIONS_DATE||${{ steps.date.outputs.date }}|*.R
 
   mirror-to-workshop-branch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - id: date
         run: |
           echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
-      - uses: olivr/copybara-action@v1.2.3
+      - uses: tuftsrt/branch-manager@develop
         with:
-          access_token: ${{ github.token }}
-          ssh_key: ${{ secrets.SSH_KEY }}
-          sot_repo: ${{ github.repository }}
-          sot_branch: main
-          destination_repo: ${{ github.repository }}
-          destination_branch: workshop
-          push_include: "workshop/**"
-          push_move: |
-            workshop||
-          push_replace: |
-            GH_ACTIONS_DATE||${{ steps.date.outputs.date }}
-          workflow: push
+          destination-branch: workshop
+          clear-destination: "true"
+          copy: |
+            workshop/|
+          replace: |
+            GH_ACTIONS_DATE||${{ steps.date.outputs.date }}|*.R
