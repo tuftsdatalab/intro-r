@@ -10,7 +10,7 @@
 ##
 ##  ---------------------------------------------------------------------------
 ##  Title:        Introduction to the Statistical Programming Language R
-##  Last update:  2023-03-29
+##  Last update:  GH_ACTIONS_DATE
 ##  Written by:   Uku-Kaspar Uustalu & Kyle Monahan
 ##  Contact:      datalab-support@elist.tufts.edu
 ##  Website:      go.tufts.edu/introR
@@ -22,7 +22,7 @@
 ##  ---------- Comments -------------------------------------------------------
 
 # You write a comment by adding a "#" to the start of a line in an R script.
-# Or you could select the lines you wish to comment and press Ctrl + Shift + C.
+# Or you could select the lines you wish to comment and press Ctrl/Cmd+Shift+C.
 # We will not be writing a script, only running one, but the idea is the same.
 # The text in GREEN (if you are using the default theme) is a comment.
 
@@ -38,7 +38,7 @@
 # One option is to just press the "Run" button in the upper-right.
 # Doing so will automatically run the next line of runnable code.
 # To specify a line of code to run, simply select it or place your cursor on it.
-# You can also press Ctrl+Enter/Return instead of clicking the "Run" button.
+# You can also press Ctrl+Enter/Cmd+Return instead of clicking the "Run" button.
 
 # Go ahead and run the code below.
 # Remember to run all lines or chunks of code as you walk though this script.
@@ -181,7 +181,7 @@ colnames(scores_table)
 
 # Note how our column is unnamed. We can easily fix this as follows.
 
-colnames(scores_table) <- c('Value')
+colnames(scores_table) <- c("Value")
 scores_table
 
 # You can round values to the nearest whole number using the round() function:
@@ -210,7 +210,7 @@ scores_table
 # Now you have mastered the basics of R.
 # But we really want to learn how to import data! So let us do that.
 
-# We have a CSV file of the Atlantic Hurricane Database (HURDAT2) 1851-2021.
+# We have a CSV file of the Atlantic Hurricane Database (HURDAT2) 1851-2022.
 # The data is released by the National Hurricane Center (NHC) at NOAA.
 
 # But how do we import this data so we can use it in R?
@@ -236,13 +236,13 @@ dir()       # The files in the working directory.
 # should contain the both the current script (intro-r.R) and the data file
 # (atlantic.csv). You can use the %in% operator to ensure this is the case.
 
-'atlantic.csv' %in% dir()
+"atlantic.csv" %in% dir()
 
 # If the statement above returns TRUE, you are all set. But if it returns
 # FALSE, you need to change your working directory. The intro-r.R script and
 # the atlantic.csv data file should have been downloaded to the same location.
-# Ensure that that they are both right next to each other in the same folder
-# and then set the working directory to the folder containing your script via
+# Ensure that they are both right next to each other in the same folder and
+# then set the working directory to the folder containing your script via
 # Session > Set Working Directory > To Source File Location.
 
 # We can ensure the working directory is set correctly by either re-running the
@@ -251,28 +251,238 @@ dir()       # The files in the working directory.
 
 
 
+##  ---------- Importing Data -------------------------------------------------
+
+# The atlantic.csv data file is in comma-separated values (CSV) format. (Note
+# that the specifics of this format are outlined in standard RFC 4180.) This is
+# a very common data format and you can easily import it in R as follows.
+
+hurrdata <- read.csv("atlantic.csv")
+
+# The read.csv() function has numerous additional optional arguments that we
+# can use to specify how exactly a data file should be read in and interpreted.
+# To investigate those, we can use the help() function or the ? operator.
+
+?read.csv
+
+# Note that CSV files are different from Excel spreadsheets (XLS or XLSX files)
+# and R does not contain the functionality to import the latter by default.
+# An external community-developed package must be used to import Excel files.
+# Installing and loading external packages is discussed later in this script.
+
+
+
+##  ---------- Exploring Data -------------------------------------------------
+
+# We see that a new variable 'hurrdata' has been added to the environment.
+
+head(hurrdata)
+
+# This shows us a preview of the fist couple rows of the file.
+# You can also click on the data table under Environment > Data.
+
+# We can use summary() to get descriptive statistics.
+
+summary(hurrdata)
+
+# We might wonder - what type of data is hurrdata?
+# We imported it from csv, but how is it stored?
+
+class(hurrdata)
+
+# We can see that it is a "data.frame", commonly referred to as a data frame.
+# A data frame is a table where you have observations as rows and variables as
+# columns. Data frames have some great features for working with data and are
+# the go-to for R data storage. You can think of them almost as spreadsheets.
+
+
+
+##  ---------- Working with Data Frames ---------------------------------------
+
+# Let us say we want to access the maximum wind speed of the sixth observation.
+# We can do this in multiple ways.
+# Knowing that 'Maximum.Wind' is the ninth column:
+
+hurrdata[[6, 9]]    # [[row, column]]
+hurrdata[[9]][6]    # [[column]][row]
+
+# NOTE: When using a data frame, we must use [[]] to access variable values.
+# [] will just give us a subset of the data frame, not the values themselves.
+
+# Alternatively, we could use the column name:
+
+hurrdata[["Maximum.Wind"]][6]
+hurrdata$Maximum.Wind[6]
+
+# Note the dollar sign ($). This is a special operator that allows us to access
+# data.frame variables (columns) based on their name.
+
+# The '$' operator is the preferred way of accessing data.frame variables based
+# on their name, as it removes the complexity of when to use [[]] vs [] and does
+# not require quotation marks ... given your column names do not contain spaces.
+# Note how the read.csv() function automatically replaced spaces with periods
+# in the column names to accommodate this. Underscores are also an acceptable
+# alternative to spaces and other functions might use those instead of periods.
+
+
+
+##  ---------- Selecting Data Based on Conditions -----------------------------
+
+# Note how the summary() function from before did not provide much information
+# on the columns containing textual (character/string) data. These columns can
+# be analyzed further using the table() function. Can you guess what it does?
+
+table(hurrdata$Name)
+
+# It creates a frequency table of all the unique values in the column!
+# But what if we wanted to analyze hurricanes only with a specific name?
+
+# We can select rows based on a condition by combining logical operators with []
+# to subset all the rows where the logical operator returns TRUE. For example,
+# all the hurricanes named Nicole can be extracted as follows.
+
+hurrdata[hurrdata$Name == "NICOLE", ]
+
+# Note that we leave the column index blank to select all the columns.
+
+# Alternatively, we could extract values from one column based on the values of
+# another column. For example, the maximum wind speed for all the hurricanes
+# named Nicole could be obtained as follows.
+
+max(hurrdata$Maximum.Wind[hurrdata$Name == "NICOLE"])
+
+
+
+##  ---------- Data Cleaning: Dates & Strings ---------------------------------
+
+# Let us say we want to analyze maximum wind speed by year.
+# Note how the date is stored as a number in YYYYMMDD format.
+# This notation is great for sorting but very inconvenient for analysis.
+
+# We can use the '$' operator to easily extract the Data column as follows.
+
+hurrdata$Date
+
+# Passing this column to the as.character() function will convert all the
+# numbers into text (character data). Note the quotes around the new values.
+
+as.character(hurrdata$Date)
+
+# Let us store these new character (string) representations of the dates in a
+# new variable and use the substr() function to extract the year and the month.
+
+date_strings <- as.character(hurrdata$Date)
+
+# Extract the year from the date string (position 1-4).
+hurrdata$Year <- substr(date_strings, start = 1, stop = 4)
+
+# Extract the month from the date string (position 5-6).
+hurrdata$Month <- substr(date_strings, 5, 6)
+
+# Convert both new variables to numeric to accommodate further analysis.
+hurrdata$Month <- as.numeric(hurrdata$Month)
+hurrdata$Year <- as.numeric(hurrdata$Year)
+
+# Note that this is a somewhat hack-y way of dealing with dates. It is suitable
+# for simple conversions like this, but it is highly encouraged to use external
+# packages specifically designed to work with dates for more complex tasks.
+
+
+
+##  ---------- Making a Simple Scatter Plot -----------------------------------
+
+# Let us say we would like to explore how the maximum wind speed of hurricanes
+# has changed over time. A good visual tool to explore the relationship between
+# two numerical variables is a scatter plot. We can use the built-in plot()
+# function to create a quick and dirty scatter plot examining the relationship
+# between time (denoted by the hurricane year) and hurricane maximum wind speed.
+
+plot(hurrdata$Year, hurrdata$Maximum.Wind)
+
+# Wow, this plot looks quite horrible! Let us try to improve on it...
+
+
+
+##  ---------- Data Cleaning: Missing Data ------------------------------------
+
+# Why are some wind speeds negative? If we looked into the metadata, we would
+# find that we should have removed these! We can check on the negative data:
+
+min(hurrdata$Maximum.Wind)
+
+# We can combine [] with logical operators like before to find all the values
+# less than zero (< 0) and replace them with "NA", which means "No Data" in R.
+
+hurrdata$Maximum.Wind[hurrdata$Maximum.Wind < 0] <- NA
+
+# We could also delete the whole observation, but this is bad practice!
+# Let's check on the results. It should print "NA".
+
+min(hurrdata$Maximum.Wind)
+
+# To get the minimum wind speed excluding the NA values, we must call the min()
+# function with na.rm = TRUE to instruct the function to ignore the NA values.
+
+min(hurrdata$Maximum.Wind, na.rm = TRUE)
+
+
+
+##  ---------- Sampling the Data ----------------------------------------------
+
+# We can also sample the data.frame to de-clutter the scatter plot. This is a
+# two-step process in base R. First we use the sample() function to randomly
+# select a desired quantity of row indexes/numbers for our data frame.
+
+sample(nrow(hurrdata), 1000)
+
+# And then we use [] to extract those rows from the data frame.
+
+hurrdata2 <- hurrdata[sample(nrow(hurrdata), 1000), ]
+
+
+
+##  ----------- Customizing the Scatter Plot ----------------------------------
+
+# We can now plot the sampled data and use various additional arguments to add
+# a title, axis labels, and customize the visualization to our liking.
+
+plot(x = hurrdata2$Year,
+     y = hurrdata2$Maximum.Wind,
+     main = "Selected Annual Hurricane Data, 1851-2022",
+     xlab = "year",
+     ylab = "Maximum Wind Speed (knots)",
+     pch = 21,          # type of symbol to use (see ?points for options)
+     col = "blue",      # symbol line color
+     bg = "lightblue")  # symbol fill color
+
+# We can also add a regression line by combining the abline() function with the
+# linear model function. Note the special syntax used to define the formula.
+
+abline(reg = lm(formula = Maximum.Wind ~ Year, data = hurrdata2),
+       col = "red",     # line color
+       lty = "dashed",  # line type
+       lwd = 3)         # line width
+
+
+
 ##  ---------- Base R and the Tidyverse ---------------------------------------
 
 # Thus far we have been working with what is called base R, that is R without
 # any community-developed packages installed. Base R has a lot of built-in
-# functionality and can easily do most things. For example, there is a function
-# called read.csv() that can be used to read comma-delimited data files.
+# functionality and can easily do most things, but you may have noticed how
+# some of the code has been a little clunky. Community-developed packages often
+# provide alternative functions that produce the same result using less or more
+# streamlined code and add new functions that do things base R simply cannot.
 
-hurrdata <- read.csv('atlantic.csv')
+# The most popular collection of R packages is called the Tidyverse, which is
+# specifically designed for data science and often preferred by professionals.
+# Tidyverse is a collection of several different packages, the following of
+# which could be used to recreate our previous analysis using less code.
 
-# However, that built-in function is notoriously inefficient and slow when
-# reading larger files. Hence most data scientists use the read_csv() function
-# (note the underscore) from the readr package instead. It provides the same
-# functionality but is significantly faster and much more efficient.
-
-# The readr package is a part of the tidyverse - a popular collection of R
-# packages designed for data science. You will often see tidyverse packages
-# used in online examples and it is highly recommended you use them in your
-# work instead of relying solely on base R.
-
-# Once you are more comfortable with R, you might also want to check out the
-# "rio" package. It can import, export, and convert a wide array of various
-# formats, like SPSS, Stata, and MATLAB data formats and even ZIP files!
+### readr is a package used for reading and writing tabular data
+### lubridate is a package specifically designed to work with times and dates
+### dplyr is a package that allows for easy modification of data frames
+### ggplot2 is a streamlined and user-friendly data visualization package
 
 
 
@@ -289,7 +499,7 @@ hurrdata <- read.csv('atlantic.csv')
 # installed packages. Using the %in% operator from before, we can check whether
 # tidyverse appears in the list of installed packages or not.
 
-'tidyverse' %in% installed.packages()
+"tidyverse" %in% installed.packages()
 
 # This will return TRUE if you have tidyverse installed and FALSE if you do not.
 
@@ -309,10 +519,10 @@ hurrdata <- read.csv('atlantic.csv')
 # install.packages() is called to install all of the packages in the tidyverse.
 # Note that the installation process could take several minutes to complete.
 
-if ('tidyverse' %in% installed.packages()) {
-    message('Tidyverse already installed!')
+if ("tidyverse" %in% installed.packages()) {
+  message("Tidyverse already installed!")
 } else {
-  install.packages('tidyverse')
+  install.packages("tidyverse")
 }
 
 # You only need to install packages on your machine once. The next time you use
@@ -330,10 +540,13 @@ if ('tidyverse' %in% installed.packages()) {
 
 library(tidyverse)
 
-# Note how multiple different packages were attached to our library.
-# Also note how there were a couple conflicts. We will talk about those later.
+# Note how multiple different packages were attached to our library. Also note
+# the reported conflicts. This means that some of the packages currently loaded
+# into R have functions that share the same name. One of those functions masks
+# the other one and gets called by default. To ensure a specific function from
+# a specific package gets called, use the package::function() notation.
 
-# If you received an error stating that there is no package called 'tidyverse'
+# If you received an error stating that there is no package called "tidyverse"
 # please follow the instructions in the previous section to install the package.
 
 # You can also include a package in your library by checking the box next to
@@ -341,159 +554,70 @@ library(tidyverse)
 
 
 
-##  ---------- Importing Data -------------------------------------------------
+##  ---------- ADVANCED: Package Management Using Librarian -------------------
 
-# When we called library(tidyverse), it included all of the tidyverse packages,
-# including readr into our library and made them available for use.
-# Now we can use the read_csv() function included in readr.
+# Keeping track of which packages you have installed could be quite tiresome
+# and continuously re-installing packages is a waste of time. Luckily there are
+# some R packages that make package management in R significantly easier.
 
-# However, remember that there were some conflicts. That means that some of the
-# packages in our library now have functions with the same name. One of those
-# functions masks the other one and gets called by default. If we want to make
-# sure we are calling a specific function from a specific package, we should
-# use the package::function() notation.
+# One of those packages is librarian. The shelf() command from the librarian
+# package ensures that the package you want is loaded into your library and
+# also installed if needed. This allows you to easily run the same script
+# on different machines without having to worry about installing packages.
+# But be warned that librarian does not display conflict warnings! Hence it
+# is recommended to use the package::function() syntax when using librarian.
 
-hurrdata <- readr::read_csv('atlantic.csv')
+# Let us install librarian if it is not present and then use it to both install
+# and load a package called janitor that is useful for data cleaning.
 
-# However, if you check the conflicts that library(tidyverse) warned us about,
-# we can see that read_csv is not included in that list. Hence we do not have
-# to specify the package and can call it as we would any other function.
+if (! 'librarian' %in% installed.packages()) {
+  install.packages('librarian')
+}
 
-hurrdata <- read_csv('atlantic.csv')
-
-# The read_csv() function has numerous additional optional arguments that we
-# can use to specify how exactly a data file should be read in and interpreted.
-# To investigate those, we can use the help() function or the ? operator.
-
-?read_csv
+librarian::shelf(janitor)
 
 
 
-##  ---------- Exploring Data -------------------------------------------------
+##  ---------- Rewriting the Analysis using Tidyverse -------------------------
 
-# We see that a new variable 'hurrdata' has been added to the environment.
+# Now let us recreate our previous analysis using packages from the Tidyverse!
+# First we use read_csv() from the readr package to import the CSV data file.
 
-head(hurrdata)
+hurrdata3 <- readr::read_csv("atlantic.csv")
 
-# This shows us a preview of the fist couple rows of the file.
-# We can also use summary() to get descriptive statistics.
+# The readr::read_csv() function is much faster than read.csv() from base R but
+# it does not reformat the column names. Luckily we can use the clean_names()
+# function from the janitor package to convert the column names to camel_case.
 
-summary(hurrdata)
+hurrdata3 <- janitor::clean_names(hurrdata3)
 
-# You can also click on the dataset under Environment > Data.
+# The date column can be converted to a date format using lubridate functions.
 
-# We might wonder - what type of data is hurrdata?
-# We imported it from csv, but how is it stored?
+lubridate::ymd(hurrdata3$date)
 
-class(hurrdata)
+# Combining this with mutate() from dplyr allows for easy overwriting.
 
-# We can see that it is a "data.frame" and a "tbl" (table). A data frame is a
-# table where you have observations as rows and variables as columns.
-# Data frames have some great features for working with data and are the go-to
-# for R data storage. You can think of them almost as Excel spreadsheets.
+hurrdata3 <- dplyr::mutate(hurrdata3, date = lubridate::ymd(date))
 
+# Now we can combine the mutate() function from dplyr with the lubridate year()
+# and month() functions to easily create new columns for the year and month.
 
+hurrdata3 <- dplyr::mutate(hurrdata3,
+                           year = lubridate::year(date),
+                           month = lubridate::month(date))
 
-##  ---------- Working with Data Frames ---------------------------------------
+# Dplyr can also easily convert values to NA and sample rows from a table.
 
-# Let us say we want to access the maximum wind speed of the sixth observation.
-# We can do this in multiple ways.
-# Knowing that 'Maximum Wind' is the ninth column:
+hurrdata3 <- dplyr::mutate(hurrdata3,
+                           maximum_wind = dplyr::na_if(maximum_wind, -99))
 
-hurrdata[[6, 9]]    # [[row, column]]
-hurrdata[[9]][6]    # [[column]][row]
-
-# NOTE: When using a data frame, we must use [[]] to access variable values.
-# [] will just give us a subset of the data frame, not the values themselves.
-
-# Alternatively, we could use the column name:
-
-hurrdata[['Maximum Wind']][6]
-hurrdata$`Maximum Wind`[6]
-
-# Note the dollar sign ($). This is a special operator that allows us to access
-# data.frame variables (columns) based on their name.
-
-# The '$' operator is the preferred way of accessing data.frame variables based
-# on their name, as it removes the complexity of when to use [[]] vs [] and does
-# not require quotation marks...
-
-# ... given your column names are properly formatted.
+hurrdata4 <- dplyr::sample_n(hurrdata3, 1000)
 
 
 
-##  --------- Data Cleaning: Column Names -------------------------------------
+##  ---------- Alternate (Better) Data Visualizations -------------------------
 
-# Note how the column names contain spaces. This is bad practice as it
-# requires you to type quotation marks or ticks when accessing a column,
-# which is inconvenient and easy to miss, leading to errors. A lot of other
-# programs do not support spaces in column names at all. Hence it is good
-# data management practice to ensure your column names contain no spaces.
-
-# It is common practice to replace spaces with periods or underscores instead.
-# Luckily R contains a function that can do this for us.
-
-# To get a list of all the column names, we can use ... names().
-
-names(hurrdata)
-
-# Now we can replace those with versions that contain no spaces.
-
-make.names(names(hurrdata))
-
-names(hurrdata) <- make.names(names(hurrdata))
-
-# Now it is convenient access the maximum wind speed of the sixth observation.
-
-hurrdata$Maximum.Wind[6]
-
-# Note that more advanced R users would combine the read_csv() function from
-# from readr with the clean_names() function from another package called
-# janitor to read in the data and clean the column names all in one go.
-
-
-
-##  ---------- Data Cleaning: Dates & Strings ---------------------------------
-
-# Let us say we want to analyze maximum wind speed by year.
-# Note how the date is stored as a number in YYYYMMDD format.
-# This notation is great for sorting but very inconvenient for analysis.
-
-# Extract the year and month and store them in separate columns as follows.
-
-# Convert the dates to string (text) and extract to a variable.
-date_strings <- as.character(hurrdata$Date)
-
-# Extract the year from the date string (position 1-4).
-hurrdata$Year <- substr(date_strings, start = 1, stop = 4)
-
-# Extract the month from the date string (position 5-6).
-hurrdata$Month <- substr(date_strings, 5, 6)
-
-# Convert both new variables to numeric to accommodate further analysis.
-hurrdata$Month <- as.numeric(hurrdata$Month)
-hurrdata$Year <- as.numeric(hurrdata$Year)
-
-# In reality you should actually use a package specifically deigned to work
-# with dates like lubridate (also included in the tidyverse) and convert the
-# "Date" variable into a date data type. But that would add extra complexity
-# to this tutorial, so we decided to take a different approach here that also
-# allowed us to experiment with type casting and the substr() function.
-
-
-
-##  ---------- Making a Simple Scatter Plot -----------------------------------
-
-# Let us say we would like to explore how the maximum wind speed of hurricanes
-# has changed over time. A good visual tool to explore the relationship between
-# two numerical variables is a scatter plot. We can use the built-in plot()
-# function to create a quick and dirty scatter plot examining the relationship
-# between time (denoted by the hurricane year) and hurricane maximum wind speed.
-
-plot(hurrdata$Year, hurrdata$Maximum.Wind)
-
-# Wow, this plot looks quite horrible! Let us try to improve on it by using the
-# popular graphing library ggplot2 instead of the built-in plot() function.
+# Now we can use the popular ggplot2 graphing library to visualize our data.
 # The ggplot2 library is included in the tidyverse and follows a layered logic.
 
 # First you specify the data frame of interest using the ggplot() function and
@@ -504,78 +628,31 @@ plot(hurrdata$Year, hurrdata$Maximum.Wind)
 
 # The plot object can be saved in a variable and then displayed by calling it.
 
-hurrgraph <- ggplot(data = hurrdata, aes(x = Year, y = Maximum.Wind)) +
+hurrgraph <- ggplot(data = hurrdata4, aes(x = year, y = maximum_wind)) +
   geom_point()
 
 hurrgraph
 
-# That looks marginally better, but it is still quite awful. Feels like there
-# might be something wrong with the data. Why are some wind speeds negative?
+# Note how the default plot looks slightly better than what the plot() function
+# produces, but it is still quite bad. Luckily ggplot2 provides us with several
+# customization options and we can tailor the visualization to our needs.
 
-# While ggplot2 might appear to be more complicated to use than the built-in
-# plot() function, it is actually much easier to create complex (and beautiful)
-# data visualizations using ggplot2 than built-in graphing functionality.
-# Many professionals also prefer ggplot2 and it is prevalent in various guides.
-
-
-
-##  ---------- Subsetting and Cleaning Data -----------------------------------
-
-# Remember those negative wind speeds? If we looked into the metadata, we would
-# find that we should have removed these! We can check on the negative data:
-
-min(hurrdata$Maximum.Wind)
-
-# We can replace these by combining logical operators with [] to subset all the
-# rows where the logical operator returns TRUE.
-
-# Using this, we can find all the values less than zero (< 0) and replace them
-# with "NA", which means "No Data" in R (like "." in Stata).
-
-hurrdata$Maximum.Wind[hurrdata$Maximum.Wind < 0] <- NA
-
-# We could also delete the whole observation, but this is bad practice!
-# Let's check on the results. It should print "NA".
-
-min(hurrdata$Maximum.Wind)
-
-# To get the minimum wind speed excluding the NA values, we must call the min()
-# function with na.rm = TRUE to instruct the function to ignore the NA values.
-
-min(hurrdata$Maximum.Wind, na.rm = TRUE)
-
-
-
-##  ---------- Sampling the Data ----------------------------------------------
-
-# We can also sample the data.frame to declutter the scatter plot.
-# For this, we will use the dplyr library included in the tidyverse.
-
-# Note how I keep telling you that we are using different libraries, but
-# because we installed and loaded all of the tidyverse, we do not need to worry
-# about installing and loading these packages separately. In fact, if I were
-# not mentioning it, we would not even notice we are using them.
-
-hurrdata2 <- sample_n(hurrdata, 1000, replace = FALSE)
-
-
-
-##  ----------- Customizing the Scatter Plot ----------------------------------
-
-# Now we re-run the graph, and modify the axis to make the year easier to see.
-# Highlight this entire section (lines 568-578) and click "Run".
-
-hurrgraph2 <- ggplot(data = hurrdata2,
-                     aes(x = Year, y = Maximum.Wind, color = Maximum.Wind)) +
+hurrgraph2 <- ggplot(data = hurrdata4,
+                     aes(x = year, y = maximum_wind, color = maximum_wind)) +
   geom_point() + # add the initial points
   theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 0.5)) +
   scale_color_gradient(low = 'blue', high = 'red') + # generate color scheme
   theme(legend.position = 'bottom') + # put the legend on the bottom
   ylab('Maximum Wind Speed (knots)') + # change the y-label
-  ggtitle('Selected Annual Hurricane Data, 1851-2021') + # add a title
+  ggtitle('Selected Annual Hurricane Data, 1851-2022') + # add a title
   theme(plot.title = element_text(lineheight = 0.8, face = 'bold')) # format
 
 hurrgraph2
+
+# While ggplot2 might appear to be more complicated to use than the built-in
+# plot() function, it is actually much easier to create complex (and beautiful)
+# data visualizations using ggplot2 than built-in graphing functionality.
+# Many professionals also prefer ggplot2 and it is prevalent in various guides.
 
 
 
@@ -589,21 +666,21 @@ hurrgraph2
 # should be looking at the maximum wind speed of each hurricane at its highest
 # point of intensity. We can use functions from dplyr to extract those.
 
-hurrdata3 <- hurrdata %>%
-  group_by(Name, Year) %>%
-  summarize(Maximum.Wind = max(Maximum.Wind),
+hurrdata5 <- hurrdata3 %>%
+  group_by(name, year) %>%
+  summarize(maximum_wind = max(maximum_wind),
             .groups = 'drop')
 
 # The pipe operator %>% from the magrittr library is often used to combine
 # several functions into a data analysis pipeline. The pipeline above finds
-# the maximum value of the Maximum.Wind column for each unique hurricane name
+# the maximum value of the maximum_wind column for each unique hurricane name
 # and year combination. The pipe operator takes whatever is passed to it and
 # feeds it into the next function as the first argument. Tidyverse functions
 # are built to work with the pipe operator but other functions might not be.
 
 # Now we can correctly visualize the change in maximum wind speed over time.
 
-hurrgraph3 <- ggplot(data = hurrdata3, aes(x = Year, y = Maximum.Wind)) +
+hurrgraph3 <- ggplot(data = hurrdata5, aes(x = year, y = maximum_wind)) +
   geom_point() +
   geom_smooth(method = lm, formula = y ~ x) + # add a linear trend line
   ylab('Maximum Wind Speed (knots)') +
@@ -617,7 +694,8 @@ hurrgraph3
 
 # Do you think we made a good graph that tells an accurate story?
 # Take a look at the year 1950. What do you think causes this sudden change?
-# Is is fair to look at all the hurricanes from both before and after 1950?
+# Are we correctly extracting the maximum wind speed for each unique hurricane?
+# Is it fair to be comparing all the recorded hurricanes from 1850 until 2022?
 # Should we instead be looking at the most intensive hurricane from each year?
 
 # Fix the analysis above and produce a graph that answers the question:
@@ -629,33 +707,19 @@ hurrgraph3
 
 # We can easily create interactive data visualization in R using the plotly
 # package. Plotly is not included in the tidyverse, so we have to install it
-# (unless it is already installed) and load it into our library.
-
-# Keeping track of which packages you have installed could be quite tiresome
-# and continuously re-installing packages is a waste of time. Luckily there are
-# some R packages that make package management in R significantly easier.
-
-# One of those packages is librarian. The shelf() command from the librarian
-# package ensures that the package you want is loaded into your library and
-# also installed if needed. This allows you to easily run the same script
-# on different machines without having to worry about installing packages.
-# But be warned that librarian does not display conflict warnings! Hence it
-# is recommended to use the package::function() syntax when using librarian.
-
-if (! 'librarian' %in% installed.packages()) {
-    install.packages('librarian')
-}
+# (unless it is already installed) and load it into our library. We can use
+# the shelf() function from the librarian package to easily do this as before.
 
 librarian::shelf(plotly)
 
-hurrdata4 <- hurrdata %>%
-  dplyr::group_by(Year) %>%
-  dplyr::summarize(Count = dplyr::n_distinct(ID),
+hurrdata6 <- hurrdata3 %>%
+  dplyr::group_by(year) %>%
+  dplyr::summarize(count = dplyr::n_distinct(id),
                    .groups = 'drop')
 
-hurrgraph4 <- plotly::plot_ly(data = hurrdata4,
-                              x = ~Year,
-                              y = ~Count,
+hurrgraph4 <- plotly::plot_ly(data = hurrdata6,
+                              x = ~year,
+                              y = ~count,
                               type = 'bar',
                               marker = base::list(
                                 color = 'lightblue',
