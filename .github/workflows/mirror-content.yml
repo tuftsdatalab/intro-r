@@ -24,7 +24,7 @@ jobs:
             binder/|.binder
             workshop/|
           replace: |
-            GH_ACTIONS_DATE||${{ steps.date.outputs.date }}|*.R
+            GH_ACTIONS_DATE|${{ steps.date.outputs.date }}|*.R
 
   mirror-to-workshop-branch:
     runs-on: ubuntu-latest
@@ -42,4 +42,4 @@ jobs:
           copy: |
             workshop/|
           replace: |
-            GH_ACTIONS_DATE||${{ steps.date.outputs.date }}|*.R
+            GH_ACTIONS_DATE|${{ steps.date.outputs.date }}|*.R
