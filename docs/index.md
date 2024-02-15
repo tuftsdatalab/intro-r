@@ -10,13 +10,11 @@ tarball_button: "[![Download TarGz](../badges/tgz.svg)][tarball-link]"
 {{ page.github_button }}&nbsp;
 {{ page.zipball_button }}&nbsp;
 {{ page.tarball_button }}&nbsp;
-![last updated][last-updated-badge]
+![last updated][last-updated-badge]&nbsp;
+[![datalab.tufts.edu](../badges/datalab.svg)](https://sites.tufts.edu/datalab)
 
 **A Tufts University Data Lab Workshop**\
 Written by {{ site.author }}
-
-[![datalab.tufts.edu](../badges/datalab.svg)](https://sites.tufts.edu/datalab)&nbsp;
-[![@TuftsDataLab](../badges/twitter.svg)](https://twitter.com/intent/follow?screen_name=tuftsdatalab)
 
 Resources: [go.tufts.edu/{{ site.resources }}](https://go.tufts.edu/{{ site.resources }})\
 Slides: [tufts.box.com/v/{{ site.slides }}](https://tufts.box.com/v/{{ site.slides }})\
@@ -27,7 +25,7 @@ Contact: <datalab-support@elist.tufts.edu>
 ## Table of Contents {#toc}
 
 - [Workshop Overview](#overview)
-- [Running the Workshop using RStudio Server in your Browser (Recommended)](#binder)
+- [Running the Workshop using RStudio Server in your Browser](#binder)
 - [Running the Workshop using a Local R and RStudio Installation](#local)
 
 ---
@@ -40,16 +38,16 @@ An introductory R workshop that is suitable for self-guided study and covers the
 - **Variables** and **datatypes**
 - Working with **vectors** (arrays) and **lists**
 - Commands for **descriptive statistics**
-- R **packages** and the **tidyverse**
 - Reading **data** from a **file**
 - Working with **data frames**
 - Basic **data wrangling** (cleaning)
 - Creating and tweaking **visualizations**
+- R **packages** and the **tidyverse**
 
 <!-- DO NOT CHANGE ANYTHING BELOW THIS LINE -->
 
 ---
-## Running the Workshop using RStudio Server in your Browser (Recommended) {#binder}
+## Running the Workshop using RStudio Server in your Browser {#binder}
 
 {{ page.binder_button }}
 
