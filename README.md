@@ -6,9 +6,9 @@
 [![last commit][last-commit-badge]](../../commits/main)&nbsp;
 [![launch develop][develop-launch-badge]][develop-launch-link]
 
-Source repository for the [Tufts University Data Lab][datalab-website-link] workshop: [*Introduction to the Statistical Programming Language R*][workshop-webiste-link]
+Source repository for an introductory R workshop developed by the [Tufts University Data Lab][datalab-website-link].
 
-**Please see the [workshop website][workshop-webiste-link] for content.** The following is a development guide intended for staff.
+⚠️ **Please see the [workshop website][workshop-webiste-link] for content.** The following is a development guide intended for staff.
 
 <!-- define reference-style links -->
 
