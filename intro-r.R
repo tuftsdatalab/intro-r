@@ -10,7 +10,7 @@
 ##
 ##  ---------------------------------------------------------------------------
 ##  Title:        Introduction to the Statistical Programming Language R
-##  Last update:  2024-02-15
+##  Last update:  2024-02-16
 ##  Written by:   Uku-Kaspar Uustalu & Kyle Monahan
 ##  Contact:      datalab-support@elist.tufts.edu
 ##  Website:      go.tufts.edu/introR
@@ -233,7 +233,7 @@ getwd()     # The current location of the working directory.
 dir()       # The files in the working directory.
 
 # Your working directory should be the "intro-r-workshop" directory and it
-# should contain the both the current script (intro-r.R) and the data file
+# should contain both the current script (intro-r.R) and the data file
 # (atlantic.csv). You can use the %in% operator to ensure this is the case.
 
 "atlantic.csv" %in% dir()
@@ -274,7 +274,7 @@ hurrdata <- read.csv("atlantic.csv")
 
 ##  ---------- Exploring Data -------------------------------------------------
 
-# We see that a new variable 'hurrdata' has been added to the environment.
+# We see that a new variable "hurrdata" has been added to the environment.
 
 head(hurrdata)
 
@@ -301,7 +301,7 @@ class(hurrdata)
 
 # Let us say we want to access the maximum wind speed of the sixth observation.
 # We can do this in multiple ways.
-# Knowing that 'Maximum.Wind' is the ninth column:
+# Knowing that "Maximum.Wind" is the ninth column:
 
 hurrdata[[6, 9]]    # [[row, column]]
 hurrdata[[9]][6]    # [[column]][row]
@@ -317,7 +317,7 @@ hurrdata$Maximum.Wind[6]
 # Note the dollar sign ($). This is a special operator that allows us to access
 # data.frame variables (columns) based on their name.
 
-# The '$' operator is the preferred way of accessing data.frame variables based
+# The "$" operator is the preferred way of accessing data.frame variables based
 # on their name, as it removes the complexity of when to use [[]] vs [] and does
 # not require quotation marks ... given your column names do not contain spaces.
 # Note how the read.csv() function automatically replaced spaces with periods
@@ -359,7 +359,7 @@ max(hurrdata$Maximum.Wind[hurrdata$Name == "NICOLE"])
 # Note how the date is stored as a number in YYYYMMDD format.
 # This notation is great for sorting but very inconvenient for analysis.
 
-# We can use the '$' operator to easily extract the Data column as follows.
+# We can use the "$" operator to easily extract the Data column as follows.
 
 hurrdata$Date
 
@@ -449,7 +449,7 @@ hurrdata2 <- hurrdata[sample(nrow(hurrdata), 1000), ]
 plot(x = hurrdata2$Year,
      y = hurrdata2$Maximum.Wind,
      main = "Selected Annual Hurricane Data, 1851-2022",
-     xlab = "year",
+     xlab = "Year",
      ylab = "Maximum Wind Speed (knots)",
      pch = 21,          # type of symbol to use (see ?points for options)
      col = "blue",      # symbol line color
@@ -570,8 +570,8 @@ library(tidyverse)
 # Let us install librarian if it is not present and then use it to both install
 # and load a package called janitor that is useful for data cleaning.
 
-if (! 'librarian' %in% installed.packages()) {
-  install.packages('librarian')
+if (! "librarian" %in% installed.packages()) {
+  install.packages("librarian")
 }
 
 librarian::shelf(janitor)
@@ -587,7 +587,7 @@ hurrdata3 <- readr::read_csv("atlantic.csv")
 
 # The readr::read_csv() function is much faster than read.csv() from base R but
 # it does not reformat the column names. Luckily we can use the clean_names()
-# function from the janitor package to convert the column names to camel_case.
+# function from the janitor package to convert the column names to snake_case.
 
 hurrdata3 <- janitor::clean_names(hurrdata3)
 
@@ -640,12 +640,12 @@ hurrgraph
 hurrgraph2 <- ggplot(data = hurrdata4,
                      aes(x = year, y = maximum_wind, color = maximum_wind)) +
   geom_point() + # add the initial points
-  theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 0.5)) +
-  scale_color_gradient(low = 'blue', high = 'red') + # generate color scheme
-  theme(legend.position = 'bottom') + # put the legend on the bottom
-  ylab('Maximum Wind Speed (knots)') + # change the y-label
-  ggtitle('Selected Annual Hurricane Data, 1851-2022') + # add a title
-  theme(plot.title = element_text(lineheight = 0.8, face = 'bold')) # format
+  scale_color_gradient(low = "blue", high = "red") + # generate color scheme
+  theme(legend.position = "bottom") + # put the legend on the bottom
+  ylab("Maximum Wind Speed (knots)") + # change the y-label
+  ggtitle("Selected Annual Hurricane Data, 1851-2022") + # add a title
+  theme(plot.title = element_text(lineheight = 0.8, face = "bold")) + # format
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 0.5))
 
 hurrgraph2
 
@@ -667,9 +667,9 @@ hurrgraph2
 # point of intensity. We can use functions from dplyr to extract those.
 
 hurrdata5 <- hurrdata3 %>%
-  group_by(name, year) %>%
-  summarize(maximum_wind = max(maximum_wind),
-            .groups = 'drop')
+  dplyr::group_by(name, year) %>%
+  dplyr::summarize(maximum_wind = max(maximum_wind),
+                   .groups = "drop")
 
 # The pipe operator %>% from the magrittr library is often used to combine
 # several functions into a data analysis pipeline. The pipeline above finds
@@ -683,8 +683,8 @@ hurrdata5 <- hurrdata3 %>%
 hurrgraph3 <- ggplot(data = hurrdata5, aes(x = year, y = maximum_wind)) +
   geom_point() +
   geom_smooth(method = lm, formula = y ~ x) + # add a linear trend line
-  ylab('Maximum Wind Speed (knots)') +
-  ggtitle('Hurricane Wind Speeds at Highest Intnesity 1851-2021')
+  ylab("Maximum Wind Speed (knots)") +
+  ggtitle("Hurricane Wind Speeds at Highest Intensity 1851-2021")
 
 hurrgraph3
 
@@ -715,20 +715,20 @@ librarian::shelf(plotly)
 hurrdata6 <- hurrdata3 %>%
   dplyr::group_by(year) %>%
   dplyr::summarize(count = dplyr::n_distinct(id),
-                   .groups = 'drop')
+                   .groups = "drop")
 
 hurrgraph4 <- plotly::plot_ly(data = hurrdata6,
                               x = ~year,
                               y = ~count,
-                              type = 'bar',
+                              type = "bar",
                               marker = base::list(
-                                color = 'lightblue',
+                                color = "lightblue",
                                 line = base::list(
-                                  color = 'blue',
+                                  color = "blue",
                                   width = 0.5))) %>%
-  plotly::layout(title = 'Number of Hurricanes 1851 - 2021',
-                 xaxis = base::list(title = 'Year', tickangle = 45),
-                 yaxis = base::list(title = 'Recorded Number of Hurricanes'))
+  plotly::layout(title = "Number of Hurricanes 1851 - 2022",
+                 xaxis = base::list(title = "Year", tickangle = 45),
+                 yaxis = base::list(title = "Recorded Number of Hurricanes"))
 
 hurrgraph4
 
@@ -781,10 +781,10 @@ parameq$y <- get_y(parameq$t)
 # special version of this workshop that ran on February 14. Does that help?
 
 finalplot <- ggplot(data = parameq, aes(x = x, y = y)) +
-  geom_polygon(linetype  = 'solid',
+  geom_polygon(linetype  = "solid",
                linewidth = 1.5,
-               color = 'black',
-               fill = 'red')
+               color = "black",
+               fill = "red")
 
 finalplot
 
