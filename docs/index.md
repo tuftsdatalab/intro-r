@@ -6,10 +6,10 @@ zipball_button: "[![Download Zip](../badges/zip.svg)][zipball-link]"
 tarball_button: "[![Download TarGz](../badges/tgz.svg)][tarball-link]"
 ---
 
-{{ page.binder_button }}&nbsp;
-{{ page.github_button }}&nbsp;
 {{ page.zipball_button }}&nbsp;
 {{ page.tarball_button }}&nbsp;
+{{ page.github_button }}&nbsp;
+{{ page.binder_button }}&nbsp;
 ![last updated][last-updated-badge]&nbsp;
 [![datalab.tufts.edu](../badges/datalab.svg)](https://sites.tufts.edu/datalab)
 
@@ -25,8 +25,8 @@ Contact: <datalab-support@elist.tufts.edu>
 ## Table of Contents {#toc}
 
 - [Workshop Overview](#overview)
-- [Running the Workshop using RStudio Server in your Browser](#binder)
 - [Running the Workshop using a Local R and RStudio Installation](#local)
+- [Running the Workshop using RStudio Server in your Browser](#binder)
 
 ---
 ## Workshop Overview {#overview}
@@ -47,17 +47,6 @@ An introductory R workshop that is suitable for self-guided study and covers the
 <!-- DO NOT CHANGE ANYTHING BELOW THIS LINE -->
 
 ---
-## Running the Workshop using RStudio Server in your Browser {#binder}
-
-{{ page.binder_button }}
-
-1. Click on the [**Launch Binder**]{{ page.binder_popup }} button above.
-2. A Binder instance will launch in a new tab with the message *Starting Repository*.
-3. Wait patiently and do not close the Binder tab. After a few minutes, an **RStudio** instance will launch.
-4. Once **RStudio** has launched, locate the *Files* tab in the bottom-right. It should list `{{ site.file }}` along with other files.
-5. Click on `{{ site.file }}` in the *Files* tab to launch the workshop.
-
----
 ## Running the Workshop using a Local R and RStudio Installation {#local}
 
 {{ page.zipball_button }}&nbsp;
@@ -68,6 +57,17 @@ An introductory R workshop that is suitable for self-guided study and covers the
 3. Extract the `{{ site.repo }}-workshop` directory contained within the archive to a suitable location.
 4. Open the extracted `{{ site.repo }}-workshop` directory and ensure it contains `{{ site.file }}` along with other files.
 5. *Right-click* on `{{ site.file }}` and select ***Open With > RStudio*** to launch the workshop.
+
+---
+## Running the Workshop using RStudio Server in your Browser {#binder}
+
+{{ page.binder_button }}
+
+1. Click on the [**Launch Binder**]{{ page.binder_popup }} button above.
+2. A Binder instance will launch in a new tab with the message *Starting Repository*.
+3. Wait patiently and do not close the Binder tab. After a few minutes, an **RStudio** instance will launch.
+4. Once **RStudio** has launched, locate the *Files* tab in the bottom-right. It should list `{{ site.file }}` along with other files.
+5. Click on `{{ site.file }}` in the *Files* tab to launch the workshop.
 
 
 [binder-link]: https://mybinder.org/v2/gh/tuftsdatalab/{{ site.repo }}/binder?urlpath=rstudio
