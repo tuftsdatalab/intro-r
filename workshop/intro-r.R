@@ -210,7 +210,7 @@ scores_table
 # Now you have mastered the basics of R.
 # But we really want to learn how to import data! So let us do that.
 
-# We have a CSV file of the Atlantic Hurricane Database (HURDAT2) 1851-2022.
+# We have a CSV file of the Atlantic Hurricane Database (HURDAT2) 1851-2023.
 # The data is released by the National Hurricane Center (NHC) at NOAA.
 
 # But how do we import this data so we can use it in R?
@@ -448,7 +448,7 @@ hurrdata2 <- hurrdata[sample(nrow(hurrdata), 1000), ]
 
 plot(x = hurrdata2$Year,
      y = hurrdata2$Maximum.Wind,
-     main = "Selected Annual Hurricane Data, 1851-2022",
+     main = "Selected Annual Hurricane Data, 1851-2023",
      xlab = "Year",
      ylab = "Maximum Wind Speed (knots)",
      pch = 21,          # type of symbol to use (see ?points for options)
@@ -643,7 +643,7 @@ hurrgraph2 <- ggplot(data = hurrdata4,
   scale_color_gradient(low = "blue", high = "red") + # generate color scheme
   theme(legend.position = "bottom") + # put the legend on the bottom
   ylab("Maximum Wind Speed (knots)") + # change the y-label
-  ggtitle("Selected Annual Hurricane Data, 1851-2022") + # add a title
+  ggtitle("Selected Annual Hurricane Data, 1851-2023") + # add a title
   theme(plot.title = element_text(lineheight = 0.8, face = "bold")) + # format
   theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 0.5))
 
@@ -684,7 +684,7 @@ hurrgraph3 <- ggplot(data = hurrdata5, aes(x = year, y = maximum_wind)) +
   geom_point() +
   geom_smooth(method = lm, formula = y ~ x) + # add a linear trend line
   ylab("Maximum Wind Speed (knots)") +
-  ggtitle("Hurricane Wind Speeds at Highest Intensity 1851-2021")
+  ggtitle("Hurricane Wind Speeds at Highest Intensity 1851-2023")
 
 hurrgraph3
 
@@ -695,7 +695,7 @@ hurrgraph3
 # Do you think we made a good graph that tells an accurate story?
 # Take a look at the year 1950. What do you think causes this sudden change?
 # Are we correctly extracting the maximum wind speed for each unique hurricane?
-# Is it fair to be comparing all the recorded hurricanes from 1850 until 2022?
+# Is it fair to be comparing all the recorded hurricanes from 1850 until 2023?
 # Should we instead be looking at the most intensive hurricane from each year?
 
 # Fix the analysis above and produce a graph that answers the question:
@@ -726,7 +726,7 @@ hurrgraph4 <- plotly::plot_ly(data = hurrdata6,
                                 line = base::list(
                                   color = "blue",
                                   width = 0.5))) %>%
-  plotly::layout(title = "Number of Hurricanes 1851 - 2022",
+  plotly::layout(title = "Number of Hurricanes 1851-2023",
                  xaxis = base::list(title = "Year", tickangle = 45),
                  yaxis = base::list(title = "Recorded Number of Hurricanes"))
 
